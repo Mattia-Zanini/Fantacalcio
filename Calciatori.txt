@@ -1,618 +1,618 @@
-portiere,musso,juan,atalanta,0
-portiere,rossi,francesco,atalanta,0
-portiere,sportiello,marco,atalanta,0
-portiere,bardi,francesco,bologna,0
-portiere,sarr,bologna,0
-portiere,skorupski,lukasz,bologna,0
-portiere,aresti,simone,cagliari,0
-portiere,cragno,alessio,cagliari,0
-portiere,radunovic,boris,cagliari,0
-portiere,furlan,jacopo,empoli,0
-portiere,pratelli,leandro,empoli,0
-portiere,ujkani,samir,empoli,0
-portiere,vicario,guglielmo,empoli,0
-portiere,brancolini,federico,fiorentina,0
-portiere,cerofolini,michele,fiorentina,0
-portiere,dragowski,bartlomiej,fiorentina,0
-portiere,rosati,antonio,fiorentina,0
-portiere,terracciano,pietro,fiorentina,0
-portiere,andrenacci,lorenzo,genoa,0
-portiere,marchetti,federico,genoa,0
-portiere,mitrovic,aleksander,genoa,0
-portiere,semper,adrian,genoa,0
-portiere,sirigu,salvatore,genoa,0
-portiere,brazao,gabriel,inter,0
-portiere,cordaz,alex,inter,0
-portiere,handanovic,samir,inter,0
-portiere,radu,ionut,inter,0
-portiere,perin,mattia,juventus,0
-portiere,pinsoglio,carlo,juventus,0
-portiere,szcesny,wojciec,juventus,0
-portiere,adamonis,marius,lazio,0
-portiere,reina,manuel,lazio,0
-portiere,strakosha,thomas,lazio,0
-portiere,maignan,mike,milan,0
-portiere,plizzari,alessandro,milan,0
-portiere,tatarusanu,ciprian,milan,0
-portiere,idasiak,hubert,napoli,0
-portiere,marfella,davide,napoli,0
-portiere,meret,alex,napoli,0
-portiere,ospina,david,napoli,0
-portiere,boer,pietro,roma,0
-portiere,fuzato,daniel,roma,0
-portiere,rui,patricio,roma,0
-portiere,belec,vid,salernitana,0
-portiere,de,matteis,jacopo,salernitana,0
-portiere,fiorillo,vincenzo,salernitana,0
-portiere,guerrieri,guido,salernitana,0
-portiere,russo,antonio,salernitana,0
-portiere,audero,emil,sampdoria,0
-portiere,falcone,wladimiro,sampdoria,0
-portiere,ravaglia,nicola,sampdoria,0
-portiere,consigli,andrea,sassuolo,0
-portiere,pegolo,gianluca,sassuolo,0
-portiere,satalino,giacomo,sassuolo,0
-portiere,provedel,ivan,spezia,0
-portiere,rafael,bittencourt,spezia,0
-portiere,zoet,jeroen,spezia,0
-portiere,zovko,petar,spezia,0
-portiere,berisha,etrit,torino,0
-portiere,gemello,luca,torino,0
-portiere,milinkovic,savic,vanja,torino,0
-portiere,sava,razvan,torino,0
-portiere,padelli,daniele,udinese,0
-portiere,piana,edoardo,udinese,0
-portiere,silvestri,marco,udinese,0
-portiere,bertinato,bruno,venezia,0
-portiere,lezzerini,luca,venezia,0
-portiere,maenpaa,niki,venezia,0
-portiere,neri,filippo,venezia,0
-portiere,pigozzo,riccardo,venezia,0
-portiere,berardi,alessandro,verona,0
-portiere,borghetto,nicola,verona,0
-portiere,montipo,lorenzo,verona,0
-portiere,pandur,ivor,verona,0
-difensore,demiral,atalanta,0
-difensore,djimsiti,berat,atalanta,0
-difensore,gosens,robin,atalanta,0
-difensore,hateboer,hans,atalanta,0
-difensore,lovato,matteo,atalanta,0
-difensore,mattiello,federico,atalanta,0
-difensore,palomino,jose,luis,atalanta,0
-difensore,pezzella,giuseppe,atalanta,0
-difensore,scalvini,giorgio,atalanta,0
-difensore,toloi,rafael,atalanta,0
-difensore,zappacosta,davide,atalanta,0
-difensore,amey,wisdom,bologna,0
-difensore,binks,luis,bologna,0
-difensore,bonifazi,kevin,bologna,0
-difensore,corbo,gabriele,bologna,0
-difensore,de,silvestri,lorenzo,bologna,0
-difensore,dijks,mitchell,bologna,0
-difensore,hickey,aaron,bologna,0
-difensore,khailoti,omar,bologna,0
-difensore,mbaye,ibrahima,bologna,0
-difensore,paz,nehuen,bologna,0
-difensore,soumaro,adama,bologna,0
-difensore,theate,arthur,bologna,0
-difensore,altare,giorgio,cagliari,0
-difensore,bellanova,raoul,cagliari,0
-difensore,caceres,martin,cagliari,0
-difensore,carboni,andrea,cagliari,0
-difensore,ceppitelli,luca,cagliari,0
-difensore,dalbert,henrique,cagliari,0
-difensore,farago,paolo,cagliari,0
-difensore,godin,diego,cagliari,0
-difensore,lykogiannis,cagliari,0
-difensore,obert,adam,cagliari,0
-difensore,walukiewicz,sebastian,cagliari,0
-difensore,zappa,gabriele,cagliari,0
-difensore,fiamozzi,riccardo,empoli,0
-difensore,ismajli,ardian,empoli,0
-difensore,luperto,sebastiano,empoli,0
-difensore,marchizza,riccardo,empoli,0
-difensore,parisi,fabiano,empoli,0
-difensore,romagnoli,simone,empoli,0
-difensore,stojanovic,peter,empoli,0
-difensore,tonelli,lorenzo,empoli,0
-difensore,viti,mattia,empoli,0
-difensore,biraghi,cristiano,fiorentina,0
-difensore,dalle,mura,christian,fiorentina,0
-difensore,igor,dos,santos,fiorentina,0
-difensore,milenkovic,nicola,fiorentina,0
-difensore,nastasic,matija,fiorentina,0
-difensore,odriozola,alvaro,fiorentina,0
-difensore,quarta,lucas,martinez,fiorentina,0
-difensore,terzic,aleksa,fiorentina,0
-difensore,venuti,lorenzo,fiorentina,0
-difensore,bani,mattia,genoa,0
-difensore,biraschi,davide,genoa,0
-difensore,cambiaso,andrea,genoa,0
-difensore,criscito,domenico,genoa,0
-difensore,ghiglione,paolo,genoa,0
-difensore,maksimovic,nikola,genoa,0
-difensore,masiello,andrea,genoa,0
-difensore,onguene,jerome,genoa,0
-difensore,sabelli,stefano,genoa,0
-difensore,vanheusden,zinho,genoa,0
-difensore,vasquez,johan,genoa,0
-difensore,bastoni,alessandro,inter,0
-difensore,d'ambrosio,danilo,inter,0
-difensore,darmian,matteo,inter,0
-difensore,de,vrij,stefan,inter,0
-difensore,dimarco,federico,inter,0
-difensore,dumfries,denzel,inter,0
-difensore,kolarov,alexandar,inter,0
-difensore,ranocchia,andrea,inter,0
-difensore,skriniar,milan,inter,0
-difensore,alex,sandro,juventus,0
-difensore,bonucci,leonardo,juventus,0
-difensore,chiellini,giorgio,juventus,0
-difensore,cuadrado,jaime,juventus,0
-difensore,danilo,luiz,da,silva,juventus,0
-difensore,de,ligt,matthijs,juventus,0
-difensore,de,sciglio,mattia,juventus,0
-difensore,pellegrini,luca,juventus,0
-difensore,rugani,daniele,juventus,0
-difensore,acerbi,francesco,lazio,0
-difensore,durmisi,riza,lazio,0
-difensore,hysaj,elseid,lazio,0
-difensore,kamenovic,dimitrije,lazio,0
-difensore,lazzari,manuel,lazio,0
-difensore,luis,felipe,ramos,lazio,0
-difensore,lukaku,jordan,lazio,0
-difensore,marusic,adam,lazio,0
-difensore,patric,lazio,0
-difensore,radu,stefan,a.,lazio,0
-difensore,vavro,denis,lazio,0
-difensore,ballo-toure,fode,milan,0
-difensore,calabria,davide,milan,0
-difensore,conti,andrea,milan,0
-difensore,florenzi,alessandro,milan,0
-difensore,gabbia,matteo,milan,0
-difensore,hernandez,theo,milan,0
-difensore,kalulu,pierre,milan,0
-difensore,kjaer,simon,milan,0
-difensore,romagnoli,alessio,milan,0
-difensore,tomori,fikayo,milan,0
-difensore,di,lorenzo,giovanni,napoli,0
-difensore,ghoulam,faouzi,napoli,0
-difensore,juan,jesus,napoli,0
-difensore,koulibaly,kalidou,napoli,0
-difensore,malcuit,kevin,napoli,0
-difensore,manolas,kostas,napoli,0
-difensore,mario,rui,napoli,0
-difensore,rrahmani,amir,napoli,0
-difensore,zanoli,alessandro,napoli,0
-difensore,calafiori,riccardo,roma,0
-difensore,ibanez,roger,roma,0
-difensore,karsdorp,rick,roma,0
-difensore,kumbulla,marash,roma,0
-difensore,mancini,gianluca,roma,0
-difensore,reynolds,bryan,roma,0
-difensore,santon,davide,roma,0
-difensore,smalling,chris,roma,0
-difensore,spinazzola,leonardo,roma,0
-difensore,vina,matias,roma,0
-difensore,aya,ramzi,salernitana,0
-difensore,bogdan,luka,salernitana,0
-difensore,delli,carri,filippo,salernitana,0
-difensore,gagliolo,riccardo,salernitana,0
-difensore,gyomber,norbert,salernitana,0
-difensore,jaroszynski,pawel,salernitana,0
-difensore,kechrida,wajdi,salernitana,0
-difensore,ranieri,luca,salernitana,0
-difensore,ruggeri,matteo,salernitana,0
-difensore,schiavone,andrea,salernitana,0
-difensore,strandberg,stefan,salernitana,0
-difensore,veseli,frederic,salernitana,0
-difensore,zortea,nadir,salernitana,0
-difensore,augello,tommaso,sampdoria,0
-difensore,bereszynski,sampdoria,0
-difensore,chabot,julian,sampdoria,0
-difensore,colley,omar,sampdoria,0
-difensore,depaoli,fabio,sampdoria,0
-difensore,dragusin,radu,sampdoria,0
-difensore,ferrari,alex,sampdoria,0
-difensore,hermansen,noah,bech,sampdoria,0
-difensore,murru,nicola,sampdoria,0
-difensore,yoshida,maya,sampdoria,0
-difensore,ayhan,kaan,sassuolo,0
-difensore,chiriches,vlad,sassuolo,0
-difensore,ferrari,gianmarco,sassuolo,0
-difensore,goldaniga,edoardo,sassuolo,0
-difensore,kyriakopoulos,giorgos,sassuolo,0
-difensore,muldur,mert,sassuolo,0
-difensore,paz,yeferson,sassuolo,0
-difensore,peluso,federico,sassuolo,0
-difensore,rogerio,da,silva,sassuolo,0
-difensore,romagna,filippo,sassuolo,0
-difensore,toljan,jeremy,sassuolo,0
-difensore,amian,kelvin,spezia,0
-difensore,bertola,nicolo,spezia,0
-difensore,capradossi,elio,spezia,0
-difensore,dell'orco,cristian,spezia,0
-difensore,erlic,martin,spezia,0
-difensore,ferrer,salva,spezia,0
-difensore,gabelli,leonardo,spezia,0
-difensore,holm,emil,spezia,0
-difensore,hristov,petko,spezia,0
-difensore,kiwior,jakub,spezia,0
-difensore,nikolaou,dimitiros,spezia,0
-difensore,ramos,juan,spezia,0
-difensore,reca,arkadiusz,spezia,0
-difensore,sala,jacopo,spezia,0
-difensore,aina,ola,torino,0
-difensore,ansaldi,cristian,torino,0
-difensore,bremer,gleison,torino,0
-difensore,buongiorno,alessandro,torino,0
-difensore,djidji,koffi,torino,0
-difensore,izzo,armando,torino,0
-difensore,rodriguez,ricardo,torino,0
-difensore,singo,wilfried,torino,0
-difensore,vojvoda,mergim,torino,0
-difensore,zima,david,torino,0
-difensore,de,maio,sebastien,udinese,0
-difensore,molina,nahuel,udinese,0
-difensore,nuytinck,bram,udinese,0
-difensore,perez,nehuen,udinese,0
-difensore,rodrigo,becao,udinese,0
-difensore,samir,udinese,0
-difensore,soppy,brandon,udinese,0
-difensore,stryger,larsen,udinese,0
-difensore,udogie,destiny,udinese,0
-difensore,zeegelar,udinese,0
-difensore,ampadu,ethan,venezia,0
-difensore,caldara,mattia,venezia,0
-difensore,ceccaroni,pietro,venezia,0
-difensore,ebuehi,tyronne,venezia,0
-difensore,felicioli,gian,filippo,venezia,0
-difensore,haps,ridgeciano,venezia,0
-difensore,mazzocchi,pasquale,venezia,0
-difensore,modolo,marco,venezia,0
-difensore,molinaro,cristian,venezia,0
-difensore,schnegg,david,venezia,0
-difensore,svoboda,michael,venezia,0
-difensore,amione,bruno,verona,0
-difensore,casale,nicolo,verona,0
-difensore,ceccherini,federico,verona,0
-difensore,cetin,verona,0
-difensore,dawidowicz,pawel,verona,0
-difensore,faraoni,davide,verona,0
-difensore,frabotta,gianluca,verona,0
-difensore,gunter,koray,verona,0
-difensore,magnani,giangiacomo,verona,0
-difensore,ruegg,kevin,verona,0
-difensore,sutalo,bosko,verona,0
-centrocampista,de,roon,marten,atalanta,0
-centrocampista,freuler,remo,atalanta,0
-centrocampista,koopmeiners,teun,atalanta,0
-centrocampista,malinovsky,ruslan,atalanta,0
-centrocampista,miranchuk,aleksej,atalanta,0
-centrocampista,mæhle,joakim,atalanta,0
-centrocampista,pasalic,mario,atalanta,0
-centrocampista,pessina,matteo,atalanta,0
-centrocampista,dominguez,nicolas,bologna,0
-centrocampista,kingsley,michael,bologna,0
-centrocampista,medel,gary,bologna,0
-centrocampista,orsolini,riccardo,bologna,0
-centrocampista,schouten,jerdy,bologna,0
-centrocampista,skov,andreas,bologna,0
-centrocampista,soriano,roberto,bologna,0
-centrocampista,svanberg,mattias,bologna,0
-centrocampista,urbanski,kacper,bologna,0
-centrocampista,vignato,emanuel,bologna,0
-centrocampista,biancu,roberto,cagliari,0
-centrocampista,deiola,alessandro,cagliari,0
-centrocampista,grassi,alberto,cagliari,0
-centrocampista,joao,pedro,cagliari,0
-centrocampista,ladinetti,riccardo,cagliari,0
-centrocampista,marin,razvan,cagliari,0
-centrocampista,nandez,nahitan,cagliari,0
-centrocampista,oliva,christian,cagliari,0
-centrocampista,pereiro,gaston,cagliari,0
-centrocampista,rog,marko,cagliari,0
-centrocampista,strootman,kevin,cagliari,0
-centrocampista,asllani,kristjan,empoli,0
-centrocampista,bahjrami,nedim,empoli,0
-centrocampista,baldanzi,tommaso,empoli,0
-centrocampista,bandinelli,filippo,empoli,0
-centrocampista,damiani,samuele,empoli,0
-centrocampista,di,francesco,federico,empoli,0
-centrocampista,haas,nicolas,empoli,0
-centrocampista,henderson,liam,empoli,0
-centrocampista,ricci,samuele,empoli,0
-centrocampista,stulac,leo,empoli,0
-centrocampista,zurkowski,szymon,empoli,0
-centrocampista,parolo,marco,esteri,0
-centrocampista,amrabat,sofyan,fiorentina,0
-centrocampista,benassi,marco,fiorentina,0
-centrocampista,bianco,alessandro,fiorentina,0
-centrocampista,bonaventura,giacomo,fiorentina,0
-centrocampista,callejon,jose,maria,fiorentina,0
-centrocampista,castrovilli,gaetano,fiorentina,0
-centrocampista,duncan,alfred,fiorentina,0
-centrocampista,maleh,youssef,fiorentina,0
-centrocampista,pulgar,erick,fiorentina,0
-centrocampista,saponara,riccardo,fiorentina,0
-centrocampista,sottil,riccardo,fiorentina,0
-centrocampista,torreira,lucas,fiorentina,0
-centrocampista,badelj,milan,genoa,0
-centrocampista,behrami,valon,genoa,0
-centrocampista,cassata,francesco,genoa,0
-centrocampista,fares,mohamed,genoa,0
-centrocampista,hernani,genoa,0
-centrocampista,melegoni,filippo,genoa,0
-centrocampista,portanova,manolo,genoa,0
-centrocampista,radovanovic,ivan,genoa,0
-centrocampista,rovella,nicolo,genoa,0
-centrocampista,sturaro,stefano,genoa,0
-centrocampista,toure,abdoulaye,genoa,0
-centrocampista,barella,nicolo,inter,0
-centrocampista,brozovic,marcelo,inter,0
-centrocampista,calhanoglu,hadam,inter,0
-centrocampista,eriksen,christian,inter,0
-centrocampista,gagliardini,roberto,inter,0
-centrocampista,perisic,ivan,inter,0
-centrocampista,sangalli,mattia,inter,0
-centrocampista,sensi,stefano,inter,0
-centrocampista,vecino,matias,inter,0
-centrocampista,vidal,arturo,inter,0
-centrocampista,arthur,juventus,0
-centrocampista,bentancur,rodrigo,juventus,0
-centrocampista,bernardeschi,federico,juventus,0
-centrocampista,chiesa,federico,juventus,0
-centrocampista,kulusevski,dejan,juventus,0
-centrocampista,locatelli,manuel,juventus,0
-centrocampista,mckennie,weston,juventus,0
-centrocampista,nicolussi,caviglia,hans,juventus,0
-centrocampista,palumbo,martin,juventus,0
-centrocampista,rabiot,adrien,juventus,0
-centrocampista,ramsey,juventus,0
-centrocampista,akpa-akpro,jean-daniel,lazio,0
-centrocampista,anderson,djavan,lazio,0
-centrocampista,basic,toma,lazio,0
-centrocampista,cataldi,danilo,lazio,0
-centrocampista,dziczek,patryk,lazio,0
-centrocampista,escalante,gonzalo,lazio,0
-centrocampista,felipe,anderson,lazio,0
-centrocampista,jony,lazio,0
-centrocampista,lombardi,cristiano,lazio,0
-centrocampista,lucas,leiva,lazio,0
-centrocampista,luis,alberto,lazio,0
-centrocampista,milinkovic,savic,lazio,0
-centrocampista,zaccagni,mattia,lazio,0
-centrocampista,bakayoko,tiemoue,milan,0
-centrocampista,bennacer,ismael,milan,0
-centrocampista,brahim,diaz,milan,0
-centrocampista,castillejo,samu,milan,0
-centrocampista,kessie,franck,milan,0
-centrocampista,krunic,rade,milan,0
-centrocampista,maldini,daniel,milan,0
-centrocampista,messias,junior,milan,0
-centrocampista,saelemaekers,alexis,milan,0
-centrocampista,tonali,sandro,milan,0
-centrocampista,demme,diego,napoli,0
-centrocampista,elmas,eljif,napoli,0
-centrocampista,lobotka,stanislav,napoli,0
-centrocampista,politano,matteo,napoli,0
-centrocampista,ruiz,fabian,napoli,0
-centrocampista,zambo,anguissa,napoli,0
-centrocampista,zielinski,piotor,napoli,0
-centrocampista,bove,edoardo,roma,0
-centrocampista,cristante,bryan,roma,0
-centrocampista,darboe,ebrima,roma,0
-centrocampista,diawara,amadou,roma,0
-centrocampista,mkhitaryan,roma,0
-centrocampista,pellegrini,lorenzo,roma,0
-centrocampista,tripi,filippo,roma,0
-centrocampista,veretout,jordan,roma,0
-centrocampista,villar,gonzalo,roma,0
-centrocampista,zalewski,nicola,roma,0
-centrocampista,zaniolo,nicolo,roma,0
-centrocampista,capezzi,leonardo,salernitana,0
-centrocampista,coulibaly,lassana,salernitana,0
-centrocampista,coulibaly,mamadou,salernitana,0
-centrocampista,di,tacchio,francesco,salernitana,0
-centrocampista,kalombo,sedrick,salernitana,0
-centrocampista,kastanos,grigoris,salernitana,0
-centrocampista,obi,joel,salernitana,0
-centrocampista,adrien,silva,sampdoria,0
-centrocampista,askildsen,kristoffer,sampdoria,0
-centrocampista,candreva,antonio,sampdoria,0
-centrocampista,ciervo,riccardo,sampdoria,0
-centrocampista,damsgaard,sampdoria,0
-centrocampista,ekdal,albin,sampdoria,0
-centrocampista,ihattaren,mohamed,sampdoria,0
-centrocampista,leris,mehdi,sampdoria,0
-centrocampista,thorsby,morten,sampdoria,0
-centrocampista,trimboli,simone,sampdoria,0
-centrocampista,verre,valerio,sampdoria,0
-centrocampista,vieira,ronaldo,sampdoria,0
-centrocampista,artioli,federico,sassuolo,0
-centrocampista,djuricic,filip,sassuolo,0
-centrocampista,frattesi,davide,sassuolo,0
-centrocampista,harroui,abdou,sassuolo,0
-centrocampista,magnanelli,francesco,sassuolo,0
-centrocampista,matheus,henrique,sassuolo,0
-centrocampista,maxime,lopez,sassuolo,0
-centrocampista,obiang,pedro,sassuolo,0
-centrocampista,traore,hamed,sassuolo,0
-centrocampista,acampora,gennaro,spezia,0
-centrocampista,agudelo,kevin,spezia,0
-centrocampista,bastoni,simone,spezia,0
-centrocampista,bordin,alessandro,spezia,0
-centrocampista,bourabia,mehdi,spezia,0
-centrocampista,figoli,matteo,spezia,0
-centrocampista,kovalenko,viktor,spezia,0
-centrocampista,maggiore,giulio,spezia,0
-centrocampista,mora,luca,spezia,0
-centrocampista,sena,leo,spezia,0
-centrocampista,sher,aimar,spezia,0
-centrocampista,baselli,daniele,torino,0
-centrocampista,brekalo,josip,torino,0
-centrocampista,karamoko,ibrahim,torino,0
-centrocampista,kone,ben,lhassine,torino,0
-centrocampista,linetty,karol,torino,0
-centrocampista,lukic,sasa,torino,0
-centrocampista,mandragora,rolando,torino,0
-centrocampista,pobega,tommaso,torino,0
-centrocampista,praet,dennis,torino,0
-centrocampista,rincon,tomas,torino,0
-centrocampista,stojkovic,dennis,torino,0
-centrocampista,verdi,simone,torino,0
-centrocampista,warming,magnus,torino,0
-centrocampista,arslan,tolgay,udinese,0
-centrocampista,ballarini,marco,udinese,0
-centrocampista,jajalo,udinese,0
-centrocampista,kubala,jan,udinese,0
-centrocampista,makengo,jean-victor,udinese,0
-centrocampista,pereyra,roberto,udinese,0
-centrocampista,samardzic,lazar,udinese,0
-centrocampista,walace,udinese,0
-centrocampista,ala-myllymaki,venezia,0
-centrocampista,aramu,mattia,venezia,0
-centrocampista,busio,gianluca,venezia,0
-centrocampista,crnigoj,domen,venezia,0
-centrocampista,dezi,jacopo,venezia,0
-centrocampista,fiordilino,luca,venezia,0
-centrocampista,heymans,daan,venezia,0
-centrocampista,johnsen,dennis,venezia,0
-centrocampista,kiyine,sofian,venezia,0
-centrocampista,pecile,damiano,venezia,0
-centrocampista,peretz,dor,venezia,0
-centrocampista,taugordeau,anthony,venezia,0
-centrocampista,tessmann,tanner,venezia,0
-centrocampista,vacca,antonio,junior,venezia,0
-centrocampista,barak,antonin,verona,0
-centrocampista,bessa,daniel,verona,0
-centrocampista,cancellieri,matteo,verona,0
-centrocampista,hongla,martin,verona,0
-centrocampista,ilic,ivan,verona,0
-centrocampista,lazovic,darko,verona,0
-centrocampista,mane,bachir,verona,0
-centrocampista,tameze,adrien,verona,0
-centrocampista,veloso,miguel,verona,0
-attaccante,ilicic,josip,atalanta,0
-attaccante,muriel,luis,atalanta,0
-attaccante,piccoli,roberto,atalanta,0
-attaccante,zapata,duvan,atalanta,0
-attaccante,arnautovic,marko,bologna,0
-attaccante,barrow,musa,bologna,0
-attaccante,cangiano,gianmarco,bologna,0
-attaccante,falcinelli,diego,bologna,0
-attaccante,sansone,nicola,bologna,0
-attaccante,santander,federico,bologna,0
-attaccante,van,hooijdonk,sydney,bologna,0
-attaccante,ceter,damir,cagliari,0
-attaccante,farias,diego,cagliari,0
-attaccante,keita,balde,cagliari,0
-attaccante,pavoletti,leonardo,cagliari,0
-attaccante,cutrone,patrick,empoli,0
-attaccante,la,mantia,andrea,empoli,0
-attaccante,mancuso,leonardo,empoli,0
-attaccante,pinamonti,andrea,empoli,0
-attaccante,gonzalez,nicolas,fiorentina,0
-attaccante,kokorin,aleksandr,fiorentina,0
-attaccante,kouame,christian,fiorentina,0
-attaccante,munteanu,louis,fiorentina,0
-attaccante,vlahovic,dusan,fiorentina,0
-attaccante,bianchi,flavio,genoa,0
-attaccante,buksa,aleksander,genoa,0
-attaccante,caicedo,felipe,genoa,0
-attaccante,destro,mattia,genoa,0
-attaccante,ekuban,caleb,genoa,0
-attaccante,kallon,yayah,genoa,0
-attaccante,males,darian,genoa,0
-attaccante,pandev,goran,genoa,0
-attaccante,colidio,facundo,inter,0
-attaccante,correa,joaquin,inter,0
-attaccante,dzeko,edin,inter,0
-attaccante,martinez,lautaro,inter,0
-attaccante,sanchez,alexis,inter,0
-attaccante,satriano,martin,inter,0
-attaccante,dybala,paulo,juventus,0
-attaccante,kaio,jorge,juventus,0
-attaccante,kean,moise,juventus,0
-attaccante,morata,alvaro,juventus,0
-attaccante,adekanye,bobby,lazio,0
-attaccante,immobile,ciro,lazio,0
-attaccante,moro,raul,lazio,0
-attaccante,muriqi,vedat,lazio,0
-attaccante,pedro,lazio,0
-attaccante,romero,luka,lazio,0
-attaccante,colombo,lorenzo,milan,0
-attaccante,giroud,olivier,milan,0
-attaccante,ibrahimovic,zlatan,milan,0
-attaccante,leao,rafael,milan,0
-attaccante,pellegri,pietro,milan,0
-attaccante,rebic,ante,milan,0
-attaccante,insigne,lorenzo,napoli,0
-attaccante,lozano,hirving,napoli,0
-attaccante,mertens,dries,napoli,0
-attaccante,osimehen,victor,napoli,0
-attaccante,ounas,adam,napoli,0
-attaccante,petagna,andrea,napoli,0
-attaccante,abraham,tammy,roma,0
-attaccante,el,shaarawy,stephan,roma,0
-attaccante,mayoral,borja,roma,0
-attaccante,perez,carles,roma,0
-attaccante,riccardi,alessio,roma,0
-attaccante,shomurodov,eldor,roma,0
-attaccante,bonazzoli,federico,salernitana,0
-attaccante,djuric,milan,salernitana,0
-attaccante,gondo,cedric,salernitana,0
-attaccante,ribery,frank,salernitana,0
-attaccante,simy,salernitana,0
-attaccante,vergani,edoardo,salernitana,0
-attaccante,caputo,francesco,sampdoria,0
-attaccante,gabbiadini,manolo,sampdoria,0
-attaccante,quagliarella,fabio,sampdoria,0
-attaccante,torregrossa,ernesto,sampdoria,0
-attaccante,berardi,domenico,sassuolo,0
-attaccante,boga,jeremie,sassuolo,0
-attaccante,defrel,gregoire,sassuolo,0
-attaccante,raspadori,giacomo,sassuolo,0
-attaccante,scamacca,gianluca,sassuolo,0
-attaccante,antiste,janis,spezia,0
-attaccante,colley,ebrima,spezia,0
-attaccante,gyasi,emmanuel,spezia,0
-attaccante,manaj,rey,spezia,0
-attaccante,mbala,nzola,spezia,0
-attaccante,mraz,samuel,spezia,0
-attaccante,pinto,vincenzo,spezia,0
-attaccante,podgoreanu,suf,spezia,0
-attaccante,salcedo,eddie,spezia,0
-attaccante,strelec,david,spezia,0
-attaccante,verde,daniele,spezia,0
-attaccante,baeten,thibo,torino,0
-attaccante,belotti,andrea,torino,0
-attaccante,edera,simone,torino,0
-attaccante,pjaca,marko,torino,0
-attaccante,rauti,nicola,torino,0
-attaccante,sanabria,antonio,torino,0
-attaccante,zaza,simone,torino,0
-attaccante,beto,betuncal,udinese,0
-attaccante,deulofeu,gerard,udinese,0
-attaccante,forestieri,fernando,udinese,0
-attaccante,ianesi,simone,udinese,0
-attaccante,llorente,fernando,udinese,0
-attaccante,micin,petar,udinese,0
-attaccante,nestorovski,ilija,udinese,0
-attaccante,okaka,stefano,udinese,0
-attaccante,pussetto,ignacio,udinese,0
-attaccante,success,isaac,udinese,0
-attaccante,teodorczyk,lukasz,udinese,0
-attaccante,bjarkason,bjarki,venezia,0
-attaccante,bocalon,riccardo,venezia,0
-attaccante,forte,francesco,venezia,0
-attaccante,henry,thomas,venezia,0
-attaccante,okereke,david,venezia,0
-attaccante,sigurdsson,arnor,venezia,0
-attaccante,zigoni,gianmarco,venezia,0
-attaccante,caprari,gianluca,verona,0
-attaccante,di,carmine,samuel,verona,0
-attaccante,kalinic,nikola,verona,0
-attaccante,lasagna,kevin,verona,0
-attaccante,ragusa,antonino,verona,0
-attaccante,simeone,giovanni,verona,0
+musso juan,portiere,atalanta
+rossi francesco,portiere,atalanta
+sportiello marco,portiere,atalanta
+bardi francesco,portiere,bologna
+sarr,portiere,bologna
+skorupski lukasz,portiere,bologna
+aresti simone,portiere,cagliari
+cragno alessio,portiere,cagliari
+radunovic boris,portiere,cagliari
+furlan jacopo,portiere,empoli
+pratelli leandro,portiere,empoli
+ujkani samir,portiere,empoli
+vicario guglielmo,portiere,empoli
+brancolini federico,portiere,fiorentina
+cerofolini michele,portiere,fiorentina
+dragowski bartlomiej,portiere,fiorentina
+rosati antonio,portiere,fiorentina
+terracciano pietro,portiere,fiorentina
+andrenacci lorenzo,portiere,genoa
+marchetti federico,portiere,genoa
+mitrovic aleksander,portiere,genoa
+semper adrian,portiere,genoa
+sirigu salvatore,portiere,genoa
+brazao gabriel,portiere,inter
+cordaz alex,portiere,inter
+handanovic samir,portiere,inter
+radu ionut,portiere,inter
+perin mattia,portiere,juventus
+pinsoglio carlo,portiere,juventus
+szcesny wojciec,portiere,juventus
+adamonis marius,portiere,lazio
+reina manuel,portiere,lazio
+strakosha thomas,portiere,lazio
+maignan mike,portiere,milan
+plizzari alessandro,portiere,milan
+tatarusanu ciprian,portiere,milan
+idasiak hubert,portiere,napoli
+marfella davide,portiere,napoli
+meret alex,portiere,napoli
+ospina david,portiere,napoli
+boer pietro,portiere,roma
+fuzato daniel,portiere,roma
+rui patricio,portiere,roma
+belec vid,portiere,salernitana
+de matteis jacopo,portiere,salernitana
+fiorillo vincenzo,portiere,salernitana
+guerrieri guido,portiere,salernitana
+russo antonio,portiere,salernitana
+audero emil,portiere,sampdoria
+falcone wladimiro,portiere,sampdoria
+ravaglia nicola,portiere,sampdoria
+consigli andrea,portiere,sassuolo
+pegolo gianluca,portiere,sassuolo
+satalino giacomo,portiere,sassuolo
+provedel ivan,portiere,spezia
+rafael bittencourt,portiere,spezia
+zoet jeroen,portiere,spezia
+zovko petar,portiere,spezia
+berisha etrit,portiere,torino
+gemello luca,portiere,torino
+milinkovic savic vanja,portiere,torino
+sava razvan,portiere,torino
+padelli daniele,portiere,udinese
+piana edoardo,portiere,udinese
+silvestri marco,portiere,udinese
+bertinato bruno,portiere,venezia
+lezzerini luca,portiere,venezia
+maenpaa niki,portiere,venezia
+neri filippo,portiere,venezia
+pigozzo riccardo,portiere,venezia
+berardi alessandro,portiere,verona
+borghetto nicola,portiere,verona
+montipo lorenzo,portiere,verona
+pandur ivor,portiere,verona
+demiral,difensore,atalanta
+djimsiti berat,difensore,atalanta
+gosens robin,difensore,atalanta
+hateboer hans,difensore,atalanta
+lovato matteo,difensore,atalanta
+mattiello federico,difensore,atalanta
+palomino jose luis,difensore,atalanta
+pezzella giuseppe,difensore,atalanta
+scalvini giorgio,difensore,atalanta
+toloi rafael,difensore,atalanta
+zappacosta davide,difensore,atalanta
+amey wisdom,difensore,bologna
+binks luis,difensore,bologna
+bonifazi kevin,difensore,bologna
+corbo gabriele,difensore,bologna
+de silvestri lorenzo,difensore,bologna
+dijks mitchell,difensore,bologna
+hickey aaron,difensore,bologna
+khailoti omar,difensore,bologna
+mbaye ibrahima,difensore,bologna
+paz nehuen,difensore,bologna
+soumaro adama,difensore,bologna
+theate arthur,difensore,bologna
+altare giorgio,difensore,cagliari
+bellanova raoul,difensore,cagliari
+caceres martin,difensore,cagliari
+carboni andrea,difensore,cagliari
+ceppitelli luca,difensore,cagliari
+dalbert henrique,difensore,cagliari
+farago paolo,difensore,cagliari
+godin diego,difensore,cagliari
+lykogiannis,difensore,cagliari
+obert adam,difensore,cagliari
+walukiewicz sebastian,difensore,cagliari
+zappa gabriele,difensore,cagliari
+fiamozzi riccardo,difensore,empoli
+ismajli ardian,difensore,empoli
+luperto sebastiano,difensore,empoli
+marchizza riccardo,difensore,empoli
+parisi fabiano,difensore,empoli
+romagnoli simone,difensore,empoli
+stojanovic peter,difensore,empoli
+tonelli lorenzo,difensore,empoli
+viti mattia,difensore,empoli
+biraghi cristiano,difensore,fiorentina
+dalle mura christian,difensore,fiorentina
+igor dos santos,difensore,fiorentina
+milenkovic nicola,difensore,fiorentina
+nastasic matija,difensore,fiorentina
+odriozola alvaro,difensore,fiorentina
+quarta lucas martinez,difensore,fiorentina
+terzic aleksa,difensore,fiorentina
+venuti lorenzo,difensore,fiorentina
+bani mattia,difensore,genoa
+biraschi davide,difensore,genoa
+cambiaso andrea,difensore,genoa
+criscito domenico,difensore,genoa
+ghiglione paolo,difensore,genoa
+maksimovic nikola,difensore,genoa
+masiello andrea,difensore,genoa
+onguene jerome,difensore,genoa
+sabelli stefano,difensore,genoa
+vanheusden zinho,difensore,genoa
+vasquez johan,difensore,genoa
+bastoni alessandro,difensore,inter
+d'ambrosio danilo,difensore,inter
+darmian matteo,difensore,inter
+de vrij stefan,difensore,inter
+dimarco federico,difensore,inter
+dumfries denzel,difensore,inter
+kolarov alexandar,difensore,inter
+ranocchia andrea,difensore,inter
+skriniar,difensore,inter
+alex sandro,difensore,juventus
+bonucci leonardo,difensore,juventus
+chiellini giorgio,difensore,juventus
+cuadrado jaime,difensore,juventus
+danilo luiz da silva,difensore,juventus
+de ligt matthijs,difensore,juventus
+de sciglio mattia,difensore,juventus
+pellegrini luca,difensore,juventus
+rugani daniele,difensore,juventus
+acerbi francesco,difensore,lazio
+durmisi riza,difensore,lazio
+hysaj elseid,difensore,lazio
+kamenovic dimitrije,difensore,lazio
+lazzari manuel,difensore,lazio
+luis felipe ramos,difensore,lazio
+lukaku jordan,difensore,lazio
+marusic adam,difensore,lazio
+patric,difensore,lazio
+radu stefan a.,difensore,lazio
+vavro denis,difensore,lazio
+ballo-toure fode,difensore,milan
+calabria davide,difensore,milan
+conti andrea,difensore,milan
+florenzi alessandro,difensore,milan
+gabbia matteo,difensore,milan
+hernandez theo,difensore,milan
+kalulu pierre,difensore,milan
+kjaer simon,difensore,milan
+romagnoli alessio,difensore,milan
+tomori fikayo,difensore,milan
+di lorenzo giovanni,difensore,napoli
+ghoulam faouzi,difensore,napoli
+juan jesus,difensore,napoli
+koulibaly kalidou,difensore,napoli
+malcuit kevin,difensore,napoli
+manolas kostas,difensore,napoli
+mario rui,difensore,napoli
+rrahmani amir,difensore,napoli
+zanoli alessandro,difensore,napoli
+calafiori riccardo,difensore,roma
+ibanez roger,difensore,roma
+karsdorp rick,difensore,roma
+kumbulla marash,difensore,roma
+mancini gianluca,difensore,roma
+reynolds bryan,difensore,roma
+santon davide,difensore,roma
+smalling chris,difensore,roma
+spinazzola leonardo,difensore,roma
+vina matias,difensore,roma
+aya ramzi,difensore,salernitana
+bogdan luka,difensore,salernitana
+delli carri filippo,difensore,salernitana
+gagliolo riccardo,difensore,salernitana
+gyomber norbert,difensore,salernitana
+jaroszynski pawel,difensore,salernitana
+kechrida wajdi,difensore,salernitana
+ranieri luca,difensore,salernitana
+ruggeri matteo,difensore,salernitana
+schiavone andrea,difensore,salernitana
+strandberg stefan,difensore,salernitana
+veseli frederic,difensore,salernitana
+zortea nadir,difensore,salernitana
+augello tommaso,difensore,sampdoria
+bereszynski,difensore,sampdoria
+chabot julian,difensore,sampdoria
+colley omar,difensore,sampdoria
+depaoli fabio,difensore,sampdoria
+dragusin radu,difensore,sampdoria
+ferrari alex,difensore,sampdoria
+hermansen noah bech,difensore,sampdoria
+murru nicola,difensore,sampdoria
+yoshida maya,difensore,sampdoria
+ayhan kaan,difensore,sassuolo
+chiriches vlad,difensore,sassuolo
+ferrari gianmarco,difensore,sassuolo
+goldaniga edoardo,difensore,sassuolo
+kyriakopoulos giorgos,difensore,sassuolo
+muldur mert,difensore,sassuolo
+paz yeferson,difensore,sassuolo
+peluso federico,difensore,sassuolo
+rogerio da silva,difensore,sassuolo
+romagna filippo,difensore,sassuolo
+toljan jeremy,difensore,sassuolo
+amian kelvin,difensore,spezia
+bertola nicolo,difensore,spezia
+capradossi elio,difensore,spezia
+dell'orco cristian,difensore,spezia
+erlic martin,difensore,spezia
+ferrer salva,difensore,spezia
+gabelli leonardo,difensore,spezia
+holm emil,difensore,spezia
+hristov petko,difensore,spezia
+kiwior jakub,difensore,spezia
+nikolaou dimitiros,difensore,spezia
+ramos juan,difensore,spezia
+reca arkadiusz,difensore,spezia
+sala jacopo,difensore,spezia
+aina ola,difensore,torino
+ansaldi cristian,difensore,torino
+bremer gleison,difensore,torino
+buongiorno alessandro,difensore,torino
+djidji koffi,difensore,torino
+izzo armando,difensore,torino
+rodriguez ricardo,difensore,torino
+singo wilfried,difensore,torino
+vojvoda mergim,difensore,torino
+zima david,difensore,torino
+de maio sebastien,difensore,udinese
+molina nahuel,difensore,udinese
+nuytinck bram,difensore,udinese
+perez nehuen,difensore,udinese
+rodrigo becao,difensore,udinese
+samir,difensore,udinese
+soppy brandon,difensore,udinese
+stryger larsen,difensore,udinese
+udogie destiny,difensore,udinese
+zeegelar,difensore,udinese
+ampadu ethan,difensore,venezia
+caldara mattia,difensore,venezia
+ceccaroni pietro,difensore,venezia
+ebuehi tyronne,difensore,venezia
+felicioli gian filippo,difensore,venezia
+haps ridgeciano,difensore,venezia
+mazzocchi pasquale,difensore,venezia
+modolo marco,difensore,venezia
+molinaro cristian,difensore,venezia
+schnegg david,difensore,venezia
+svoboda michael,difensore,venezia
+amione bruno,difensore,verona
+casale nicolo,difensore,verona
+ceccherini federico,difensore,verona
+cetin,difensore,verona
+dawidowicz pawel,difensore,verona
+faraoni davide,difensore,verona
+frabotta gianluca,difensore,verona
+gunter koray,difensore,verona
+magnani giangiacomo,difensore,verona
+ruegg kevin,difensore,verona
+sutalo bosko,difensore,verona
+de roon marten,centrocampista,atalanta
+freuler remo,centrocampista,atalanta
+koopmeiners teun,centrocampista,atalanta
+malinovsky ruslan,centrocampista,atalanta
+miranchuk aleksej,centrocampista,atalanta
+mæhle joakim,centrocampista,atalanta
+pasalic mario,centrocampista,atalanta
+pessina matteo,centrocampista,atalanta
+dominguez nicolas,centrocampista,bologna
+kingsley michael,centrocampista,bologna
+medel gary,centrocampista,bologna
+orsolini riccardo,centrocampista,bologna
+schouten jerdy,centrocampista,bologna
+skov andreas,centrocampista,bologna
+soriano roberto,centrocampista,bologna
+svanberg mattias,centrocampista,bologna
+urbanski kacper,centrocampista,bologna
+vignato emanuel,centrocampista,bologna
+biancu roberto,centrocampista,cagliari
+deiola alessandro,centrocampista,cagliari
+grassi alberto,centrocampista,cagliari
+joao pedro,centrocampista,cagliari
+ladinetti riccardo,centrocampista,cagliari
+marin razvan,centrocampista,cagliari
+nandez nahitan,centrocampista,cagliari
+oliva christian,centrocampista,cagliari
+pereiro gaston,centrocampista,cagliari
+rog marko,centrocampista,cagliari
+strootman kevin,centrocampista,cagliari
+asllani kristjan,centrocampista,empoli
+bahjrami nedim,centrocampista,empoli
+baldanzi tommaso,centrocampista,empoli
+bandinelli filippo,centrocampista,empoli
+damiani samuele,centrocampista,empoli
+di francesco federico,centrocampista,empoli
+haas nicolas,centrocampista,empoli
+henderson liam,centrocampista,empoli
+ricci samuele,centrocampista,empoli
+stulac leo,centrocampista,empoli
+zurkowski szymon,centrocampista,empoli
+parolo marco esteri,centrocampista,esteri
+amrabat sofyan,centrocampista,fiorentina
+benassi marco,centrocampista,fiorentina
+bianco alessandro,centrocampista,fiorentina
+bonaventura giacomo,centrocampista,fiorentina
+callejon jose maria,centrocampista,fiorentina
+castrovilli gaetano,centrocampista,fiorentina
+duncan alfred,centrocampista,fiorentina
+maleh youssef,centrocampista,fiorentina
+pulgar erick,centrocampista,fiorentina
+saponara riccardo,centrocampista,fiorentina
+sottil riccardo,centrocampista,fiorentina
+torreira lucas,centrocampista,fiorentina
+badelj,centrocampista,genoa
+behrami valon,centrocampista,genoa
+cassata francesco,centrocampista,genoa
+fares mohamed,centrocampista,genoa
+hernani,centrocampista,genoa
+melegoni filippo,centrocampista,genoa
+portanova manolo,centrocampista,genoa
+radovanovic ivan,centrocampista,genoa
+rovella nicolo,centrocampista,genoa
+sturaro stefano,centrocampista,genoa
+toure abdoulaye,centrocampista,genoa
+barella nicolo,centrocampista,inter
+brozovic marcelo,centrocampista,inter
+calhanoglu hadam,centrocampista,inter
+eriksen christian,centrocampista,inter
+gagliardini roberto,centrocampista,inter
+perisic ivan,centrocampista,inter
+sangalli mattia,centrocampista,inter
+sensi stefano,centrocampista,inter
+vecino matias,centrocampista,inter
+vidal arturo,centrocampista,inter
+arthur,centrocampista,juventus
+bentancur rodrigo,centrocampista,juventus
+bernardeschi federico,centrocampista,juventus
+chiesa federico,centrocampista,juventus
+kulusevski dejan,centrocampista,juventus
+locatelli manuel,centrocampista,juventus
+mckennie weston,centrocampista,juventus
+nicolussi caviglia hans,centrocampista,juventus
+palumbo martin,centrocampista,juventus
+rabiot adrien,centrocampista,juventus
+ramsey,centrocampista,juventus
+akpa-akpro jean-daniel,centrocampista,lazio
+anderson djavan,centrocampista,lazio
+basic toma,centrocampista,lazio
+cataldi danilo,centrocampista,lazio
+dziczek patryk,centrocampista,lazio
+escalante gonzalo,centrocampista,lazio
+felipe anderson,centrocampista,lazio
+jony,centrocampista,lazio
+lombardi cristiano,centrocampista,lazio
+lucas leiva,centrocampista,lazio
+luis alberto,centrocampista,lazio
+milinkovic savic,centrocampista,lazio
+zaccagni mattia,centrocampista,lazio
+bakayoko tiemoue,centrocampista,milan
+bennacer ismael,centrocampista,milan
+brahim diaz,centrocampista,milan
+castillejo samu,centrocampista,milan
+kessie franck,centrocampista,milan
+krunic rade,centrocampista,milan
+maldini daniel,centrocampista,milan
+messias junior,centrocampista,milan
+saelemaekers alexis,centrocampista,milan
+tonali sandro,centrocampista,milan
+demme diego,centrocampista,napoli
+elmas eljif,centrocampista,napoli
+lobotka stanislav,centrocampista,napoli
+politano matteo,centrocampista,napoli
+ruiz fabian,centrocampista,napoli
+zambo anguissa,centrocampista,napoli
+zielinski piotor,centrocampista,napoli
+bove edoardo,centrocampista,roma
+cristante bryan,centrocampista,roma
+darboe ebrima,centrocampista,roma
+diawara amadou,centrocampista,roma
+mkhitaryan,centrocampista,roma
+pellegrini lorenzo,centrocampista,roma
+tripi filippo,centrocampista,roma
+veretout jordan,centrocampista,roma
+villar gonzalo,centrocampista,roma
+zalewski nicola,centrocampista,roma
+zaniolo nicolo,centrocampista,roma
+capezzi leonardo,centrocampista,salernitana
+coulibaly lassana,centrocampista,salernitana
+coulibaly mamadou,centrocampista,salernitana
+di tacchio francesco,centrocampista,salernitana
+kalombo sedrick,centrocampista,salernitana
+kastanos grigoris,centrocampista,salernitana
+obi joel,centrocampista,salernitana
+adrien silva,centrocampista,sampdoria
+askildsen kristoffer,centrocampista,sampdoria
+candreva antonio,centrocampista,sampdoria
+ciervo riccardo,centrocampista,sampdoria
+damsgaard,centrocampista,sampdoria
+ekdal albin,centrocampista,sampdoria
+ihattaren mohamed,centrocampista,sampdoria
+leris mehdi,centrocampista,sampdoria
+thorsby morten,centrocampista,sampdoria
+trimboli simone,centrocampista,sampdoria
+verre valerio,centrocampista,sampdoria
+vieira ronaldo,centrocampista,sampdoria
+artioli federico,centrocampista,sassuolo
+djuricic filip,centrocampista,sassuolo
+frattesi davide,centrocampista,sassuolo
+harroui abdou,centrocampista,sassuolo
+magnanelli francesco,centrocampista,sassuolo
+matheus henrique,centrocampista,sassuolo
+maxime lopez,centrocampista,sassuolo
+obiang pedro,centrocampista,sassuolo
+traore hamed,centrocampista,sassuolo
+acampora gennaro,centrocampista,spezia
+agudelo kevin,centrocampista,spezia
+bastoni simone,centrocampista,spezia
+bordin alessandro,centrocampista,spezia
+bourabia mehdi,centrocampista,spezia
+figoli matteo,centrocampista,spezia
+kovalenko viktor,centrocampista,spezia
+maggiore giulio,centrocampista,spezia
+mora luca,centrocampista,spezia
+sena leo,centrocampista,spezia
+sher aimar,centrocampista,spezia
+baselli daniele,centrocampista,torino
+brekalo josip,centrocampista,torino
+karamoko ibrahim,centrocampista,torino
+kone ben lhassine,centrocampista,torino
+linetty karol,centrocampista,torino
+lukic sasa,centrocampista,torino
+mandragora rolando,centrocampista,torino
+pobega tommaso,centrocampista,torino
+praet dennis,centrocampista,torino
+rincon tomas,centrocampista,torino
+stojkovic dennis,centrocampista,torino
+verdi simone,centrocampista,torino
+warming magnus,centrocampista,torino
+arslan tolgay,centrocampista,udinese
+ballarini marco,centrocampista,udinese
+jajalo,centrocampista,udinese
+kubala jan,centrocampista,udinese
+makengo jean-victor,centrocampista,udinese
+pereyra roberto,centrocampista,udinese
+samardzic lazar,centrocampista,udinese
+walace,centrocampista,udinese
+ala-myllymaki,centrocampista,venezia
+aramu mattia,centrocampista,venezia
+busio gianluca,centrocampista,venezia
+crnigoj domen,centrocampista,venezia
+dezi jacopo,centrocampista,venezia
+fiordilino luca,centrocampista,venezia
+heymans daan,centrocampista,venezia
+johnsen dennis,centrocampista,venezia
+kiyine sofian,centrocampista,venezia
+pecile damiano,centrocampista,venezia
+peretz dor,centrocampista,venezia
+taugordeau anthony,centrocampista,venezia
+tessmann tanner,centrocampista,venezia
+vacca antonio junior,centrocampista,venezia
+barak antonin,centrocampista,verona
+bessa daniel,centrocampista,verona
+cancellieri matteo,centrocampista,verona
+hongla martin,centrocampista,verona
+ilic ivan,centrocampista,verona
+lazovic darko,centrocampista,verona
+mane bachir,centrocampista,verona
+tameze adrien,centrocampista,verona
+veloso miguel,centrocampista,verona
+ilicic josip,attaccante,atalanta
+muriel luis,attaccante,atalanta
+piccoli roberto,attaccante,atalanta
+zapata duvan,attaccante,atalanta
+arnautovic marko,attaccante,bologna
+barrow musa,attaccante,bologna
+cangiano gianmarco,attaccante,bologna
+falcinelli diego,attaccante,bologna
+sansone nicola,attaccante,bologna
+santander federico,attaccante,bologna
+van hooijdonk sydney,attaccante,bologna
+ceter damir,attaccante,cagliari
+farias diego,attaccante,cagliari
+keita balde,attaccante,cagliari
+pavoletti leonardo,attaccante,cagliari
+cutrone patrick,attaccante,empoli
+la mantia andrea,attaccante,empoli
+mancuso leonardo,attaccante,empoli
+pinamonti andrea,attaccante,empoli
+gonzalez nicolas,attaccante,fiorentina
+kokorin aleksandr,attaccante,fiorentina
+kouame christian,attaccante,fiorentina
+munteanu louis,attaccante,fiorentina
+vlahovic dusan,attaccante,fiorentina
+bianchi flavio,attaccante,genoa
+buksa aleksander,attaccante,genoa
+caicedo felipe,attaccante,genoa
+destro mattia,attaccante,genoa
+ekuban caleb,attaccante,genoa
+kallon yayah,attaccante,genoa
+males darian,attaccante,genoa
+pandev goran,attaccante,genoa
+colidio facundo,attaccante,inter
+correa joaquin,attaccante,inter
+dzeko edin,attaccante,inter
+martinez lautaro,attaccante,inter
+sanchez alexis,attaccante,inter
+satriano martin,attaccante,inter
+dybala paulo,attaccante,juventus
+kaio jorge,attaccante,juventus
+kean moise,attaccante,juventus
+morata alvaro,attaccante,juventus
+adekanye bobby,attaccante,lazio
+immobile ciro,attaccante,lazio
+moro raul,attaccante,lazio
+muriqi vedat,attaccante,lazio
+pedro,attaccante,lazio
+romero luka,attaccante,lazio
+colombo lorenzo,attaccante,milan
+giroud olivier,attaccante,milan
+ibrahimovic zlatan,attaccante,milan
+leao rafael,attaccante,milan
+pellegri pietro,attaccante,milan
+rebic ante,attaccante,milan
+insigne lorenzo,attaccante,napoli
+lozano hirving,attaccante,napoli
+mertens dries,attaccante,napoli
+osimehen victor,attaccante,napoli
+ounas adam,attaccante,napoli
+petagna andrea,attaccante,napoli
+abraham tammy,attaccante,roma
+el shaarawy stephan,attaccante,roma
+mayoral borja,attaccante,roma
+perez carles,attaccante,roma
+riccardi alessio,attaccante,roma
+shomurodov eldor,attaccante,roma
+bonazzoli federico,attaccante,salernitana
+djuric,attaccante,salernitana
+gondo cedric,attaccante,salernitana
+ribery frank,attaccante,salernitana
+simy,attaccante,salernitana
+vergani edoardo,attaccante,salernitana
+caputo francesco,attaccante,sampdoria
+gabbiadini manolo,attaccante,sampdoria
+quagliarella fabio,attaccante,sampdoria
+torregrossa ernesto,attaccante,sampdoria
+berardi domenico,attaccante,sassuolo
+boga jeremie,attaccante,sassuolo
+defrel gregoire,attaccante,sassuolo
+raspadori giacomo,attaccante,sassuolo
+scamacca gianluca,attaccante,sassuolo
+antiste janis,attaccante,spezia
+colley ebrima,attaccante,spezia
+gyasi emmanuel,attaccante,spezia
+manaj rey,attaccante,spezia
+mbala nzola,attaccante,spezia
+mraz samuel,attaccante,spezia
+pinto vincenzo,attaccante,spezia
+podgoreanu suf,attaccante,spezia
+salcedo eddie,attaccante,spezia
+strelec david,attaccante,spezia
+verde daniele,attaccante,spezia
+baeten thibo,attaccante,torino
+belotti andrea,attaccante,torino
+edera simone,attaccante,torino
+pjaca marko,attaccante,torino
+rauti nicola,attaccante,torino
+sanabria antonio,attaccante,torino
+zaza simone,attaccante,torino
+beto betuncal,attaccante,udinese
+deulofeu gerard,attaccante,udinese
+forestieri fernando,attaccante,udinese
+ianesi simone,attaccante,udinese
+llorente fernando,attaccante,udinese
+micin petar,attaccante,udinese
+nestorovski ilija,attaccante,udinese
+okaka stefano,attaccante,udinese
+pussetto ignacio,attaccante,udinese
+success isaac,attaccante,udinese
+teodorczyk lukasz,attaccante,udinese
+bjarkason bjarki,attaccante,venezia
+bocalon riccardo,attaccante,venezia
+forte francesco,attaccante,venezia
+henry thomas,attaccante,venezia
+okereke david,attaccante,venezia
+sigurdsson arnor,attaccante,venezia
+zigoni gianmarco,attaccante,venezia
+caprari gianluca,attaccante,verona
+di carmine samuel,attaccante,verona
+kalinic nikola,attaccante,verona
+lasagna kevin,attaccante,verona
+ragusa antonino,attaccante,verona
+simeone giovanni,attaccante,verona
