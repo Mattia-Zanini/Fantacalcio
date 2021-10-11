@@ -9,30 +9,33 @@ namespace Fantacalcio
     {
         static void Main(string[] args)
         {
-            Setup();
+            string dir = Environment.CurrentDirectory;
+            string mainFolderPath = SetupDir(dir);
+            string[] nomiGiocatori = new string[0];
+            Setup(mainFolderPath, ref nomiGiocatori);
             string comand;
             do
             {
                 Console.Write("<comand>");
                 comand = Console.ReadLine();
-                Comandi(comand);
+                Comandi(comand, mainFolderPath);
             } while (comand != "exit");
             Console.WriteLine("Il programma si sta chiudendo");
         }
         //in base a ciò che l'utente inserisce come comando lo switch esegue diverse attività
-        private static void Comandi(string comand)
+        private static void Comandi(string comand, string mainFolderPath)
         {
             switch (comand)
             {
                 case "exit": break;//"esce dal programma", sostanzialmente non fa gninte
                 case "help"://mostra i comandi, stampa a schermo il file txt "Help.txt"
-                    MostraComandi();
+                    MostraComandi(mainFolderPath);
                     break;
             }
         }
-        private static void MostraComandi()
+        private static void MostraComandi(string mainFolderPath)
         {
-            string[] help = File.ReadAllLines("Help.txt");
+            string[] help = File.ReadAllLines(mainFolderPath + "\\Help.txt");
             for (int i = 0; i < help.Length; i++)
             {
                 string[] str = help[i].Split(',');
@@ -40,19 +43,19 @@ namespace Fantacalcio
             }
         }
         //si occupa di preparare i file che conterranno le squadre dei giocatori
-        private static void Setup()
+        private static void Setup(string mainFolderPath, ref string[] nomiGiocatori)
         {
-            string setupDir = "Squadre";
-            if (!Directory.Exists(setupDir) || IsDirectoryEmpty("Squadre"))
+            string squadreDir = mainFolderPath + "\\Squadre";
+            if (!Directory.Exists(squadreDir) || IsDirectoryEmpty(squadreDir))
             {
                 Console.WriteLine($"Inizio configurazione squadre");
                 Console.WriteLine("Quanti sono i giocatori?");
-                int nPlayer = 0;
-                bool correctSyntax = false;
+                int nPlayer = 0; bool correctSyntax = false;
                 ControlloNumeroGiocatori(ref nPlayer, ref correctSyntax);
                 string[] nomeGiocatori = new string[nPlayer];
                 SquadreGiocatori(ref nomeGiocatori);
-                if(!Directory.Exists(setupDir)){ DirectoryInfo setupFolder = Directory.CreateDirectory(setupDir); }
+                //nel caso non esista la cartella
+                if (!Directory.Exists(squadreDir)) { DirectoryInfo setupFolder = Directory.CreateDirectory(squadreDir); }
                 for (int i = 0; i < nPlayer; i++)
                 {
                     string nome = RemoveSpecialCharacters(nomeGiocatori[i]);
@@ -62,15 +65,30 @@ namespace Fantacalcio
             }
             else
             {
-                string[] nomiGiocatori = new string[0];
-                nomiGiocatori = Directory.GetFileSystemEntries("Squadre");
+                nomiGiocatori = Directory.GetFileSystemEntries(squadreDir);
                 for (int i = 0; i < nomiGiocatori.Length; i++)
                 {
                     string[] str = nomiGiocatori[i].Split("Squadre\\");
                     string[] str2 = str[1].Split(".txt");
-                    Console.WriteLine(str2[0]);
+                    nomiGiocatori[i] = str2[0];
                 }
             }
+        }
+        //Questa funzione si occupa di ritagliare il percorso del file, al fine di ottenerne un altro
+        private static string SetupDir(string dir)
+        {
+            string[] mainPathSliced = dir.Split('\\');
+            var mainPathSlicedList = mainPathSliced.ToList();
+            mainPathSlicedList.Remove("bin");
+            mainPathSlicedList.Remove("Debug");
+            mainPathSlicedList.Remove("net5.0");
+            mainPathSliced = mainPathSlicedList.ToArray();
+            string mainPath = mainPathSliced[0];
+            for (int i = 1; i < mainPathSliced.Length; i++)
+            {
+                mainPath += $"\\{mainPathSliced[i]}";
+            }
+            return mainPath;
         }
         private static void ControlloNumeroGiocatori(ref int nPlayer, ref bool correctSyntax)
         {
@@ -121,7 +139,3 @@ namespace Fantacalcio
         }
     }
 }
-/*
-string[] calciatori = File.ReadAllLines("Calciatori.txt");
-File.WriteAllLines("Calciatori.txt", calciatori);
-*/
