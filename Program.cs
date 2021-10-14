@@ -22,7 +22,7 @@ namespace Fantacalcio
             } while (comand != "exit");
             Console.WriteLine("Il programma si sta chiudendo");
         }
-        //in base a ciò che l'utente inserisce come comando lo switch esegue diverse attività
+        //in base a ciò che l'utente inserisce come comando lo switch esegue diverse attività e riconosce se un utente non inserisce un comando
         private static void Comandi(string comand, string mainFolderPath)
         {
             switch (comand)
@@ -30,6 +30,17 @@ namespace Fantacalcio
                 case "exit": break;//"esce dal programma", sostanzialmente non fa gninte
                 case "help"://mostra i comandi, stampa a schermo il file txt "Help.txt"
                     MostraComandi(mainFolderPath);
+                    break;
+                default:
+                    string[] comands = comand.Split(" ");
+                    if (comands[0] == "rgd")
+                    {
+                        ControlloComandi(comands);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Comando inesistente");
+                    }
                     break;
             }
         }
@@ -41,6 +52,10 @@ namespace Fantacalcio
                 string[] str = help[i].Split(',');
                 Console.WriteLine($"{str[0]}\t\t{str[1]}");
             }
+        }
+        //a seconda del comando scritto dall'utente, che inizia per "rgd", esegue diverse funzioni
+        private static void ControlloComandi(string[] comands)
+        {
         }
         //si occupa di preparare i file che conterranno le squadre dei giocatori
         private static void Setup(string mainFolderPath, ref string[] nomiGiocatori)
@@ -58,10 +73,11 @@ namespace Fantacalcio
                 if (!Directory.Exists(squadreDir)) { DirectoryInfo setupFolder = Directory.CreateDirectory(squadreDir); }
                 for (int i = 0; i < nPlayer; i++)
                 {
-                    string nome = RemoveSpecialCharacters(nomeGiocatori[i]);
-                    using (StreamWriter sw = File.CreateText(@$"Squadre\{nome}.txt")) { }
+                    nomeGiocatori[i] = RemoveSpecialCharacters(nomeGiocatori[i]);
+                    using (StreamWriter sw = File.CreateText(@$"Squadre\{nomeGiocatori[i]}.txt")) { }
                 }
                 Console.WriteLine($"Configurazione completata");
+                SetupSquadreGiocatori(nomeGiocatori, mainFolderPath);
             }
             else
             {
@@ -99,11 +115,11 @@ namespace Fantacalcio
                 {
                     Console.WriteLine("Inserisci un valore valido");
                 }
-                else if (nPlayer <= 0)
+                else if (nPlayer <= 1 || nPlayer > 24)
                 {
-                    System.Console.WriteLine("Inserisci un numero maggiore di 0");
+                    System.Console.WriteLine("Inserisci un numero maggiore di 1 e minore di 25");
                 }
-            } while (!correctSyntax || nPlayer <= 0);
+            } while (!correctSyntax || nPlayer <= 1 || nPlayer > 24);
         }
         private static void SquadreGiocatori(ref string[] nomeGiocatori)
         {
@@ -136,6 +152,63 @@ namespace Fantacalcio
         private static bool IsDirectoryEmpty(string path)//https://stackoverflow.com/questions/755574/how-to-quickly-check-if-folder-is-empty-net/954837
         {
             return !Directory.EnumerateFileSystemEntries(path).Any();
+        }
+        private static void SetupSquadreGiocatori(string[] nomiGiocatori, string path)
+        {
+            bool finito = false;
+            do
+            {
+                Console.WriteLine("Scrivi il giocatore che deve essere messo all'asta");
+                string calciatore = Console.ReadLine();
+                if (ControlloEsistenzaCalciatore(calciatore, path))
+                {
+                    Asta(calciatore);
+                }
+                else
+                {
+                    Console.WriteLine("Calciatore non trovato");
+                }
+            } while (!finito);
+        }
+        private static bool ControlloEsistenzaCalciatore(string calciatoreAsta, string path)
+        {
+            string[] calciatori = File.ReadAllLines(path + "\\Calciatori.txt");
+            for (int i = 0; i < calciatori.Length; i++)
+            {
+                string[] calciatore = calciatori[i].Split(',');
+                if (calciatoreAsta.ToLower() == calciatore[0]) return true;
+            }
+            return false;
+        }
+        private static void Asta(string calciatore)
+        {
+            bool offerta = false;
+            do
+            {
+                Console.WriteLine("Inserisci un offerta");
+                int offertaAsta = 0;
+                try
+                {
+                    int tmp = int.Parse(Console.ReadLine());
+                    if (tmp > offertaAsta)
+                        offertaAsta = tmp;
+                    else
+                        Console.WriteLine("Devi inserire un prezzo maggiore rispetto all'asta corrente");
+                }
+                catch
+                {
+                    Console.WriteLine("Prezzo non valido");
+                }
+                Console.WriteLine("Interrompere l'asta?");
+                string risposta = Console.ReadLine();
+                ExitAsta(ref risposta, ref offerta);
+            } while (!offerta);
+        }
+        private static void ExitAsta(ref string risposta, ref bool offerta)
+        {
+            do
+            {
+            } while (risposta == "si" || risposta == "no");
         }
     }
 }
