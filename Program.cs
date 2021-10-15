@@ -74,7 +74,7 @@ namespace Fantacalcio
                 for (int i = 0; i < nPlayer; i++)
                 {
                     nomeGiocatori[i] = RemoveSpecialCharacters(nomeGiocatori[i]);
-                    using (StreamWriter sw = File.CreateText(@$"Squadre\{nomeGiocatori[i]}.txt")) { }
+                    using (StreamWriter sw = File.CreateText(squadreDir + $"\\{nomeGiocatori[i]}.txt")) { }
                 }
                 Console.WriteLine($"Configurazione completata");
                 SetupSquadreGiocatori(nomeGiocatori, mainFolderPath);
@@ -164,9 +164,14 @@ namespace Fantacalcio
             {
                 Console.WriteLine("Scrivi il giocatore che deve essere messo all'asta");
                 string calciatore = Console.ReadLine().ToLower();
-                if (ControlloEsistenzaCalciatore(calciatore, path))
+                bool calciatoreDisponibile = DisponibilitàCalciatore(path + "\\Calciatori.txt", calciatore);
+                if (calciatoreDisponibile)
                 {
                     Asta(calciatore, nomiGiocatori, path, soldiGiocatori);
+                }
+                else if(!calciatoreDisponibile && calciatore != "exitasta")
+                {
+                    Console.WriteLine("Calciatore non esistente o già comprato");
                 }
                 else if (calciatore == "exitasta")
                 {
@@ -187,14 +192,21 @@ namespace Fantacalcio
                 soldi[i] = 500;
             }
         }
-        //controlla se il calciatore che si vuole acquistare esiste
-        private static bool ControlloEsistenzaCalciatore(string calciatoreAsta, string path)
+        //controlla se il calciatore che si vuole acquistare esiste o è già statop comprato
+        private static bool DisponibilitàCalciatore(string pathCalciatori, string calciatore)
         {
-            string[] calciatori = File.ReadAllLines(path + "\\Calciatori.txt");
-            for (int i = 0; i < calciatori.Length; i++)
+            string[] calciatori = File.ReadAllLines(pathCalciatori);
+            for(int i = 0; i < calciatori.Length; i++)
             {
-                string[] calciatore = calciatori[i].Split(',');
-                if (calciatoreAsta == calciatore[0]) return true;
+                string[] disponibilita = calciatori[i].Split(',');
+                if(disponibilita[0] == calciatore && Convert.ToBoolean(disponibilita[3]) == false)
+                {
+                    return true;
+                }
+                else if(disponibilita[0] == calciatore && Convert.ToBoolean(disponibilita[3]) == true)
+                {
+                    return false;
+                }
             }
             return false;
         }
@@ -239,12 +251,25 @@ namespace Fantacalcio
                 {
                     if (nomePlayer == nomiGiocatori[i])
                     {
-                        if(soldiGiocatori[i] >= offertaAsta)
+                        if(soldiGiocatori[i] >= offertaAsta && ControlloSquadraGiocatore(path + "\\Squadre", nomePlayer) == false)
                         {
-                            string[] squadraPlayer = File.ReadAllLines(path + $"\\{nomiGiocatori[i]}.txt");
+                            string[] squadraPlayer = File.ReadAllLines(path + $"\\Squadre\\{nomiGiocatori[i]}.txt");
                             Array.Resize(ref squadraPlayer, squadraPlayer.Length + 1);
-                            squadraPlayer[squadraPlayer.Length - 1] = calciatore;
-                            File.WriteAllLines(path + $"\\{nomiGiocatori[i]}.txt", squadraPlayer);
+                            string ruoloCalciatore = "";
+                            string squadraCalciatore = "";
+                            string[] calciatori = File.ReadAllLines(path + "\\Calciatori.txt");
+                            for(int j = 0; j < calciatori.Length; j++)
+                            {
+                                string[] tmp = calciatori[i].Split(',');
+                                if(calciatore == tmp[0])
+                                {
+                                    ruoloCalciatore = tmp[1];
+                                    squadraCalciatore = tmp[2];
+                                    break;
+                                }
+                            }
+                            squadraPlayer[squadraPlayer.Length - 1] = $"{calciatore},{ruoloCalciatore},{squadraCalciatore}";
+                            File.WriteAllLines(path + $"\\Squadre\\{nomiGiocatori[i]}.txt", squadraPlayer);
                             AcquistoCalciatore(path, calciatore);
                             soldiGiocatori[i] -= offertaAsta;
                             nomeCorretto = true;
@@ -252,10 +277,53 @@ namespace Fantacalcio
                             break;
                         }
                         else
-                            Console.WriteLine($"{nomePlayer} non ha abbastanza crediti, rieffettuare l'asta per questo calciatore"); nomeCorretto = true; astaFinita = true;
+                            Console.WriteLine($"{nomePlayer} non ha abbastanza crediti, o hai già abbastanza calciatori che hanno lo stesso ruolo, rieffettuare l'asta per questo calciatore"); nomeCorretto = true; astaFinita = true;
                     }
                 }
             } while (!nomeCorretto);
+        }
+        //Controlla se un giocatore può comnprare il calciatore, secondo le regole del gioco
+        private static bool ControlloSquadraGiocatore(string path, string nomePlayer)
+        {
+            int nMaxPortieri = 3, nMaxDifensori = 8, nMaxCentrocmapisti = 8, nMaxAttaccanti = 6;//max calciatori di quel ruolo che si può avere
+            int nPortieri = 0, nDifensori = 0, nCentrocmapisti = 0, nAttaccanti = 0;//n di calciatori che hanno quel ruolo della squadra del giocatore
+            string[] squadraGiocatore = File.ReadAllLines(path + $"\\{nomePlayer}.txt");
+            for(int i = 0; i < squadraGiocatore.Length; i++)
+            {
+                string[] ruolo = squadraGiocatore[i].Split(',');
+                switch(ruolo[1])
+                {
+                    case "portiere":
+                        nPortieri++;
+                        if(nPortieri > nMaxPortieri)
+                        {
+                            return true;
+                        }
+                        break;
+                    case "difensore":
+                        nDifensori++;
+                        if (nDifensori > nMaxDifensori)
+                        {
+                            return true;
+                        }
+                        break;
+                    case "centrocampista":
+                        nCentrocmapisti++;
+                        if (nCentrocmapisti > nMaxCentrocmapisti)
+                        {
+                            return true;
+                        }
+                        break;
+                    case "attaccante":
+                        nAttaccanti++;
+                        if (nAttaccanti > nMaxAttaccanti)
+                        {
+                            return true;
+                        }
+                        break;
+                }
+            }
+            return false;
         }
         //rende un calciatore non più acquistabile, settando la sua variabile a false, nel file
         private static void AcquistoCalciatore(string path, string calciatore)
@@ -275,15 +343,31 @@ namespace Fantacalcio
         }
         private static void ControlloSquadreVuote(string path, string[] nomiPlayers)//https://stackoverflow.com/questions/61208202/how-to-check-if-a-text-file-is-empty-c-sharp
         {
+            bool fileVuoto = false;
             for(int i = 0; i < nomiPlayers.Length; i++)
             {
                 string[] tmp = File.ReadAllLines(path + $"\\Squadre\\{nomiPlayers[i]}.txt");
                 if (tmp.Length == 0)
                 {
                     Console.WriteLine($"{nomiPlayers[i]} non penso che tu possa vincere con una squadra di 0 calciatori");
+                    fileVuoto = true;
+                }
+            }
+            if(fileVuoto)
+            {
+                for (int i = 0; i < nomiPlayers.Length; i++)
+                {
                     File.Delete(path + $"\\Squadre\\{nomiPlayers[i]}.txt");
                 }
             }
+            string[] calciatori = File.ReadAllLines(path + "\\Calciatori.txt");
+            for (int i = 0; i < calciatori.Length; i++)
+            {
+                string[] resetCalciatore = calciatori[i].Split(',');
+                resetCalciatore[3] = "false";
+                calciatori[i] = $"{resetCalciatore[0]},{resetCalciatore[1]},{resetCalciatore[2]},{resetCalciatore[3]}";
+            }
+            File.WriteAllLines(path + "\\Calciatori.txt", calciatori);
             Console.WriteLine("\nPer pigrizia dello sviluppatore dovrete ricominciare dall'inizio\n");
             string[] nomiGiocatori = new string[0];
             Setup(path, ref nomiGiocatori);
