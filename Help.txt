@@ -1,2 +1,0 @@
-exit,esci dal programma
-help,visualizza i comandi
