@@ -1,3 +1,0 @@
-exit,esci dal programma
-help,visualizza i comandi
-exitasta,esci dall'asta
