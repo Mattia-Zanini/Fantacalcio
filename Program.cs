@@ -15,7 +15,7 @@ namespace Fantacalcio
             string[] fantaAllenatoriNoSquadra = new string[0];
             mainPath = CleanPath(mainPath);
             ExistLogs();
-            WriteLogs($"{DateTime.Now.ToString("[dd/MM/yyyy HH:mm:ss]")} Il programma è stato eseguito");
+            WriteLogs("Il programma è stato eseguito");
             Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra);
         }
         //pulisce il percorso del programma
@@ -46,7 +46,7 @@ namespace Fantacalcio
         //scrive un log di quel che succede all'interno del programma
         private static void WriteLogs(string log)
         {
-            File.AppendAllText(mainPath + "\\logs.txt", log + Environment.NewLine);
+            File.AppendAllText(mainPath + "\\logs.txt", $"{DateTime.Now.ToString("[dd/MM/yyyy HH:mm:ss]")} {log}" + Environment.NewLine);
         }
         //ottiene i nomi dei FantaAllenatori
         private static string[] GetPlayersName(string[] playersName)
@@ -127,7 +127,7 @@ namespace Fantacalcio
                 }
             } while (!correctSyntax || nPlayer <= 1 || nPlayer > 24);
         }
-        //popola l'array con i nomi dei giocatori
+        //popola l'array con i nomi dei giocatori, e verifica se sono presenti nomi uguali
         private static void CheckPlayersName(ref string[] nomiFantaAllenatori)
         {
             for (int i = 0; i < nomiFantaAllenatori.Length; i++)
