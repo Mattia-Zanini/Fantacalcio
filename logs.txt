@@ -1,0 +1,17 @@
+[21/10/2021 10:14:58] Il programma è stato eseguito
+[21/10/2021 10:14:58] creazione file per le squadre dei giocatori
+[21/10/2021 10:15:02] cartella per contenere i file creata
+[21/10/2021 10:15:06] file necessari per il gioco creati
+[21/10/2021 10:15:06] comicia l'asta dei calciatori
+[21/10/2021 10:16:46] Il programma è stato eseguito
+[21/10/2021 10:17:00] Il programma è stato eseguito
+[21/10/2021 10:17:00] creazione file per le squadre dei giocatori
+[21/10/2021 10:17:03] cartella per contenere i file creata
+[21/10/2021 10:17:06] file necessari per il gioco creati
+[21/10/2021 10:17:06] comicia l'asta dei calciatori
+[21/10/2021 10:19:21] Il programma è stato eseguito
+[21/10/2021 10:19:34] Il programma è stato eseguito
+[21/10/2021 10:19:34] creazione file per le squadre dei giocatori
+[21/10/2021 10:19:35] cartella per contenere i file creata
+[21/10/2021 10:19:39] file necessari per il gioco creati
+[21/10/2021 10:19:39] comicia l'asta dei calciatori

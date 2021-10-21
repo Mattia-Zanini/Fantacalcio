@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace Fantacalcio
 {
@@ -13,10 +14,11 @@ namespace Fantacalcio
             bool fileEmpty = false;
             string[] nomiFantaAllenatori = new string[0];
             string[] fantaAllenatoriNoSquadra = new string[0];
+            int[] fantaCrediti = new int[0];
             mainPath = CleanPath(mainPath);
             ExistLogs();
             WriteLogs("Il programma è stato eseguito");
-            Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra);
+            Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti);
         }
         //pulisce il percorso del programma
         private static string CleanPath(string path)
@@ -37,9 +39,9 @@ namespace Fantacalcio
         //controlla se esiste il file dei logs
         private static void ExistLogs()
         {
-            if(!File.Exists(mainPath + "\\logs.txt"))
+            if (!File.Exists(mainPath + "\\logs.txt"))
             {
-                File.Create(mainPath + "\\logs.txt");
+                File.Create(mainPath + "\\logs.txt").Dispose();
                 Console.WriteLine("logs creati");
             }
         }
@@ -86,7 +88,7 @@ namespace Fantacalcio
         {
             return !Directory.EnumerateFileSystemEntries(path).Any();
         }
-        private static void Setup(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra)
+        private static void Setup(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra, ref int[] fantaCrediti)
         {
             if (!Directory.Exists(mainPath + "\\Squadre") || IsDirectoryEmpty(mainPath + "\\Squadre") || CheckPlayersSquad(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra) != 1)
             {
@@ -102,11 +104,16 @@ namespace Fantacalcio
                     if (!Directory.Exists(mainPath + "\\Squadre")) { DirectoryInfo setupFolder = Directory.CreateDirectory(mainPath + "\\Squadre"); WriteLogs("cartella per contenere i file creata"); }
                     for (int i = 0; i < nPlayer; i++)
                     {
+                        Console.WriteLine($"Giocatore n°{i+1} inserisci il tuo nome");
+                        nomiFantaAllenatori[i] = Console.ReadLine();
                         nomiFantaAllenatori[i] = RemoveSpecialCharacters(nomiFantaAllenatori[i]);
-                        using (StreamWriter sw = File.CreateText($"Squadre\\{nomiFantaAllenatori[i]}.txt")) { }
+                        using (StreamWriter sw = File.CreateText($"{mainPath}\\Squadre\\{nomiFantaAllenatori[i]}.txt")) { }
                     }
                     Console.WriteLine($"Creazione file completata");
                     WriteLogs("file necessari per il gioco creati");
+                    string[] listaCalciatoriDaAcquistare = new string[0];
+                    ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare);
+                    WriteLogs("completata la lista dei calciatori per l'asta");
                 }
                 else { }//vado a riprendere singolarmente ogni giocatore finchè non hanno almeno un calciatore nella loro squadra
             }
@@ -121,11 +128,11 @@ namespace Fantacalcio
                 {
                     Console.WriteLine("Inserisci un valore valido");
                 }
-                else if (nPlayer <= 1 || nPlayer > 24)
+                else if (nPlayer <= 1 || nPlayer > 56)
                 {
-                    Console.WriteLine("Inserisci un numero maggiore di 1 e minore di 25");
+                    Console.WriteLine("Inserisci un numero maggiore di 1 e minore di 57");
                 }
-            } while (!correctSyntax || nPlayer <= 1 || nPlayer > 24);
+            } while (!correctSyntax || nPlayer <= 1 || nPlayer > 56);
         }
         //popola l'array con i nomi dei giocatori, e verifica se sono presenti nomi uguali
         private static void CheckPlayersName(ref string[] nomiFantaAllenatori)
@@ -156,6 +163,65 @@ namespace Fantacalcio
         private static string RemoveSpecialCharacters(string str)//https://stackoverflow.com/questions/1120198/most-efficient-way-to-remove-special-characters-from-string
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_]+", "", RegexOptions.Compiled);
+        }
+        private static void ListaAsta(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare)
+        {
+            Console.WriteLine("Inizio asta");
+            WriteLogs("comicia l'asta dei calciatori");
+            string[] ruoliCalciaotirDaAcquistare = new string[] {"PORTIERE", "DIFENSORE", "CENTROCAMPISTA", "ATTACCANTE"};
+            byte[] nMaxRuoliClaciatoriDaAcquistare = new byte[] {1, 4, 4, 3};
+            for(int i = 0; i < nomiFantaAllenatori.Length; i++)
+            {
+                int nCalciatoriInseriti = 0, nMaxRulo = 0, ruolo = 0;
+                do
+                {
+                    Console.WriteLine($"Giocatore {nomiFantaAllenatori[i]} scrivi il nome del {ruoliCalciaotirDaAcquistare[ruolo]} che vuoi acquistare");
+                    string calciatoreDaComprare = Console.ReadLine();
+                    if(ControlloEsistenza_RuoloCalciatore(ref calciatoreDaComprare, ruoliCalciaotirDaAcquistare[ruolo].ToLower()))
+                    {//esiste il calciatore
+                        if(ControlloLista(ref listaCalciatoriDaAcquistare, ref calciatoreDaComprare) || listaCalciatoriDaAcquistare.Length < 1)
+                        {
+                            Array.Resize(ref listaCalciatoriDaAcquistare, listaCalciatoriDaAcquistare.Length + 1);
+                            listaCalciatoriDaAcquistare[listaCalciatoriDaAcquistare.Length - 1] = calciatoreDaComprare;
+                        }
+                        nCalciatoriInseriti++; nMaxRulo++;
+                        if(nMaxRulo == nMaxRuoliClaciatoriDaAcquistare[ruolo])
+                        {
+                            ruolo++;
+                            nMaxRulo = 0;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Non esiste il calciatore o non è del ruolo richiesto\n");
+                        nCalciatoriInseriti--;
+                    }
+                } while (nCalciatoriInseriti <= 11);
+            }
+        }
+        //controlla se l'utente ha inserito il nome di un calciatore valido e se ha il ruolo richiesto
+        private static bool ControlloEsistenza_RuoloCalciatore(ref string calciatoreDaComprare, string ruolo)
+        {
+            string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");
+            for (int i = 0; i < calciatori.Length; i++)
+            {
+                string[] calciatore = calciatori[i].Split(',');
+                if (calciatoreDaComprare == calciatore[0] && ruolo == calciatore[1])
+                    return true;
+            }
+            return false;
+        }
+        //controlla se è già presente un calciatore nella lista dell'asta
+        private static bool ControlloLista(ref string[] listaCalciatoriDaAcquistare, ref string calciatoreDaComprare)
+        {
+            for(int i = 0; i < listaCalciatoriDaAcquistare.Length; i++)
+            {
+                if(calciatoreDaComprare == listaCalciatoriDaAcquistare[i])
+                {
+                    return true;//nessun giocatore ha già scelto il calciatore
+                }
+            }
+            return false;
         }
     }
 }
