@@ -163,7 +163,7 @@ luis felipe ramos,difensore,lazio,false
 lukaku jordan,difensore,lazio,false
 marusic adam,difensore,lazio,false
 patric,difensore,lazio,false
-radu stefan a.,difensore,lazio,false
+radu stefan,difensore,lazio,false
 vavro denis,difensore,lazio,false
 ballo-toure fode,difensore,milan,false
 calabria davide,difensore,milan,false
