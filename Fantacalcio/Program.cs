@@ -110,9 +110,10 @@ namespace Fantacalcio
                     WriteLogs("file necessari per il gioco creati");
                     AssegnazioneFantacrediti(ref nPlayer, ref fantaCrediti);
                     string[] listaCalciatoriDaAcquistare = new string[0];
-                    ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare);
+                    int nCalciatoriUguali = 0;
+                    ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
                     WriteLogs("completata la lista dei calciatori per l'asta");
-                    Asta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare);
+                    Asta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
                 }
                 else { }//vado a riprendere singolarmente ogni giocatore finchè non hanno almeno un calciatore nella loro squadra
             }
@@ -174,7 +175,7 @@ namespace Fantacalcio
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_]+", "", RegexOptions.Compiled);
         }
-        private static void ListaAsta(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare)
+        private static void ListaAsta(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
         {
             Console.WriteLine("Inizio asta");
             WriteLogs("comicia l'asta dei calciatori");
@@ -189,7 +190,7 @@ namespace Fantacalcio
                     string calciatoreDaComprare = Console.ReadLine();
                     if (ControlloEsistenza_RuoloCalciatore(ref calciatoreDaComprare, ruoliCalciaotirDaAcquistare[ruolo].ToLower()))
                     {//esiste il calciatore
-                        if (ControlloLista(ref listaCalciatoriDaAcquistare, ref calciatoreDaComprare))
+                        if (ControlloLista(ref listaCalciatoriDaAcquistare, ref calciatoreDaComprare, ref nCalciatoriUguali))
                         {
                             Array.Resize(ref listaCalciatoriDaAcquistare, listaCalciatoriDaAcquistare.Length + 1);
                             listaCalciatoriDaAcquistare[listaCalciatoriDaAcquistare.Length - 1] = calciatoreDaComprare;
@@ -221,22 +222,28 @@ namespace Fantacalcio
             return false;
         }
         //controlla se è già presente un calciatore nella lista dell'asta
-        private static bool ControlloLista(ref string[] listaCalciatoriDaAcquistare, ref string calciatoreDaComprare)
+        private static bool ControlloLista(ref string[] listaCalciatoriDaAcquistare, ref string calciatoreDaComprare, ref int nCalciatoriUguali)
         {
+            bool calcUguali = false;
+            if (listaCalciatoriDaAcquistare.Length == 0)
+            {
+                return true;
+            }
             for (int i = 0; i < listaCalciatoriDaAcquistare.Length; i++)
             {
-                if (calciatoreDaComprare != listaCalciatoriDaAcquistare[i])
+                if (calciatoreDaComprare == listaCalciatoriDaAcquistare[i])
                 {
-                    return true;//nessun giocatore ha già scelto il calciatore
+                    calcUguali = true;
+                    nCalciatoriUguali++;//calciatori uguali
                 }
             }
-            if (listaCalciatoriDaAcquistare.Length == 0)
+            if (!calcUguali)
             {
                 return true;
             }
             return false;
         }
-        private static void Asta(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare)
+        private static void Asta(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
         {
             for (int i = 0; i < listaCalciatoriDaAcquistare.Length; i++)
             {
@@ -269,7 +276,17 @@ namespace Fantacalcio
                 } while (!astaFinita);
                 Console.WriteLine($"L'asta per il calciatore: {risposta} e' conclusa");
             }
+            if (nCalciatoriUguali > 0)
+            {
+                bool fineSquadre = false;
+                string[] playerSquadreIncomplete = SquadreIncomplete(ref nomiFantaAllenatori);
+                if (playerSquadreIncomplete.Length != 0)
+                {
+
+                }
+            }
             WriteLogs($"L'asta si è completamente conclusa");
+            Console.WriteLine($"L'asta si è completamente conclusa");
         }
         //effettua le operazione di acquisto di un calciatore da parte di un giocatore
         private static void AssegnazioneCalciatore(ref string[] nomiFantaAllenatori, ref bool astaFinita, int offertaAsta, ref int[] fantaCrediti, string calciatore)
@@ -300,15 +317,15 @@ namespace Fantacalcio
                             }
                             else
                             {
-                                Console.WriteLine($"{nomePlayer} non puoi più acquistare calciatori in quanto hai già una squadra completa");
+                                Console.WriteLine($"{nomePlayer} non puoi più acquistare calciatori in quanto hai già una squadra completa\n");
                                 WriteLogs($"Il giocatore '{nomePlayer} ha provato ad acquistare un calciatore anche se però possiede già una squadra al completo, quindi gli è stato annullato l'acquisto");
                                 nomeCorretto = true;
                             }
                         }
                         else
                         {
-                            Console.WriteLine($"{nomePlayer} non ha abbastanza crediti, rieffettuare l'asta per questo calciatore");
-                            nomeCorretto = true; astaFinita = true;
+                            Console.WriteLine($"{nomePlayer} non ha abbastanza crediti, rieffettuare l'asta per questo calciatore\n");
+                            nomeCorretto = true;
                             WriteLogs($"Il giocatore '{nomePlayer}' voleva acquistare il calciatore '{calciatore}', ma purtroppo non aveva abbastanza fantacrediti");
                         }
                     }
@@ -330,6 +347,20 @@ namespace Fantacalcio
                     break;
                 }
             }
+        }
+        private static string[] SquadreIncomplete(ref string[] nomiFantaAllenatori)
+        {
+            string[] pSqIm = new string[0];
+            for (int i = 0; i < nomiFantaAllenatori.Length; i++)
+            {
+                string[] tmpSquadre = File.ReadAllLines(mainPath + $"\\Squadre\\{nomiFantaAllenatori[i]}.txt");
+                if (tmpSquadre.Length < 11)
+                {
+                    Array.Resize(ref pSqIm, pSqIm.Length + 1);
+                    pSqIm[pSqIm.Length - 1] = nomiFantaAllenatori[i];
+                }
+            }
+            return pSqIm;
         }
     }
 }

@@ -98,27 +98,27 @@ theate arthur,difensore,bologna,false
 altare giorgio,difensore,cagliari,false
 bellanova raoul,difensore,cagliari,false
 caceres martin,difensore,cagliari,false
-carboni andrea,difensore,cagliari,true
+carboni andrea,difensore,cagliari,false
 ceppitelli luca,difensore,cagliari,false
 dalbert henrique,difensore,cagliari,false
-farago paolo,difensore,cagliari,false
+farago paolo,difensore,cagliari,true
 godin diego,difensore,cagliari,false
 lykogiannis,difensore,cagliari,false
 obert adam,difensore,cagliari,false
 walukiewicz sebastian,difensore,cagliari,false
 zappa gabriele,difensore,cagliari,false
 fiamozzi riccardo,difensore,empoli,false
-ismajli ardian,difensore,empoli,false
-luperto sebastiano,difensore,empoli,false
+ismajli ardian,difensore,empoli,true
+luperto sebastiano,difensore,empoli,true
 marchizza riccardo,difensore,empoli,false
 parisi fabiano,difensore,empoli,false
 romagnoli simone,difensore,empoli,false
-stojanovic peter,difensore,empoli,false
+stojanovic peter,difensore,empoli,true
 tonelli lorenzo,difensore,empoli,false
 viti mattia,difensore,empoli,false
 biraghi cristiano,difensore,fiorentina,false
 dalle mura christian,difensore,fiorentina,false
-igor dos santos,difensore,fiorentina,false
+igor dos santos,difensore,fiorentina,true
 milenkovic nicola,difensore,fiorentina,false
 nastasic matija,difensore,fiorentina,false
 odriozola alvaro,difensore,fiorentina,false
@@ -277,16 +277,16 @@ amione bruno,difensore,verona,false
 casale nicolo,difensore,verona,false
 ceccherini federico,difensore,verona,false
 cetin,difensore,verona,false
-dawidowicz pawel,difensore,verona,false
+dawidowicz pawel,difensore,verona,true
 faraoni davide,difensore,verona,false
-frabotta gianluca,difensore,verona,false
+frabotta gianluca,difensore,verona,true
 gunter koray,difensore,verona,false
-magnani giangiacomo,difensore,verona,false
-ruegg kevin,difensore,verona,false
+magnani giangiacomo,difensore,verona,true
+ruegg kevin,difensore,verona,true
 sutalo bosko,difensore,verona,false
 de roon marten,centrocampista,atalanta,false
-freuler remo,centrocampista,atalanta,false
-koopmeiners teun,centrocampista,atalanta,false
+freuler remo,centrocampista,atalanta,true
+koopmeiners teun,centrocampista,atalanta,true
 malinovsky ruslan,centrocampista,atalanta,false
 miranchuk aleksej,centrocampista,atalanta,false
 mæhle joakim,centrocampista,atalanta,false
@@ -383,15 +383,15 @@ luis alberto,centrocampista,lazio,false
 milinkovic savic,centrocampista,lazio,false
 zaccagni mattia,centrocampista,lazio,false
 bakayoko tiemoue,centrocampista,milan,false
-bennacer ismael,centrocampista,milan,false
+bennacer ismael,centrocampista,milan,true
 brahim diaz,centrocampista,milan,false
 castillejo samu,centrocampista,milan,false
 kessie franck,centrocampista,milan,false
-krunic rade,centrocampista,milan,false
+krunic rade,centrocampista,milan,true
 maldini daniel,centrocampista,milan,false
 messias junior,centrocampista,milan,false
 saelemaekers alexis,centrocampista,milan,false
-tonali sandro,centrocampista,milan,false
+tonali sandro,centrocampista,milan,true
 demme diego,centrocampista,napoli,false
 elmas eljif,centrocampista,napoli,false
 lobotka stanislav,centrocampista,napoli,false
@@ -502,11 +502,11 @@ barrow musa,attaccante,bologna,false
 cangiano gianmarco,attaccante,bologna,false
 falcinelli diego,attaccante,bologna,false
 sansone nicola,attaccante,bologna,false
-santander federico,attaccante,bologna,false
+santander federico,attaccante,bologna,true
 van hooijdonk sydney,attaccante,bologna,false
 ceter damir,attaccante,cagliari,false
 farias diego,attaccante,cagliari,false
-keita balde,attaccante,cagliari,false
+keita balde,attaccante,cagliari,true
 pavoletti leonardo,attaccante,cagliari,false
 cutrone patrick,attaccante,empoli,false
 la mantia andrea,attaccante,empoli,false
@@ -568,7 +568,7 @@ vergani edoardo,attaccante,salernitana,false
 caputo francesco,attaccante,sampdoria,false
 gabbiadini manolo,attaccante,sampdoria,false
 quagliarella fabio,attaccante,sampdoria,false
-torregrossa ernesto,attaccante,sampdoria,false
+torregrossa ernesto,attaccante,sampdoria,true
 berardi domenico,attaccante,sassuolo,false
 boga jeremie,attaccante,sassuolo,false
 defrel gregoire,attaccante,sassuolo,false
