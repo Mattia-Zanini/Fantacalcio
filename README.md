@@ -1,2 +1,0 @@
-# Fantacalcio
- progetto di scuola
