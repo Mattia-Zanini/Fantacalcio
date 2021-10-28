@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading;
 
 namespace Fantacalcio
 {
@@ -99,13 +98,11 @@ namespace Fantacalcio
                     Console.WriteLine("Quanti sono i giocatori?");
                     int nPlayer = 0; bool correctSyntax = false;
                     CheckPlayersNum(ref nPlayer, ref correctSyntax);
-                    CheckPlayersName(ref nomiFantaAllenatori);
                     Array.Resize(ref nomiFantaAllenatori, nPlayer);
                     if (!Directory.Exists(mainPath + "\\Squadre")) { DirectoryInfo setupFolder = Directory.CreateDirectory(mainPath + "\\Squadre"); WriteLogs("cartella per contenere i file creata"); }
+                    CheckPlayersName(ref nomiFantaAllenatori);
                     for (int i = 0; i < nPlayer; i++)
                     {
-                        Console.WriteLine($"Giocatore n°{i + 1} inserisci il tuo nome");
-                        nomiFantaAllenatori[i] = Console.ReadLine();
                         nomiFantaAllenatori[i] = RemoveSpecialCharacters(nomiFantaAllenatori[i]);
                         using (StreamWriter sw = File.CreateText($"{mainPath}\\Squadre\\{nomiFantaAllenatori[i]}.txt")) { }
                     }
@@ -221,7 +218,7 @@ namespace Fantacalcio
                     return true;//nessun giocatore ha già scelto il calciatore
                 }
             }
-            if(listaCalciatoriDaAcquistare.Length == 0)
+            if (listaCalciatoriDaAcquistare.Length == 0)
             {
                 return true;
             }

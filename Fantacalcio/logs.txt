@@ -53,3 +53,32 @@
 [22/10/2021 09:19:36] cartella per contenere i file creata
 [22/10/2021 09:19:37] file necessari per il gioco creati
 [22/10/2021 09:19:37] comicia l'asta dei calciatori
+[28/10/2021 08:57:26] Il programma è stato eseguito
+[28/10/2021 08:57:26] creazione file per le squadre dei giocatori
+[28/10/2021 08:57:30] cartella per contenere i file creata
+[28/10/2021 08:57:39] file necessari per il gioco creati
+[28/10/2021 08:57:39] comicia l'asta dei calciatori
+[28/10/2021 08:57:53] Il programma è stato eseguito
+[28/10/2021 08:57:54] creazione file per le squadre dei giocatori
+[28/10/2021 08:57:56] cartella per contenere i file creata
+[28/10/2021 08:57:59] file necessari per il gioco creati
+[28/10/2021 08:57:59] comicia l'asta dei calciatori
+[28/10/2021 09:00:24] Il programma è stato eseguito
+[28/10/2021 09:00:24] creazione file per le squadre dei giocatori
+[28/10/2021 09:00:26] cartella per contenere i file creata
+[28/10/2021 09:00:29] file necessari per il gioco creati
+[28/10/2021 09:00:29] comicia l'asta dei calciatori
+[28/10/2021 09:01:01] Il programma è stato eseguito
+[28/10/2021 09:01:01] creazione file per le squadre dei giocatori
+[28/10/2021 09:01:02] cartella per contenere i file creata
+[28/10/2021 09:01:05] file necessari per il gioco creati
+[28/10/2021 09:01:05] comicia l'asta dei calciatori
+[28/10/2021 09:02:19] Il programma è stato eseguito
+[28/10/2021 09:02:19] creazione file per le squadre dei giocatori
+[28/10/2021 09:02:46] cartella per contenere i file creata
+[28/10/2021 09:04:59] Il programma è stato eseguito
+[28/10/2021 09:04:59] creazione file per le squadre dei giocatori
+[28/10/2021 09:05:02] cartella per contenere i file creata
+[28/10/2021 09:05:49] file necessari per il gioco creati
+[28/10/2021 09:05:49] comicia l'asta dei calciatori
+[28/10/2021 09:12:50] completata la lista dei calciatori per l'asta
