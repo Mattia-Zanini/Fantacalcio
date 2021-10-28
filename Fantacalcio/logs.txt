@@ -1,84 +1,25 @@
-[21/10/2021 10:14:58] Il programma è stato eseguito
-[21/10/2021 10:14:58] creazione file per le squadre dei giocatori
-[21/10/2021 10:15:02] cartella per contenere i file creata
-[21/10/2021 10:15:06] file necessari per il gioco creati
-[21/10/2021 10:15:06] comicia l'asta dei calciatori
-[21/10/2021 10:16:46] Il programma è stato eseguito
-[21/10/2021 10:17:00] Il programma è stato eseguito
-[21/10/2021 10:17:00] creazione file per le squadre dei giocatori
-[21/10/2021 10:17:03] cartella per contenere i file creata
-[21/10/2021 10:17:06] file necessari per il gioco creati
-[21/10/2021 10:17:06] comicia l'asta dei calciatori
-[21/10/2021 10:19:21] Il programma è stato eseguito
-[21/10/2021 10:19:34] Il programma è stato eseguito
-[21/10/2021 10:19:34] creazione file per le squadre dei giocatori
-[21/10/2021 10:19:35] cartella per contenere i file creata
-[21/10/2021 10:19:39] file necessari per il gioco creati
-[21/10/2021 10:19:39] comicia l'asta dei calciatori
-[22/10/2021 08:54:59] Il programma è stato eseguito
-[22/10/2021 08:55:36] Il programma è stato eseguito
-[22/10/2021 08:57:19] Il programma è stato eseguito
-[22/10/2021 08:57:40] Il programma è stato eseguito
-[22/10/2021 08:59:24] Il programma è stato eseguito
-[22/10/2021 09:00:16] creazione file per le squadre dei giocatori
-[22/10/2021 09:00:19] cartella per contenere i file creata
-[22/10/2021 09:00:22] file necessari per il gioco creati
-[22/10/2021 09:00:22] comicia l'asta dei calciatori
-[22/10/2021 09:04:06] Il programma è stato eseguito
-[22/10/2021 09:04:06] creazione file per le squadre dei giocatori
-[22/10/2021 09:04:10] cartella per contenere i file creata
-[22/10/2021 09:04:15] file necessari per il gioco creati
-[22/10/2021 09:04:15] comicia l'asta dei calciatori
-[22/10/2021 09:07:17] Il programma è stato eseguito
-[22/10/2021 09:07:26] Il programma è stato eseguito
-[22/10/2021 09:07:26] creazione file per le squadre dei giocatori
-[22/10/2021 09:07:28] cartella per contenere i file creata
-[22/10/2021 09:07:34] file necessari per il gioco creati
-[22/10/2021 09:07:34] comicia l'asta dei calciatori
-[22/10/2021 09:09:48] completata la lista dei calciatori per l'asta
-[22/10/2021 09:11:51] Il programma è stato eseguito
-[22/10/2021 09:12:00] Il programma è stato eseguito
-[22/10/2021 09:12:00] creazione file per le squadre dei giocatori
-[22/10/2021 09:12:02] cartella per contenere i file creata
-[22/10/2021 09:12:05] file necessari per il gioco creati
-[22/10/2021 09:12:05] comicia l'asta dei calciatori
-[22/10/2021 09:16:35] Il programma è stato eseguito
-[22/10/2021 09:16:49] Il programma è stato eseguito
-[22/10/2021 09:16:49] creazione file per le squadre dei giocatori
-[22/10/2021 09:17:23] cartella per contenere i file creata
-[22/10/2021 09:17:29] file necessari per il gioco creati
-[22/10/2021 09:17:29] comicia l'asta dei calciatori
-[22/10/2021 09:19:33] Il programma è stato eseguito
-[22/10/2021 09:19:33] creazione file per le squadre dei giocatori
-[22/10/2021 09:19:36] cartella per contenere i file creata
-[22/10/2021 09:19:37] file necessari per il gioco creati
-[22/10/2021 09:19:37] comicia l'asta dei calciatori
-[28/10/2021 08:57:26] Il programma è stato eseguito
-[28/10/2021 08:57:26] creazione file per le squadre dei giocatori
-[28/10/2021 08:57:30] cartella per contenere i file creata
-[28/10/2021 08:57:39] file necessari per il gioco creati
-[28/10/2021 08:57:39] comicia l'asta dei calciatori
-[28/10/2021 08:57:53] Il programma è stato eseguito
-[28/10/2021 08:57:54] creazione file per le squadre dei giocatori
-[28/10/2021 08:57:56] cartella per contenere i file creata
-[28/10/2021 08:57:59] file necessari per il gioco creati
-[28/10/2021 08:57:59] comicia l'asta dei calciatori
-[28/10/2021 09:00:24] Il programma è stato eseguito
-[28/10/2021 09:00:24] creazione file per le squadre dei giocatori
-[28/10/2021 09:00:26] cartella per contenere i file creata
-[28/10/2021 09:00:29] file necessari per il gioco creati
-[28/10/2021 09:00:29] comicia l'asta dei calciatori
-[28/10/2021 09:01:01] Il programma è stato eseguito
-[28/10/2021 09:01:01] creazione file per le squadre dei giocatori
-[28/10/2021 09:01:02] cartella per contenere i file creata
-[28/10/2021 09:01:05] file necessari per il gioco creati
-[28/10/2021 09:01:05] comicia l'asta dei calciatori
-[28/10/2021 09:02:19] Il programma è stato eseguito
-[28/10/2021 09:02:19] creazione file per le squadre dei giocatori
-[28/10/2021 09:02:46] cartella per contenere i file creata
-[28/10/2021 09:04:59] Il programma è stato eseguito
-[28/10/2021 09:04:59] creazione file per le squadre dei giocatori
-[28/10/2021 09:05:02] cartella per contenere i file creata
-[28/10/2021 09:05:49] file necessari per il gioco creati
-[28/10/2021 09:05:49] comicia l'asta dei calciatori
-[28/10/2021 09:12:50] completata la lista dei calciatori per l'asta
+[28/10/2021 09:34:31] Il programma è stato eseguito
+[28/10/2021 09:34:40] Il programma è stato eseguito
+[28/10/2021 09:34:41] creazione file per le squadre dei giocatori
+[28/10/2021 09:34:42] cartella per contenere i file creata
+[28/10/2021 09:34:47] file necessari per il gioco creati
+[28/10/2021 09:34:47] Sono stati assegnati i fantacrediti a tutti i giocatori
+[28/10/2021 09:34:47] comicia l'asta dei calciatori
+[28/10/2021 09:42:11] completata la lista dei calciatori per l'asta
+[28/10/2021 09:55:42] è stata inseria un offerta pari a: '12'
+[28/10/2021 09:55:47] è stata inseria un offerta pari a: 'exitasta'
+[28/10/2021 09:57:23] Il giocatore 'oadndn ha comprato il seguente calciatore: musso juan, alla modica cifra di: 12 fantacrediti'
+[28/10/2021 09:57:29] I giocatori hanno terminato l'asta per un calciatore
+[28/10/2021 10:00:42] è stata inseria un offerta pari a: '21'
+[28/10/2021 10:00:45] è stata inseria un offerta pari a: '10'
+[28/10/2021 10:00:47] è stata inseria un offerta pari a: '23'
+[28/10/2021 10:00:50] è stata inseria un offerta pari a: 'exitasta'
+[28/10/2021 10:01:43] Il giocatore 'oadndn ha comprato il seguente calciatore: carboni andrea, alla modica cifra di: 23 fantacrediti'
+[28/10/2021 10:01:47] I giocatori hanno terminato l'asta per un calciatore
+[28/10/2021 10:09:38] Il programma è stato eseguito
+[28/10/2021 10:10:23] Il programma è stato eseguito
+[28/10/2021 10:10:23] creazione file per le squadre dei giocatori
+[28/10/2021 10:10:30] cartella per contenere i file creata
+[28/10/2021 10:10:33] file necessari per il gioco creati
+[28/10/2021 10:10:33] Sono stati assegnati i fantacrediti a tutti i giocatori
+[28/10/2021 10:10:33] comicia l'asta dei calciatori

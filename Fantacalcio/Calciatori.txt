@@ -1,4 +1,4 @@
-musso juan,portiere,atalanta,false
+musso juan,portiere,atalanta,true
 rossi francesco,portiere,atalanta,false
 sportiello marco,portiere,atalanta,false
 bardi francesco,portiere,bologna,false
@@ -98,7 +98,7 @@ theate arthur,difensore,bologna,false
 altare giorgio,difensore,cagliari,false
 bellanova raoul,difensore,cagliari,false
 caceres martin,difensore,cagliari,false
-carboni andrea,difensore,cagliari,false
+carboni andrea,difensore,cagliari,true
 ceppitelli luca,difensore,cagliari,false
 dalbert henrique,difensore,cagliari,false
 farago paolo,difensore,cagliari,false
