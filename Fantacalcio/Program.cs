@@ -111,9 +111,20 @@ namespace Fantacalcio
                     AssegnazioneFantacrediti(ref nPlayer, ref fantaCrediti);
                     string[] listaCalciatoriDaAcquistare = new string[0];
                     int nCalciatoriUguali = 0;
-                    ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                    ListaAsta(nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
                     WriteLogs("completata la lista dei calciatori per l'asta");
-                    Asta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                    Asta(nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                    while (nCalciatoriUguali > 0)
+                    {
+                        string[] playerSquadreIncomplete = SquadreIncomplete(ref nomiFantaAllenatori);
+                        if (playerSquadreIncomplete.Length != 0)
+                        {
+                            nCalciatoriUguali = 0;
+                            Array.Resize(ref listaCalciatoriDaAcquistare, 0);
+                            ListaAsta(playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                            Asta(playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                        }
+                    }
                 }
                 else { }//vado a riprendere singolarmente ogni giocatore finchè non hanno almeno un calciatore nella loro squadra
             }
@@ -175,18 +186,18 @@ namespace Fantacalcio
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_]+", "", RegexOptions.Compiled);
         }
-        private static void ListaAsta(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
+        private static void ListaAsta(string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
         {
             Console.WriteLine("Inizio asta");
             WriteLogs("comicia l'asta dei calciatori");
             string[] ruoliCalciaotirDaAcquistare = new string[] { "PORTIERE", "DIFENSORE", "CENTROCAMPISTA", "ATTACCANTE" };
             byte[] nMaxRuoliClaciatoriDaAcquistare = new byte[] { 1, 4, 4, 3 };
-            for (int i = 0; i < nomiFantaAllenatori.Length; i++)
+            for (int i = 0; i < fantaAllenatori.Length; i++)
             {
                 int nCalciatoriInseriti = 0, nMaxRulo = 0, ruolo = 0;
                 do
                 {
-                    Console.WriteLine($"Giocatore {nomiFantaAllenatori[i]} scrivi il nome del {ruoliCalciaotirDaAcquistare[ruolo]} che vuoi acquistare");
+                    Console.WriteLine($"Giocatore {fantaAllenatori[i]} scrivi il nome del {ruoliCalciaotirDaAcquistare[ruolo]} che vuoi acquistare");
                     string calciatoreDaComprare = Console.ReadLine();
                     if (ControlloEsistenza_RuoloCalciatore(ref calciatoreDaComprare, ruoliCalciaotirDaAcquistare[ruolo].ToLower()))
                     {//esiste il calciatore
@@ -243,7 +254,7 @@ namespace Fantacalcio
             }
             return false;
         }
-        private static void Asta(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
+        private static void Asta(string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
         {
             for (int i = 0; i < listaCalciatoriDaAcquistare.Length; i++)
             {
@@ -267,7 +278,7 @@ namespace Fantacalcio
                     {
                         if (risposta == "exitasta")
                         {
-                            AssegnazioneCalciatore(ref nomiFantaAllenatori, ref astaFinita, offertaAsta, ref fantaCrediti, listaCalciatoriDaAcquistare[i]);
+                            AssegnazioneCalciatore(fantaAllenatori, ref astaFinita, offertaAsta, ref fantaCrediti, listaCalciatoriDaAcquistare[i]);
                             WriteLogs($"I giocatori hanno terminato l'asta per un calciatore");
                         }
                         else
@@ -276,38 +287,29 @@ namespace Fantacalcio
                 } while (!astaFinita);
                 Console.WriteLine($"L'asta per il calciatore: {risposta} e' conclusa");
             }
-            if (nCalciatoriUguali > 0)
-            {
-                bool fineSquadre = false;
-                string[] playerSquadreIncomplete = SquadreIncomplete(ref nomiFantaAllenatori);
-                if (playerSquadreIncomplete.Length != 0)
-                {
-
-                }
-            }
             WriteLogs($"L'asta si è completamente conclusa");
             Console.WriteLine($"L'asta si è completamente conclusa");
         }
         //effettua le operazione di acquisto di un calciatore da parte di un giocatore
-        private static void AssegnazioneCalciatore(ref string[] nomiFantaAllenatori, ref bool astaFinita, int offertaAsta, ref int[] fantaCrediti, string calciatore)
+        private static void AssegnazioneCalciatore(string[] fantaAllenatori, ref bool astaFinita, int offertaAsta, ref int[] fantaCrediti, string calciatore)
         {
             bool nomeCorretto = false;
             do
             {
                 Console.WriteLine("\nInserisci il nome dell'utente che ha effettuato l'ultima offerta");
                 string nomePlayer = Console.ReadLine();
-                for (int i = 0; i < nomiFantaAllenatori.Length; i++)
+                for (int i = 0; i < fantaAllenatori.Length; i++)
                 {
-                    if (nomePlayer == nomiFantaAllenatori[i])
+                    if (nomePlayer == fantaAllenatori[i])
                     {
                         if (fantaCrediti[i] >= offertaAsta)
                         {
-                            string[] squadraPlayer = File.ReadAllLines(mainPath + $"\\Squadre\\{nomiFantaAllenatori[i]}.txt");
+                            string[] squadraPlayer = File.ReadAllLines(mainPath + $"\\Squadre\\{fantaAllenatori[i]}.txt");
                             if (squadraPlayer.Length < 11)
                             {
                                 Array.Resize(ref squadraPlayer, squadraPlayer.Length + 1);
                                 squadraPlayer[squadraPlayer.Length - 1] = calciatore;
-                                File.WriteAllLines(mainPath + $"\\Squadre\\{nomiFantaAllenatori[i]}.txt", squadraPlayer);
+                                File.WriteAllLines(mainPath + $"\\Squadre\\{fantaAllenatori[i]}.txt", squadraPlayer);
                                 AcquistoCalciatore(calciatore);
                                 fantaCrediti[i] -= offertaAsta;
                                 nomeCorretto = true;
