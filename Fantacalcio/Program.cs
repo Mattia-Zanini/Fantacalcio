@@ -111,18 +111,19 @@ namespace Fantacalcio
                     AssegnazioneFantacrediti(ref nPlayer, ref fantaCrediti);
                     string[] listaCalciatoriDaAcquistare = new string[0];
                     int nCalciatoriUguali = 0;
-                    ListaAsta(nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                    ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
                     WriteLogs("completata la lista dei calciatori per l'asta");
-                    Asta(nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                    Asta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                    //permette ai giocatori di acquistare altri calciatori, se eventualmente avevano scelto i medesimi
                     while (nCalciatoriUguali > 0)
                     {
-                        string[] playerSquadreIncomplete = SquadreIncomplete(ref nomiFantaAllenatori);
+                        string[] playerSquadreIncomplete = SquadreIncomplete(ref nomiFantaAllenatori, ref fantaCrediti);
                         if (playerSquadreIncomplete.Length != 0)
                         {
                             nCalciatoriUguali = 0;
                             Array.Resize(ref listaCalciatoriDaAcquistare, 0);
-                            ListaAsta(playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
-                            Asta(playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                            ListaAsta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                            Asta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
                         }
                     }
                 }
@@ -186,7 +187,7 @@ namespace Fantacalcio
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_]+", "", RegexOptions.Compiled);
         }
-        private static void ListaAsta(string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
+        private static void ListaAsta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
         {
             Console.WriteLine("Inizio asta");
             WriteLogs("comicia l'asta dei calciatori");
@@ -254,7 +255,7 @@ namespace Fantacalcio
             }
             return false;
         }
-        private static void Asta(string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
+        private static void Asta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
         {
             for (int i = 0; i < listaCalciatoriDaAcquistare.Length; i++)
             {
@@ -350,13 +351,14 @@ namespace Fantacalcio
                 }
             }
         }
-        private static string[] SquadreIncomplete(ref string[] nomiFantaAllenatori)
+        //crea un array con i nomi dei giocatori che hanno una rosa inferiore di 11 claciatori, ma con almeno 1 fantacredito
+        private static string[] SquadreIncomplete(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti)
         {
             string[] pSqIm = new string[0];
             for (int i = 0; i < nomiFantaAllenatori.Length; i++)
             {
                 string[] tmpSquadre = File.ReadAllLines(mainPath + $"\\Squadre\\{nomiFantaAllenatori[i]}.txt");
-                if (tmpSquadre.Length < 11)
+                if (tmpSquadre.Length < 11 && fantaCrediti[i] > 0)
                 {
                     Array.Resize(ref pSqIm, pSqIm.Length + 1);
                     pSqIm[pSqIm.Length - 1] = nomiFantaAllenatori[i];
