@@ -7,107 +7,112 @@ namespace Fantacalcio
 {
     class Program
     {
-        private static string mainPath = Environment.CurrentDirectory;
+        private static string mainPath = Environment.CurrentDirectory;//imposta la variabile "mainPath", con il percorso assoluto dell'eseguibile, come valore
         static void Main(string[] args)
         {
-            bool fileEmpty = false;
-            string[] nomiFantaAllenatori = new string[0];
-            string[] fantaAllenatoriNoSquadra = new string[0];
-            int[] fantaCrediti = new int[0];
-            mainPath = CleanPath(mainPath);
-            ExistLogs();
-            WriteLogs("Il programma è stato eseguito");
-            Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti);
+            bool fileEmpty = false;//variabile necessaria per tener traccia se i file di impostazione sono vuoti
+            string[] nomiFantaAllenatori = new string[0];//array dove saranno presenti tutti i nomi dei giocatori
+            string[] fantaAllenatoriNoSquadra = new string[0];//array per tener traccia dei fantaallenatori che non hanno una rosa
+            int[] fantaCrediti = new int[0];//array dove sono contenuti i fantacrediti di ogni giocatore
+            mainPath = CleanPath(mainPath);//chiama della funzione "CleanPath" dove gli viene passata per parametro una stringa, e questa funzione restituirà la stringa, togliendo alcuni percorsi relativi, non necessari
+            ExistLogs();//chiama la funzione "ExistLogs" che si occupa di controllare se è presente il file per salvare i logs
+            WriteLogs("Il programma è stato eseguito");//chiama la funzione "WriteLogs" per scrivere sul file dei log la stringa passata per parametro
+            Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti);//chiama la funzione setup e gli passata tutti gli array e variabili precedentemente creati
         }
         //pulisce il percorso del programma
         private static string CleanPath(string path)
         {
-            string[] tmp = path.Split('\\');
-            var tmpList = tmp.ToList();
-            tmpList.Remove("net5.0");
-            tmpList.Remove("Debug");
-            tmpList.Remove("bin");
-            tmp = tmpList.ToArray();
-            string outputPath = tmp[0];
-            for (int i = 1; i < tmp.Length; i++)
+            string[] tmp = path.Split('\\');//divide l'array per ogni \ che divide la stringa
+            var tmpList = tmp.ToList();//crea una lista dove inserisce i valori dell'array e per farlo lo converte in una lista
+            tmpList.Remove("net5.0");//rimuove la stringa passata per parametro alla funzione, dalla lista
+            tmpList.Remove("Debug");//rimuove la stringa passata per parametro alla funzione, dalla lista
+            tmpList.Remove("bin");//rimuove la stringa passata per parametro alla funzione, dalla lista
+            tmp = tmpList.ToArray();//copia i valori della lista dentro l'array, per farlo converte la lista in un array
+            string outputPath = tmp[0];//inizializza la variabile "outPath" con il primo elemento dell'array "tmp"
+            for (int i = 1; i < tmp.Length; i++)//ricompone il percorso assoluto
             {
-                outputPath += $"\\{tmp[i]}";
+                outputPath += $"\\{tmp[i]}";//aggiunge un pezzo di stringa
             }
-            return outputPath;
+            return outputPath;//ritorna il vaore della stringa "outPath"
         }
         //controlla se esiste il file dei logs
         private static void ExistLogs()
         {
-            if (!File.Exists(mainPath + "\\logs.txt"))
+            if (!File.Exists(mainPath + "\\logs.txt"))//controlla se nel percorso assoluto passata per parametro esiste il file (il nome e tipo del file sono compresi nel percorso assoluto)
             {
-                File.Create(mainPath + "\\logs.txt").Dispose();
-                Console.WriteLine("logs creati");
+                File.Create(mainPath + "\\logs.txt").Dispose();//crea il file nel percorso assoluto passato per parametro e rilascia le risorse del file
+                Console.WriteLine("logs creati");//avvisa l'utente che i file di log sono stati creati
             }
         }
         //scrive un log di quel che succede all'interno del programma
         private static void WriteLogs(string log)
         {
-            File.AppendAllText(mainPath + "\\logs.txt", $"{DateTime.Now.ToString("[dd/MM/yyyy HH:mm:ss]")} {log}" + Environment.NewLine);
+            File.AppendAllText(mainPath + "\\logs.txt", $"{DateTime.Now.ToString("[dd/MM/yyyy HH:mm:ss]")} {log}" + Environment.NewLine);//aggiunge una stringa alla fine del file, con tanto di "newline"
         }
         //ottiene i nomi dei FantaAllenatori
         private static string[] GetPlayersName(string[] playersName)
         {
-            playersName = Directory.GetFileSystemEntries(mainPath + "\\Squadre");
+            playersName = Directory.GetFileSystemEntries(mainPath + "\\Squadre");//ottiene i percorsi relativi dei file contenuti nel percorso assoluto passato per parametro
             for (int i = 0; i < playersName.Length; i++)
             {
-                string[] str = playersName[i].Split("Squadre\\");
-                string[] str2 = str[1].Split(".txt");
-                playersName[i] = str2[0];
+                string[] str = playersName[i].Split("Squadre\\");//splitta l'array in due elementi, 1 è "Squadre\\" il secondo è il nome del file e il suo tipo
+                string[] str2 = str[1].Split(".txt");//splitto di nuovo l'array, dove il primo elemento è il nome del file, il secondo è il tipo ".txt" del file
+                playersName[i] = str2[0];//assegno all'elemento della posizione in quel momento dell'array il valore dle nome del giocatore
             }
-            return playersName;
+            return playersName;//ritorna il contenuto dell'array
         }
         //controlla se tutti i giocatori hanno formato una squadra
         private static int CheckPlayersSquad(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra)
         {
-            nomiFantaAllenatori = GetPlayersName(nomiFantaAllenatori);
-            int nFantaAllenatoriNoSquadra = 0;
+            nomiFantaAllenatori = GetPlayersName(nomiFantaAllenatori);//chiama la funzione "GetPlayersName" che ritorna un array contenete come valori i nomi dei giocatori
+            int nFantaAllenatoriNoSquadra = 0;//inizializza la variabile che servirà per tener traccia dei giocatori che non hanno una rosa, ovvero neanche un calciatore
             for (int i = 0; i < nomiFantaAllenatori.Length; i++)
             {
-                string[] tmp = File.ReadAllLines(mainPath + $"\\Squadre\\{nomiFantaAllenatori[i]}.txt");
-                if (tmp.Length == 0)
+                string[] tmp = File.ReadAllLines(mainPath + $"\\Squadre\\{nomiFantaAllenatori[i]}.txt");//legge tutte le righe del file, presente nel percorso assoluto passato per parametro alla funzione
+                if (tmp.Length == 0)//nel caso il file non abbia neanche un riga
                 {
-                    Array.Resize(ref fantaAllenatoriNoSquadra, fantaAllenatoriNoSquadra.Length + 1);
-                    fantaAllenatoriNoSquadra[fantaAllenatoriNoSquadra.Length - 1] = nomiFantaAllenatori[i];
-                    nFantaAllenatoriNoSquadra++;
+                    Array.Resize(ref fantaAllenatoriNoSquadra, fantaAllenatoriNoSquadra.Length + 1);//fa un resize dell'array fantaAllenatoriNoSquadra, aumentando il numero di valori che può contenere di 1
+                    fantaAllenatoriNoSquadra[fantaAllenatoriNoSquadra.Length - 1] = nomiFantaAllenatori[i];//inserisce nell'ultima posizione possibile dell'array il nome del giocatore che non ha neanche un calciatore nella squadra
+                    nFantaAllenatoriNoSquadra++;//aumenta il valore della variabile di 1
                 }
             }
-            if (nFantaAllenatoriNoSquadra == 0)
+            if (nFantaAllenatoriNoSquadra == 0)//controlla se non ci sono fantaallenatori senza un calciatore
             {
-                Array.Resize(ref fantaAllenatoriNoSquadra, 0);
+                Array.Resize(ref fantaAllenatoriNoSquadra, 0);//ridimensiona l'array impostando il quantitativo di elementi che può contenere a 0
                 return 1;//tutti hanno almeno 1 calciatore
             }
             return -1;//almeno un giocatore non ha un calciatore
         }
         private static bool IsDirectoryEmpty(string path)//https://stackoverflow.com/questions/755574/how-to-quickly-check-if-folder-is-empty-net/954837
         {
-            return !Directory.EnumerateFileSystemEntries(path).Any();
+            return !Directory.EnumerateFileSystemEntries(path).Any();//controlla se nel percorso assoluto passato per parametro ci sono file, e "Any" restituisce un valore booleano true se il controllo restituisce un valore pari a 0 e false in caso contrario
+                                                                     //ma ritorna un valore opposto a quel che dovrebbe restituire grazie all'operatore booleano "not"
         }
+        //è la funzione principale, che gestisce, il controllo dei file, la loro creazione e chiama le altre funzioni che gestiranno il gioco
         private static void Setup(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra, ref int[] fantaCrediti)
         {
             if (!Directory.Exists(mainPath + "\\Squadre") || IsDirectoryEmpty(mainPath + "\\Squadre") || CheckPlayersSquad(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra) == -1)
+            //1 controlla se esiste la directory nel percorso assoluto, passato per parametro, 2 controlla se la directory è vuota, 3 controlla se i file, che dovrebbero contenere la lista della squadra dei giocatori, sono vuoti
+            //se una sola di queste condizioni restituisce valore "true" allora significa che bisogna eseguire/ripetere la configurazione iniziale
             {
-                if (fantaAllenatoriNoSquadra.Length == 0)
-                {
-                    WriteLogs("creazione file per le squadre dei giocatori");
-                    Console.WriteLine($"Inizio configurazione squadre");
-                    Console.WriteLine("Quanti sono i giocatori?");
-                    int nPlayer = 0; bool correctSyntax = false;
-                    CheckPlayersNum(ref nPlayer, ref correctSyntax);
-                    Array.Resize(ref nomiFantaAllenatori, nPlayer);
+                if (fantaAllenatoriNoSquadra.Length == 0)//controlla se ci sono giocatori senza una squadra
+                {//questa parte di codice viene eseguita quando ci sono fantaallenatori che non hanno una squadra
+                    WriteLogs("creazione file per le squadre dei giocatori");//scrive sul file di log che è iniziata la configurazione delle squadre
+                    Console.WriteLine($"Inizio configurazione squadre");//avvisa l'utente che comincia la configurazione delle squadre
+                    Console.WriteLine("Quanti sono i giocatori?");//chiede agli utenti, il quantitativo di giocatori che vuole partecipare al fantasmagorico Fantacalcio
+                    int nPlayer = 0; bool correctSyntax = false;//inizializza le variabili che serviranno per controllare rispettivamente il numero di player e se sono scritti in maniera conforme per la creazione di file su windows
+                    CheckPlayersNum(ref nPlayer, ref correctSyntax);//controlla se il numero di giocatori è consono per il gioco
+                    Array.Resize(ref nomiFantaAllenatori, nPlayer);//ridimensiona l'array che conterrài nomi dei fantaallenatori con il quantitativo di giocatori presenti
                     if (!Directory.Exists(mainPath + "\\Squadre")) { DirectoryInfo setupFolder = Directory.CreateDirectory(mainPath + "\\Squadre"); WriteLogs("cartella per contenere i file creata"); }
-                    CheckPlayersName(ref nomiFantaAllenatori);
+                    //(riferito alla riga di sopra) controlla se non è già presente la cartella per contenere le squadre dei giocatori, in caso quest'ultima non c'è la crea, e scrive nei file dei log quando questa è stata creata
+                    CheckPlayersName(ref nomiFantaAllenatori);//controlla che non ci siano nomi uguali tra i giocatori
                     for (int i = 0; i < nPlayer; i++)
                     {
-                        nomiFantaAllenatori[i] = RemoveSpecialCharacters(nomiFantaAllenatori[i]);
-                        using (StreamWriter sw = File.CreateText($"{mainPath}\\Squadre\\{nomiFantaAllenatori[i]}.txt")) { }
+                        nomiFantaAllenatori[i] = RemoveSpecialCharacters(nomiFantaAllenatori[i]);//rende conforme i nomi dei giocatori con il formato richiesto per una creazione dei file di windows
+                        using (StreamWriter sw = File.CreateText($"{mainPath}\\Squadre\\{nomiFantaAllenatori[i]}.txt")) { }//crea i file con i nomi, eventualmente puliti, dei giocatori
                     }
-                    Console.WriteLine($"Creazione file completata");
-                    WriteLogs("file necessari per il gioco creati");
+                    Console.WriteLine($"Creazione file completata");//avvisa l'utente che le directoy e i file necessari ai giocatori per contenere la loro rosa sono stati creati
+                    WriteLogs("file necessari per il gioco creati");//scrive un log, che la creazione dei file e directory principali sono stati creati
                     AssegnazioneFantacrediti(ref nPlayer, ref fantaCrediti);
                     string[] listaCalciatoriDaAcquistare = new string[0];
                     int nCalciatoriUguali = 0;
@@ -185,7 +190,7 @@ namespace Fantacalcio
         }
         private static string RemoveSpecialCharacters(string str)//https://stackoverflow.com/questions/1120198/most-efficient-way-to-remove-special-characters-from-string
         {
-            return Regex.Replace(str, "[^a-zA-Z0-9_]+", "", RegexOptions.Compiled);
+            return Regex.Replace(str, "[^a-zA-Z0-9_]+", "", RegexOptions.Compiled);//ritorna la medesima stringa ricevuta come parametro, ma sostituisce i caratteri non inseriti all'interno del secondo parametro di "Replace" con il niente (sostanzialmente li toglie)
         }
         private static void ListaAsta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
         {

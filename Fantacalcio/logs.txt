@@ -134,3 +134,5 @@
 [28/10/2021 17:03:00] Il giocatore 'mattia' ha comprato il seguente calciatore: torregrossa ernesto, alla modica cifra di: 1 fantacrediti
 [28/10/2021 17:03:00] I giocatori hanno terminato l'asta per un calciatore
 [28/10/2021 17:03:00] L'asta si è completamente conclusa
+[04/11/2021 08:21:30] Il programma è stato eseguito
+[04/11/2021 08:21:30] creazione file per le squadre dei giocatori
