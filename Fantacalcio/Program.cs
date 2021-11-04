@@ -113,23 +113,24 @@ namespace Fantacalcio
                     }
                     Console.WriteLine($"Creazione file completata");//avvisa l'utente che le directoy e i file necessari ai giocatori per contenere la loro rosa sono stati creati
                     WriteLogs("file necessari per il gioco creati");//scrive un log, che la creazione dei file e directory principali sono stati creati
-                    AssegnazioneFantacrediti(ref nPlayer, ref fantaCrediti);
-                    string[] listaCalciatoriDaAcquistare = new string[0];
-                    int nCalciatoriUguali = 0;
-                    ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
-                    WriteLogs("completata la lista dei calciatori per l'asta");
-                    Asta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
-                    //permette ai giocatori di acquistare altri calciatori, se eventualmente avevano scelto i medesimi
-                    while (nCalciatoriUguali > 0)
+                    AssegnazioneFantacrediti(ref nPlayer, ref fantaCrediti);//imposta ad ogni giocatore i suoi fantacrediti iniziali
+                    string[] listaCalciatoriDaAcquistare = new string[0];//crea l'array che conterrà tutti i nomi dei calciatori che verranno comprati dai giocatori
+                    int nCalciatoriUguali = 0;//inizializza la variabile che terrà conto del numero, eventuale, di calcicatori uguali, richiesti durante l'asta
+                    ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);//si occupa di popolare l'array con i nomi dei calciatori da comprare
+                    WriteLogs("completata la lista dei calciatori per l'asta");//scrive nel fiel di log che è stata completata la lista dei calciatori da acquistare
+                    Asta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);//gestisce tutt l'asta dei giocatori
+                    while (nCalciatoriUguali > 0)//permette ai giocatori di acquistare altri calciatori, se eventualmente avevano scelto i medesimi
                     {
-                        string[] playerSquadreIncomplete = SquadreIncomplete(ref nomiFantaAllenatori, ref fantaCrediti);
-                        if (playerSquadreIncomplete.Length != 0)
+                        string[] playerSquadreIncomplete = SquadreIncomplete(ref nomiFantaAllenatori, ref fantaCrediti);//inizializza l'array con i nomi dei fantaallenatori che non hanno una rosa completa, ma che hanno un minimo di fantacrediti
+                        if (playerSquadreIncomplete.Length != 0)//controlla se ci sono giocatori senza rosa completa
                         {
                             nCalciatoriUguali = 0;
                             Array.Resize(ref listaCalciatoriDaAcquistare, 0);
                             ListaAsta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
                             Asta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
                         }
+                        else
+                            nCalciatoriUguali = 0;//nel caso, in cui ci sono giocatoir senza rosa completa ma non hanno crediti a sufficienza
                     }
                 }
                 else { }//vado a riprendere singolarmente ogni giocatore finchè non hanno almeno un calciatore nella loro squadra
