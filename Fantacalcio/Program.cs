@@ -19,8 +19,7 @@ namespace Fantacalcio
             WriteLogs("Il programma è stato eseguito");//chiama la funzione "WriteLogs" per scrivere sul file dei log la stringa passata per parametro
             Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti);//chiama la funzione setup e gli passata tutti gli array e variabili precedentemente creati
         }
-        //pulisce il percorso del programma
-        private static string CleanPath(string path)
+        private static string CleanPath(string path)//pulisce il percorso del programma
         {
             string[] tmp = path.Split('\\');//divide l'array per ogni \ che divide la stringa
             var tmpList = tmp.ToList();//crea una lista dove inserisce i valori dell'array e per farlo lo converte in una lista
@@ -35,8 +34,7 @@ namespace Fantacalcio
             }
             return outputPath;//ritorna il vaore della stringa "outPath"
         }
-        //controlla se esiste il file dei logs
-        private static void ExistLogs()
+        private static void ExistLogs()//controlla se esiste il file dei logs
         {
             if (!File.Exists(mainPath + "\\logs.txt"))//controlla se nel percorso assoluto passata per parametro esiste il file (il nome e tipo del file sono compresi nel percorso assoluto)
             {
@@ -44,13 +42,11 @@ namespace Fantacalcio
                 Console.WriteLine("logs creati");//avvisa l'utente che i file di log sono stati creati
             }
         }
-        //scrive un log di quel che succede all'interno del programma
-        private static void WriteLogs(string log)
+        private static void WriteLogs(string log)//scrive un log di quel che succede all'interno del programma
         {
             File.AppendAllText(mainPath + "\\logs.txt", $"{DateTime.Now.ToString("[dd/MM/yyyy HH:mm:ss]")} {log}" + Environment.NewLine);//aggiunge una stringa alla fine del file, con tanto di "newline"
         }
-        //ottiene i nomi dei FantaAllenatori
-        private static string[] GetPlayersName(string[] playersName)
+        private static string[] GetPlayersName(string[] playersName)//ottiene i nomi dei FantaAllenatori
         {
             playersName = Directory.GetFileSystemEntries(mainPath + "\\Squadre");//ottiene i percorsi relativi dei file contenuti nel percorso assoluto passato per parametro
             for (int i = 0; i < playersName.Length; i++)
@@ -61,8 +57,7 @@ namespace Fantacalcio
             }
             return playersName;//ritorna il contenuto dell'array
         }
-        //controlla se tutti i giocatori hanno formato una squadra
-        private static int CheckPlayersSquad(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra)
+        private static int CheckPlayersSquad(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra)//controlla se tutti i giocatori hanno formato una squadra
         {
             nomiFantaAllenatori = GetPlayersName(nomiFantaAllenatori);//chiama la funzione "GetPlayersName" che ritorna un array contenete come valori i nomi dei giocatori
             int nFantaAllenatoriNoSquadra = 0;//inizializza la variabile che servirà per tener traccia dei giocatori che non hanno una rosa, ovvero neanche un calciatore
@@ -88,8 +83,7 @@ namespace Fantacalcio
             return !Directory.EnumerateFileSystemEntries(path).Any();//controlla se nel percorso assoluto passato per parametro ci sono file, e "Any" restituisce un valore booleano true se il controllo restituisce un valore pari a 0 e false in caso contrario
                                                                      //ma ritorna un valore opposto a quel che dovrebbe restituire grazie all'operatore booleano "not"
         }
-        //è la funzione principale, che gestisce, il controllo dei file, la loro creazione e chiama le altre funzioni che gestiranno il gioco
-        private static void Setup(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra, ref int[] fantaCrediti)
+        private static void Setup(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra, ref int[] fantaCrediti)//è la funzione principale, che gestisce, il controllo dei file, la loro creazione e chiama le altre funzioni che gestiranno il gioco
         {
             if (!Directory.Exists(mainPath + "\\Squadre") || IsDirectoryEmpty(mainPath + "\\Squadre") || CheckPlayersSquad(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra) == -1)
             //1 controlla se esiste la directory nel percorso assoluto, passato per parametro, 2 controlla se la directory è vuota, 3 controlla se i file, che dovrebbero contenere la lista della squadra dei giocatori, sono vuoti
@@ -124,8 +118,8 @@ namespace Fantacalcio
                         string[] playerSquadreIncomplete = SquadreIncomplete(ref nomiFantaAllenatori, ref fantaCrediti);//inizializza l'array con i nomi dei fantaallenatori che non hanno una rosa completa, ma che hanno un minimo di fantacrediti
                         if (playerSquadreIncomplete.Length != 0)//controlla se ci sono giocatori senza rosa completa
                         {
-                            nCalciatoriUguali = 0;
-                            Array.Resize(ref listaCalciatoriDaAcquistare, 0);
+                            nCalciatoriUguali = 0;//imposta il valore dei calciatori uguali a 0
+                            Array.Resize(ref listaCalciatoriDaAcquistare, 0);//ridimensiona l'array a 0
                             ListaAsta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
                             Asta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
                         }
@@ -137,34 +131,31 @@ namespace Fantacalcio
             }
             else { }//quando ci sono tutti i file necessari e tutti i fanta-allenatori hanno almeno una rosa decente
         }
-        //assegna i fantacreditia a tutti i giocatori
-        private static void AssegnazioneFantacrediti(ref int nPlayer, ref int[] fantaCrediti)
+        private static void AssegnazioneFantacrediti(ref int nPlayer, ref int[] fantaCrediti)//assegna i fantacreditia a tutti i giocatori
         {
-            for (int i = 0; i < nPlayer; i++)
+            for (int i = 0; i < nPlayer; i++)//ripete per tutti i giocatori
             {
-                Array.Resize(ref fantaCrediti, fantaCrediti.Length + 1);
-                fantaCrediti[i] = 500;
+                Array.Resize(ref fantaCrediti, fantaCrediti.Length + 1);//ridimensiona l'array, aumentando la grandezza di questo di 1
+                fantaCrediti[i] = 500;//assegna al giocatore i suoi fantacrediti
             }
-            WriteLogs($"Sono stati assegnati i fantacrediti a tutti i giocatori");
+            WriteLogs($"Sono stati assegnati i fantacrediti a tutti i giocatori");//viene scritto una riga di log, che indica la conclusione dell'assegnazione dei fantacrediti
         }
-        //verifica che venga inserito un numero idoneo di giocatori
-        private static void CheckPlayersNum(ref int nPlayer, ref bool correctSyntax)
+        private static void CheckPlayersNum(ref int nPlayer, ref bool correctSyntax)//verifica che venga inserito un numero idoneo di giocatori
         {
             do
             {
-                correctSyntax = int.TryParse(Console.ReadLine(), out nPlayer);
-                if (!correctSyntax)
+                correctSyntax = int.TryParse(Console.ReadLine(), out nPlayer);//prende in input da tastiera, lo converte in int32 e se la conversione ha successo restituisce un valore true
+                if (!correctSyntax)//se l'utente non inscerisce un numero
                 {
-                    Console.WriteLine("Inserisci un valore valido");
+                    Console.WriteLine("Inserisci un valore valido");//avvisa l'utente che la prossima volta, deve inserire un valore accettabile dal programma (int32)
                 }
-                else if (nPlayer <= 1 || nPlayer > 56)
-                {
-                    Console.WriteLine("Inserisci un numero maggiore di 1 e minore di 57");
+                else if (nPlayer <= 1 || nPlayer > 56)//caso in cui, l'utente ha inserito un numero in input ma questo è minore di 1 o maggiore di 56
+                {//questo controllo c'è perchè in questo programma solo un giocatore può avere un determinato calciatore, quindi, se nella seria A ci sono 618 calciatori, al fine di avere tutte squadre con calciatori non doppi, sono possibili un numero massimo di 56 giocatori
+                    Console.WriteLine("Inserisci un numero maggiore di 1 e minore di 57");//avvisa l'utente riguardo al valore che deve inserire
                 }
-            } while (!correctSyntax || nPlayer <= 1 || nPlayer > 56);
+            } while (!correctSyntax || nPlayer <= 1 || nPlayer > 56);//il ciclo finisce se l'utente inserisce un numero ed è un valore compreso tra 1 e 57 (esclusi)
         }
-        //popola l'array con i nomi dei giocatori, e verifica se sono presenti nomi uguali
-        private static void CheckPlayersName(ref string[] nomiFantaAllenatori)
+        private static void CheckPlayersName(ref string[] nomiFantaAllenatori)//popola l'array con i nomi dei giocatori, e verifica se sono presenti nomi uguali
         {
             for (int i = 0; i < nomiFantaAllenatori.Length; i++)
             {
@@ -177,8 +168,7 @@ namespace Fantacalcio
                 }
             }
         }
-        //ispeziona tutto l'array per vedere se esiste già il giocatore che l'utente ha inserito
-        private static bool CheckSameName(ref string[] nomiFantaAllenatori, int nNomiInseriti)
+        private static bool CheckSameName(ref string[] nomiFantaAllenatori, int nNomiInseriti)//ispeziona tutto l'array per vedere se esiste già il giocatore che l'utente ha inserito
         {
             for (int i = 0; i < nNomiInseriti; i++)
             {
@@ -227,8 +217,7 @@ namespace Fantacalcio
                 } while (nCalciatoriInseriti < 11);
             }
         }
-        //controlla se l'utente ha inserito il nome di un calciatore valido e se ha il ruolo richiesto
-        private static bool ControlloEsistenza_RuoloCalciatore(ref string calciatoreDaComprare, string ruolo)
+        private static bool ControlloEsistenza_RuoloCalciatore(ref string calciatoreDaComprare, string ruolo)//controlla se l'utente ha inserito il nome di un calciatore valido e se ha il ruolo richiesto
         {
             string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");
             for (int i = 0; i < calciatori.Length; i++)
@@ -239,8 +228,7 @@ namespace Fantacalcio
             }
             return false;
         }
-        //controlla se è già presente un calciatore nella lista dell'asta
-        private static bool ControlloLista(ref string[] listaCalciatoriDaAcquistare, ref string calciatoreDaComprare, ref int nCalciatoriUguali)
+        private static bool ControlloLista(ref string[] listaCalciatoriDaAcquistare, ref string calciatoreDaComprare, ref int nCalciatoriUguali)//controlla se è già presente un calciatore nella lista dell'asta
         {
             bool calcUguali = false;
             if (listaCalciatoriDaAcquistare.Length == 0)
@@ -297,8 +285,7 @@ namespace Fantacalcio
             WriteLogs($"L'asta si è completamente conclusa");
             Console.WriteLine($"L'asta si è completamente conclusa");
         }
-        //effettua le operazione di acquisto di un calciatore da parte di un giocatore
-        private static void AssegnazioneCalciatore(string[] fantaAllenatori, ref bool astaFinita, int offertaAsta, ref int[] fantaCrediti, string calciatore)
+        private static void AssegnazioneCalciatore(string[] fantaAllenatori, ref bool astaFinita, int offertaAsta, ref int[] fantaCrediti, string calciatore)//effettua le operazione di acquisto di un calciatore da parte di un giocatore
         {
             bool nomeCorretto = false;
             do
@@ -341,8 +328,7 @@ namespace Fantacalcio
                 }
             } while (!nomeCorretto);
         }
-        //rende impossbile l'eventuale tentativo di riacquisto di un calciatore
-        private static void AcquistoCalciatore(string calciatore)
+        private static void AcquistoCalciatore(string calciatore)//rende impossbile l'eventuale tentativo di riacquisto di un calciatore
         {
             string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");
             for (int i = 0; i < calciatori.Length; i++)
@@ -357,8 +343,7 @@ namespace Fantacalcio
                 }
             }
         }
-        //crea un array con i nomi dei giocatori che hanno una rosa inferiore di 11 claciatori, ma con almeno 1 fantacredito
-        private static string[] SquadreIncomplete(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti)
+        private static string[] SquadreIncomplete(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti)//crea un array con i nomi dei giocatori che hanno una rosa inferiore di 11 claciatori, ma con almeno 1 fantacredito
         {
             string[] pSqIm = new string[0];
             for (int i = 0; i < nomiFantaAllenatori.Length; i++)
