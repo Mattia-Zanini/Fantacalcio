@@ -136,3 +136,15 @@
 [28/10/2021 17:03:00] L'asta si è completamente conclusa
 [04/11/2021 08:21:30] Il programma è stato eseguito
 [04/11/2021 08:21:30] creazione file per le squadre dei giocatori
+[05/11/2021 08:35:10] Il programma è stato eseguito
+[05/11/2021 08:35:10] creazione file per le squadre dei giocatori
+[05/11/2021 08:35:14] cartella per contenere i file creata
+[05/11/2021 08:35:18] file necessari per il gioco creati
+[05/11/2021 08:35:18] Sono stati assegnati i fantacrediti a tutti i giocatori
+[05/11/2021 08:35:18] comicia l'asta dei calciatori
+[05/11/2021 09:02:38] Il programma è stato eseguito
+[05/11/2021 09:02:39] creazione file per le squadre dei giocatori
+[05/11/2021 09:02:46] cartella per contenere i file creata
+[05/11/2021 09:02:51] file necessari per il gioco creati
+[05/11/2021 09:02:51] Sono stati assegnati i fantacrediti a tutti i giocatori
+[05/11/2021 09:02:51] comicia l'asta dei calciatori

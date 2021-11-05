@@ -159,67 +159,69 @@ namespace Fantacalcio
         {
             for (int i = 0; i < nomiFantaAllenatori.Length; i++)
             {
-                Console.WriteLine($"Scrivi il nome del giocatore n°{i + 1}");
-                nomiFantaAllenatori[i] = Console.ReadLine();
-                if (CheckSameName(ref nomiFantaAllenatori, i))
+                Console.WriteLine($"Scrivi il nome del giocatore n°{i + 1}");//avvisa un utente di inserire il suo nome
+                nomiFantaAllenatori[i] = Console.ReadLine();//prende in input ciò che l'utente digita da tastiera
+                if (CheckSameName(ref nomiFantaAllenatori, i))//controlla se il nome che l'utente ha inserito è già stato precedentemente registrato, da parte di un altra persona
                 {
-                    i--;
-                    Console.WriteLine("Nome già registrato, inseriscine un altro");
+                    i--;//diminuisce i, per far ricominciare
+                    Console.WriteLine("Nome già registrato, inseriscine un altro");//avvisa l'utente che il nome che ha digitato è già stato registrato
                 }
             }
         }
         private static bool CheckSameName(ref string[] nomiFantaAllenatori, int nNomiInseriti)//ispeziona tutto l'array per vedere se esiste già il giocatore che l'utente ha inserito
         {
-            for (int i = 0; i < nNomiInseriti; i++)
+            for (int i = 0; i < nNomiInseriti; i++)//ripete il ciclo un numero di volte pari agli utenti che si sono registrati
             {
-                if (nomiFantaAllenatori[nNomiInseriti] == nomiFantaAllenatori[i])
+                if (nomiFantaAllenatori[nNomiInseriti] == nomiFantaAllenatori[i])//controlla se il nome inserito è già stato scelto
                 {
-                    return true;
+                    return true;//il nome è già stato scelto
                 }
             }
-            return false;
+            return false;//nessuno ha ancora digitato quel nome
         }
         private static string RemoveSpecialCharacters(string str)//https://stackoverflow.com/questions/1120198/most-efficient-way-to-remove-special-characters-from-string
         {
-            return Regex.Replace(str, "[^a-zA-Z0-9_]+", "", RegexOptions.Compiled);//ritorna la medesima stringa ricevuta come parametro, ma sostituisce i caratteri non inseriti all'interno del secondo parametro di "Replace" con il niente (sostanzialmente li toglie)
+            return Regex.Replace(str, "[^a-zA-Z0-9_]+", "");//ritorna la medesima stringa ricevuta come parametro, ma sostituisce i caratteri non inseriti all'interno del secondo parametro di "Replace" con il niente (sostanzialmente li toglie)
         }
-        private static void ListaAsta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
-        {
-            Console.WriteLine("Inizio asta");
-            WriteLogs("comicia l'asta dei calciatori");
-            string[] ruoliCalciaotirDaAcquistare = new string[] { "PORTIERE", "DIFENSORE", "CENTROCAMPISTA", "ATTACCANTE" };
-            byte[] nMaxRuoliClaciatoriDaAcquistare = new byte[] { 1, 4, 4, 3 };
-            for (int i = 0; i < fantaAllenatori.Length; i++)
+        //RegexOptions.Compiled
+        //il "Compiled" specifica che l'espressione regolare viene compilata in un assembly, ciò consente un'esecuzione più rapida ma aumenta il tempo di avvio.
+        private static void ListaAsta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)//gestisce tutti i nomi che vengono inseriti da parte degli utenti, questi sono i calciatori che i fantaallenatori vorrebberpo acquistare
+        {//la funzione ListaAsta si occupa di creare la lista finale di tutti i quanti i calciatori, non doppi, che i giocatori acquisteranno
+            Console.WriteLine("Inizio asta");//avvisa gli utenti che comincerà l'asta
+            WriteLogs("comicia l'asta dei calciatori");//viene scritto un log che segna l'inizio dell'asta
+            string[] ruoliCalciaotirDaAcquistare = new string[] { "PORTIERE", "DIFENSORE", "CENTROCAMPISTA", "ATTACCANTE" };//viene inizializzato un array che contiene i vari ruoli che i calciatori possono avere
+            byte[] nMaxRuoliClaciatoriDaAcquistare = new byte[] { 1, 4, 4, 2 };//numero massimo di calciatori per ruolo che un utente può acquistare, in corrispondenza dell'array "ruoliCalciaotirDaAcquistare"
+            for (int i = 0; i < fantaAllenatori.Length; i++)//ripete il ciclo per tutti i giocatori
             {
-                int nCalciatoriInseriti = 0, nMaxRulo = 0, ruolo = 0;
+                int nCalciatoriInseriti = 0, nMaxRulo = 0, ruolo = 0;//inizializzo le variabili
                 do
                 {
-                    Console.WriteLine($"Giocatore {fantaAllenatori[i]} scrivi il nome del {ruoliCalciaotirDaAcquistare[ruolo]} che vuoi acquistare");
-                    string calciatoreDaComprare = Console.ReadLine();
-                    if (ControlloEsistenza_RuoloCalciatore(ref calciatoreDaComprare, ruoliCalciaotirDaAcquistare[ruolo].ToLower()))
-                    {//esiste il calciatore
-                        if (ControlloLista(ref listaCalciatoriDaAcquistare, ref calciatoreDaComprare, ref nCalciatoriUguali))
-                        {
-                            Array.Resize(ref listaCalciatoriDaAcquistare, listaCalciatoriDaAcquistare.Length + 1);
-                            listaCalciatoriDaAcquistare[listaCalciatoriDaAcquistare.Length - 1] = calciatoreDaComprare;
+                    Console.WriteLine($"Giocatore {fantaAllenatori[i]} scrivi il nome del {ruoliCalciaotirDaAcquistare[ruolo]} che vuoi acquistare");//chiede all'utente un calciatore di un determinato ruolo, da inserire
+                    string calciatoreDaComprare = Console.ReadLine();//prende in input ciò che l'utente inserisce da tastiera
+                    if (ControlloEsistenza_RuoloCalciatore(ref calciatoreDaComprare, ruoliCalciaotirDaAcquistare[ruolo].ToLower()))//controlla che il claciatore che l'utente ha inserito esiste ed è del ruolo richiesto
+                    {//esiste il calciatore ed è del ruolo richiesto
+                        if (ControlloLista(ref listaCalciatoriDaAcquistare, ref calciatoreDaComprare, ref nCalciatoriUguali))//controlla se un determinato calciatore che l'utente ha inserito è già stato scelto da qualcuno
+                        {//il calciatore non è stato ancora scelto
+                            Array.Resize(ref listaCalciatoriDaAcquistare, listaCalciatoriDaAcquistare.Length + 1);//si ridimensiona l'array "listaCalciatoriDaAcquistare" , aumentando la sua grandezza di 1
+                            listaCalciatoriDaAcquistare[listaCalciatoriDaAcquistare.Length - 1] = calciatoreDaComprare;//inserisce nell'ultima posizione dell'array, possibile, il nome del calciatore che uno o più giocatori vorrebbero acquistare
                         }
-                        nCalciatoriInseriti++; nMaxRulo++;
-                        if (nMaxRulo == nMaxRuoliClaciatoriDaAcquistare[ruolo])
+                        nCalciatoriInseriti++; nMaxRulo++;//aumento il numero di calciatori inseriti e il ruolo di quel tipo di calciatore di 1
+                        if (nMaxRulo == nMaxRuoliClaciatoriDaAcquistare[ruolo])//viene controllato se sono stati inseriti il numero massimo di calciatori per quel determinato ruolo
                         {
-                            ruolo++;
-                            nMaxRulo = 0;
+                            ruolo++;//aumenta il segna posto dell'array dei ruoli
+                            nMaxRulo = 0;//azzera la variabile che tine conto del numero di calciatori per ruolo inseriti
                         }
                     }
                     else
-                    {
-                        Console.WriteLine("Non esiste il calciatore o non è del ruolo richiesto\n");
+                    {//il calciatore non esiste o non è del ruolo richiesto
+                        Console.WriteLine("Non esiste il calciatore o non è del ruolo richiesto\n");//avvisa l'utente che il calciatore che ha inserito non esiste o non è del ruolo che il programma richiede di inserire
                     }
-                } while (nCalciatoriInseriti < 11);
+                } while (nCalciatoriInseriti < 11);//finisce il ciclo per un utente quando inserisce 11 calciatori
             }
         }
         private static bool ControlloEsistenza_RuoloCalciatore(ref string calciatoreDaComprare, string ruolo)//controlla se l'utente ha inserito il nome di un calciatore valido e se ha il ruolo richiesto
         {
-            string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");
+            string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");//legge tutte le righe del file passato per parametro, ogni riga del file corrisponde ad 
             for (int i = 0; i < calciatori.Length; i++)
             {
                 string[] calciatore = calciatori[i].Split(',');
