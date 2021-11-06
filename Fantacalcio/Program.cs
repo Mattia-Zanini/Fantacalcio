@@ -221,35 +221,35 @@ namespace Fantacalcio
         }
         private static bool ControlloEsistenza_RuoloCalciatore(ref string calciatoreDaComprare, string ruolo)//controlla se l'utente ha inserito il nome di un calciatore valido e se ha il ruolo richiesto
         {
-            string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");//legge tutte le righe del file passato per parametro, ogni riga del file corrisponde ad 
-            for (int i = 0; i < calciatori.Length; i++)
+            string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");//legge tutte le righe del file passato per parametro, ogni riga del file corrisponde ad un elemento dell'array
+            for (int i = 0; i < calciatori.Length; i++)//ripete il for per un quantitativo di volte pari alle righe del file
             {
-                string[] calciatore = calciatori[i].Split(',');
-                if (calciatoreDaComprare == calciatore[0] && ruolo == calciatore[1])
-                    return true;
+                string[] calciatore = calciatori[i].Split(',');//divide la riga in 4 elementi
+                if (calciatoreDaComprare == calciatore[0] && ruolo == calciatore[1])//confronta se il nome/cognome che l'utente ha inserito e il ruolo richiesto corrispondono a quelli di un calciatore esistente
+                    return true;//ritorna un valore positivo nel caso in cui queste due condizioni sono verificate contemporaneamente
             }
-            return false;
+            return false;//ritorna un valore negativo se, dopo aver confrontato tutti i calciatori, nessuno di questi corrisponde ai valori inseriti
         }
         private static bool ControlloLista(ref string[] listaCalciatoriDaAcquistare, ref string calciatoreDaComprare, ref int nCalciatoriUguali)//controlla se è già presente un calciatore nella lista dell'asta
         {
-            bool calcUguali = false;
-            if (listaCalciatoriDaAcquistare.Length == 0)
+            bool calcUguali = false;//inizializza con un valore negativo, questa variabile server per dire se ci son stati dei calciatori uguali
+            if (listaCalciatoriDaAcquistare.Length == 0)//se non ci sono calciatori da confrontare
             {
-                return true;
+                return true;//ritorna un valore positivo, non ha senso confrontare un calciatore, se questoè il primo della lista
             }
-            for (int i = 0; i < listaCalciatoriDaAcquistare.Length; i++)
+            for (int i = 0; i < listaCalciatoriDaAcquistare.Length; i++)//confronta un calciatore con tutta la lista di quelli inseriti fino a quel momento
             {
-                if (calciatoreDaComprare == listaCalciatoriDaAcquistare[i])
+                if (calciatoreDaComprare == listaCalciatoriDaAcquistare[i])//confronta se i nomi sono identici
                 {
-                    calcUguali = true;
+                    calcUguali = true;//imposta la variabile a true, quindi è stato trovato ul calciatore già ripetuto
                     nCalciatoriUguali++;//calciatori uguali
                 }
             }
-            if (!calcUguali)
+            if (!calcUguali)//se viene scansionato tutto l'array e non sono stati trovati calciatori uguali
             {
-                return true;
+                return true;//ritorna un valore positivo
             }
-            return false;
+            return false;//dopo tutti questi controlli, è stato trovato un calciatore uguale a quello inserito 
         }
         private static void Asta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
         {
