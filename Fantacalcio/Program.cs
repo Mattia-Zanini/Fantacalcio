@@ -251,41 +251,41 @@ namespace Fantacalcio
             }
             return false;//dopo tutti questi controlli, è stato trovato un calciatore uguale a quello inserito 
         }
-        private static void Asta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)
+        private static void Asta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)//grestisce la disputa che avviene tra i giocatori, al fine di ottenere un determinato calciatore
         {
-            for (int i = 0; i < listaCalciatoriDaAcquistare.Length; i++)
+            for (int i = 0; i < listaCalciatoriDaAcquistare.Length; i++)//itera per un numero di volte pari ai calciatori messi in vendita, non doppioni
             {
-                bool astaFinita = false;
-                int offertaAsta = 0;
-                string risposta = "";
+                bool astaFinita = false;//inizializzazione di una variabile, a false; questa servirà per dire al programma quando un asta per un calciatore si è conclusa
+                int offertaAsta = 0;//inizializzazione di una variabile int32 con valore pari a 0, serve per tener traccia dei prezzi che i giocatori
+                string risposta = "";//inizializzazione di una variabile stringa, con valore ' "" ', questa serve per salvare l'input che l'utente digita da tastiera
                 do
                 {
-                    Console.WriteLine($"Inserisci un offerta per il calciatore: {listaCalciatoriDaAcquistare[i]}");
-                    risposta = Console.ReadLine().ToLower();
-                    WriteLogs($"è stata inseria un offerta pari a: '{risposta}'");
-                    try
+                    Console.WriteLine($"Inserisci un offerta per il calciatore: {listaCalciatoriDaAcquistare[i]}");//chiede all'utente un offerta per quel determinato calciatore
+                    risposta = Console.ReadLine().ToLower();//riceve in input, ciò che l'utente scrive sa tastiera e lo mette tutto in minuscolo
+                    WriteLogs($"è stata inseria un offerta pari a: '{risposta}'");//scrive un log, nel quale si salva l'offerta fatta dall'utente
+                    try//qui viene usato un try/catch, per evitare crash del programma se durante la conversione della risposta dell'utente da string a int, questa non è possibile da convertire
                     {
-                        int tmp = Convert.ToInt32(risposta);
-                        if (tmp > offertaAsta)
-                            offertaAsta = tmp;
+                        int tmp = Convert.ToInt32(risposta);//converte la risposta dell'utente, da string a int32, e ne salva il valore in una variabile temporanea
+                        if (tmp > offertaAsta)//confrota l'offerta, e la salva nella variabile "ufficiale", se questa è maggiore dell'offerta fatta in precedenza
+                            offertaAsta = tmp;//è maggiore di quella precedente, quindi viene salvata
                         else
-                            Console.WriteLine("Devi inserire un prezzo maggiore rispetto all'asta corrente");
+                            Console.WriteLine("Devi inserire un prezzo maggiore rispetto all'asta corrente");//è minore o uguale all'offerta precedente, quindi avvisa l'utente che se vuole avanzare un offerta, deve inserire un valore maggiore a quello che aveva proposto
                     }
-                    catch
+                    catch//quando la conversione da string a int32 non è possibile
                     {
-                        if (risposta == "exitasta")
+                        if (risposta == "exitasta")//in questo, caso, l'asta si chiude e si procede al completamento dei dettagli per l'acquisto del calciatore
                         {
-                            AssegnazioneCalciatore(fantaAllenatori, ref astaFinita, offertaAsta, ref fantaCrediti, listaCalciatoriDaAcquistare[i]);
-                            WriteLogs($"I giocatori hanno terminato l'asta per un calciatore");
+                            AssegnazioneCalciatore(fantaAllenatori, ref astaFinita, offertaAsta, ref fantaCrediti, listaCalciatoriDaAcquistare[i]);//chiama la funzione "AssegnazioneCalciatore e gli passa diversi parametri
+                            WriteLogs($"I giocatori hanno terminato l'asta per un calciatore");//scrive un log, riguardo al fatto che un asta è terminata per un calciatore
                         }
-                        else
-                            Console.WriteLine("Prezzo non valido");
+                        else//caso in cui quello che l'utente ha inserito, sono pagliacciate o cavolate
+                            Console.WriteLine("Prezzo non valido");//avvisa l'utente di quel che ha scritto
                     }
-                } while (!astaFinita);
-                Console.WriteLine($"L'asta per il calciatore: {risposta} e' conclusa");
+                } while (!astaFinita);//il ciclo do/while non smette finchè la variabile "astaFinita" non diventa true
+                Console.WriteLine($"L'asta per il calciatore: {risposta} e' conclusa");//avvisa l'utente, che l'asta per un calciatore si è conclusa
             }
-            WriteLogs($"L'asta si è completamente conclusa");
-            Console.WriteLine($"L'asta si è completamente conclusa");
+            WriteLogs($"L'asta si è completamente conclusa");//salva un log, riguardo al fatto che l'asta si è COMPLETAMENTE conclusa
+            Console.WriteLine($"L'asta si è completamente conclusa");//scrive a schermo che l'asta è finita
         }
         private static void AssegnazioneCalciatore(string[] fantaAllenatori, ref bool astaFinita, int offertaAsta, ref int[] fantaCrediti, string calciatore)//effettua le operazione di acquisto di un calciatore da parte di un giocatore
         {
