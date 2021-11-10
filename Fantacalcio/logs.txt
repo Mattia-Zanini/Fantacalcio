@@ -148,3 +148,51 @@
 [05/11/2021 09:02:51] file necessari per il gioco creati
 [05/11/2021 09:02:51] Sono stati assegnati i fantacrediti a tutti i giocatori
 [05/11/2021 09:02:51] comicia l'asta dei calciatori
+[10/11/2021 22:27:39] Il programma è stato eseguito
+[10/11/2021 22:27:39] creazione file per le squadre dei giocatori
+[10/11/2021 22:27:55] cartella per contenere i file creata
+[10/11/2021 22:28:01] file necessari per il gioco creati
+[10/11/2021 22:28:01] Sono stati assegnati i fantacrediti a tutti i giocatori
+[10/11/2021 22:28:01] comicia l'asta dei calciatori
+[10/11/2021 22:30:28] Il programma è stato eseguito
+[10/11/2021 22:30:28] creazione file per le squadre dei giocatori
+[10/11/2021 22:30:33] cartella per contenere i file creata
+[10/11/2021 22:30:38] file necessari per il gioco creati
+[10/11/2021 22:30:38] Sono stati assegnati i fantacrediti a tutti i giocatori
+[10/11/2021 22:30:38] comicia l'asta dei calciatori
+[10/11/2021 22:31:53] completata la lista dei calciatori per l'asta
+[10/11/2021 22:31:56] è stata inseria un offerta pari a: '1'
+[10/11/2021 22:32:03] è stata inseria un offerta pari a: 'exitasta'
+[10/11/2021 22:32:27] Il giocatore 'pippo' ha comprato il seguente calciatore: musso juan, alla modica cifra di: 1 fantacrediti
+[10/11/2021 22:32:27] I giocatori hanno terminato l'asta per un calciatore
+[10/11/2021 22:33:02] è stata inseria un offerta pari a: '2'
+[10/11/2021 22:33:04] è stata inseria un offerta pari a: 'pippo'
+[10/11/2021 22:33:22] è stata inseria un offerta pari a: '2'
+[10/11/2021 22:33:34] è stata inseria un offerta pari a: 'exitasta'
+[10/11/2021 22:33:43] Il giocatore 'pippo' ha comprato il seguente calciatore: manolas kostas, alla modica cifra di: 2 fantacrediti
+[10/11/2021 22:33:43] I giocatori hanno terminato l'asta per un calciatore
+[10/11/2021 22:33:58] è stata inseria un offerta pari a: '2'
+[10/11/2021 22:34:02] è stata inseria un offerta pari a: 'exitasta'
+[10/11/2021 22:34:04] Il giocatore 'pippo' ha comprato il seguente calciatore: smalling chris, alla modica cifra di: 2 fantacrediti
+[10/11/2021 22:34:04] I giocatori hanno terminato l'asta per un calciatore
+[10/11/2021 22:34:10] è stata inseria un offerta pari a: '4'
+[10/11/2021 22:34:13] è stata inseria un offerta pari a: 'exitasta'
+[10/11/2021 22:34:14] Il giocatore 'baudo' ha comprato il seguente calciatore: vina matias, alla modica cifra di: 4 fantacrediti
+[10/11/2021 22:34:14] I giocatori hanno terminato l'asta per un calciatore
+[10/11/2021 22:34:21] è stata inseria un offerta pari a: '3'
+[10/11/2021 22:34:24] è stata inseria un offerta pari a: 'exitasta'
+[10/11/2021 22:34:26] Il giocatore 'baudo' ha comprato il seguente calciatore: falcone wladimiro, alla modica cifra di: 3 fantacrediti
+[10/11/2021 22:34:26] I giocatori hanno terminato l'asta per un calciatore
+[10/11/2021 22:34:34] è stata inseria un offerta pari a: '4'
+[10/11/2021 22:34:37] è stata inseria un offerta pari a: 'exitasta'
+[10/11/2021 22:34:40] Il giocatore 'baudo' ha comprato il seguente calciatore: igor dos santos, alla modica cifra di: 4 fantacrediti
+[10/11/2021 22:34:40] I giocatori hanno terminato l'asta per un calciatore
+[10/11/2021 22:34:42] è stata inseria un offerta pari a: '5'
+[10/11/2021 22:34:45] è stata inseria un offerta pari a: 'exitasta'
+[10/11/2021 22:34:57] Il giocatore 'pippo' ha comprato il seguente calciatore: nastasic matija, alla modica cifra di: 5 fantacrediti
+[10/11/2021 22:34:57] I giocatori hanno terminato l'asta per un calciatore
+[10/11/2021 22:34:58] è stata inseria un offerta pari a: '4'
+[10/11/2021 22:35:01] è stata inseria un offerta pari a: 'exitasta'
+[10/11/2021 22:35:02] Il giocatore 'baudo' ha comprato il seguente calciatore: quarta lucas martinez, alla modica cifra di: 4 fantacrediti
+[10/11/2021 22:35:02] I giocatori hanno terminato l'asta per un calciatore
+[10/11/2021 22:35:02] L'asta si è completamente conclusa

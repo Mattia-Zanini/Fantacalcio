@@ -32,7 +32,7 @@ namespace Fantacalcio
             }
             return -1;//almeno un giocatore non ha un calciatore
         }
-        private string[] GetPlayersName(string[] playersName)//ottiene i nomi dei FantaAllenatori
+        public string[] GetPlayersName(string[] playersName)//ottiene i nomi dei FantaAllenatori
         {
             playersName = Directory.GetFileSystemEntries(this.mainPath + "\\Squadre");//ottiene i percorsi relativi dei file contenuti nel percorso assoluto passato per parametro
             for (int i = 0; i < playersName.Length; i++)

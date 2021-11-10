@@ -12,12 +12,14 @@ namespace Fantacalcio
             bool fileEmpty = false;//variabile necessaria per tener traccia se i file di impostazione sono vuoti
             string[] nomiFantaAllenatori = new string[0];//array dove saranno presenti tutti i nomi dei giocatori
             string[] fantaAllenatoriNoSquadra = new string[0];//array per tener traccia dei fantaallenatori che non hanno una rosa
+            string[] squadraFantaAllenatori = new string[0];//array dove si conterranno i giocatori dei rispettivi giocatori (per evitare di lavorare sui file)
             int[] fantaCrediti = new int[0];//array dove sono contenuti i fantacrediti di ogni giocatore
             mainPath = CleanPath(mainPath);//chiama della funzione "CleanPath" dove gli viene passata per parametro una stringa, e questa funzione restituirà la stringa, togliendo alcuni percorsi relativi, non necessari
             ExistLogs();//chiama la funzione "ExistLogs" che si occupa di controllare se è presente il file per salvare i logs
             WriteLogs("Il programma è stato eseguito");//chiama la funzione "WriteLogs" per scrivere sul file dei log la stringa passata per parametro
-            Giocatore g = new Giocatore(mainPath);
-            Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti, ref g);//chiama la funzione setup e gli passata tutti gli array e variabili precedentemente creati
+            Giocatore g = new Giocatore(mainPath);//istanzio un oggetto "g" della classe Giocatore
+            Calciatore c = new Calciatore(mainPath);//istanzio un oggetto "c" della classe calciatore
+            Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti, ref squadraFantaAllenatori, ref g, ref c);//chiama la funzione setup e gli passata tutti gli array e variabili precedentemente creati
         }
         private static string CleanPath(string path)//pulisce il percorso del programma
         {
@@ -51,7 +53,7 @@ namespace Fantacalcio
             return !Directory.EnumerateFileSystemEntries(path).Any();//controlla se nel percorso assoluto passato per parametro ci sono file, e "Any" restituisce un valore booleano true se il controllo restituisce un valore pari a 0 e false in caso contrario
                                                                      //ma ritorna un valore opposto a quel che dovrebbe restituire grazie all'operatore booleano "not"
         }
-        private static void Setup(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra, ref int[] fantaCrediti, ref Giocatore g)//è la funzione principale, che gestisce, il controllo dei file, la loro creazione e chiama le altre funzioni che gestiranno il gioco
+        private static void Setup(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra, ref int[] fantaCrediti, ref string[] squadraFantaAllenatori, ref Giocatore g, ref Calciatore c)//è la funzione principale, che gestisce, il controllo dei file, la loro creazione e chiama le altre funzioni che gestiranno il gioco
         {
             if (!Directory.Exists(mainPath + "\\Squadre") || IsDirectoryEmpty(mainPath + "\\Squadre") || g.CheckPlayersSquad(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra) == -1)
             //1 controlla se esiste la directory nel percorso assoluto, passato per parametro, 2 controlla se la directory è vuota, 3 controlla se i file, che dovrebbero contenere la lista della squadra dei giocatori, sono vuoti
@@ -82,6 +84,8 @@ namespace Fantacalcio
                     ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);//si occupa di popolare l'array con i nomi dei calciatori da comprare
                     WriteLogs("completata la lista dei calciatori per l'asta");//scrive nel fiel di log che è stata completata la lista dei calciatori da acquistare
                     Asta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);//gestisce tutt l'asta dei giocatori
+
+                    /*BISOGNA AGGIUNGERE UN CONTROLLO DEI CALCIATORI IN PRECEDENZA ACQUISTATI E QUINDI COMPRARE SOLO QUELLI CHE SONO NECESSARI
                     while (nCalciatoriUguali > 0)//permette ai giocatori di acquistare altri calciatori, se eventualmente avevano scelto i medesimi
                     {
                         string[] playerSquadreIncomplete = SquadreIncomplete(ref nomiFantaAllenatori, ref fantaCrediti);//inizializza l'array con i nomi dei fantaallenatori che non hanno una rosa completa, ma che hanno un minimo di fantacrediti
@@ -89,16 +93,23 @@ namespace Fantacalcio
                         {
                             nCalciatoriUguali = 0;//imposta il valore dei calciatori uguali a 0
                             Array.Resize(ref listaCalciatoriDaAcquistare, 0);//ridimensiona l'array a 0
-                            ListaAsta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
-                            Asta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);
+                            ListaAsta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);//richiama la funzione "ListaAsta" per ricomporre la lista dei calciatori da acquistare, dei giocatori che non hanno una rosa completa, a causa della scelta di un medesimo calciatore da parte di più utenti
+                            Asta(ref playerSquadreIncomplete, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);//chiama la funzione "Asta" per occuparsi della vendita dei calciatori, nuovi da acquistare
                         }
                         else
                             nCalciatoriUguali = 0;//nel caso, in cui ci sono giocatoir senza rosa completa ma non hanno crediti a sufficienza
-                    }
+                    }*/
+
                 }
-                else { }//vado a riprendere singolarmente ogni giocatore finchè non hanno almeno un calciatore nella loro squadra
+                //else { }//vado a riprendere singolarmente ogni giocatore finchè non hanno almeno un calciatore nella loro squadra     P.S. avercene il tempo e la voglia
             }
-            else { }//quando ci sono tutti i file necessari e tutti i fanta-allenatori hanno almeno una rosa decente
+            else//quando ci sono tutti i file necessari e tutti i fanta-allenatori hanno almeno una rosa decente
+            {
+                nomiFantaAllenatori = g.GetPlayersName(nomiFantaAllenatori);//preleva i nomi dei player
+                WriteLogs("presi i nomi dei giocatori con successo");//scrive una riga sui file di log, riferente al fatto che sono stati prelevati i nomi dei giocatori con successo
+                squadraFantaAllenatori = c.GetSquadra(ref nomiFantaAllenatori);//prende dai file dei giocatori le loro squadre
+                WriteLogs("prese le squadre dei rispettivi giocatori con successo");
+            }
         }
         private static void CheckPlayersNum(ref int nPlayer, ref bool correctSyntax)//verifica che venga inserito un numero idoneo di giocatori
         {
@@ -170,7 +181,8 @@ namespace Fantacalcio
                     {//il calciatore non esiste o non è del ruolo richiesto
                         Console.WriteLine("Non esiste il calciatore o non è del ruolo richiesto\n");//avvisa l'utente che il calciatore che ha inserito non esiste o non è del ruolo che il programma richiede di inserire
                     }
-                } while (nCalciatoriInseriti < 11);//finisce il ciclo per un utente quando inserisce 11 calciatori
+                } while (nCalciatoriInseriti < 4);//finisce il ciclo per un utente quando inserisce 11 calciatori
+                //ricorda di rimettere "11"
             }
         }
         private static bool ControlloEsistenza_RuoloCalciatore(ref string calciatoreDaComprare, string ruolo)//controlla se l'utente ha inserito il nome di un calciatore valido e se ha il ruolo richiesto
