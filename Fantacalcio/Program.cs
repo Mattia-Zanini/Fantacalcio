@@ -289,72 +289,70 @@ namespace Fantacalcio
         }
         private static void AssegnazioneCalciatore(string[] fantaAllenatori, ref bool astaFinita, int offertaAsta, ref int[] fantaCrediti, string calciatore)//effettua le operazione di acquisto di un calciatore da parte di un giocatore
         {
-            bool nomeCorretto = false;
+            bool nomeCorretto = false;//per vedere se un il nome utente inserito è corretto
             do
             {
-                Console.WriteLine("\nInserisci il nome dell'utente che ha effettuato l'ultima offerta");
-                string nomePlayer = Console.ReadLine();
-                for (int i = 0; i < fantaAllenatori.Length; i++)
+                Console.WriteLine("\nInserisci il nome dell'utente che ha effettuato l'ultima offerta");//avvisa gli utenti di inseririe il nome dell'ultimo giocatore che ha fatto un offerta
+                string nomePlayer = Console.ReadLine();//prende in input il risultato
+                for (int i = 0; i < fantaAllenatori.Length; i++)//itera un numero di volte pari al quantitativo di plaer esistenti
                 {
-                    if (nomePlayer == fantaAllenatori[i])
+                    if (nomePlayer == fantaAllenatori[i])//verifica se c'è il giocatore
                     {
-                        if (fantaCrediti[i] >= offertaAsta)
+                        nomeCorretto = true;//il nome inserito è giusto
+                        if (fantaCrediti[i] >= offertaAsta)//verifica se questo ha abbastanza soldi
                         {
-                            string[] squadraPlayer = File.ReadAllLines(mainPath + $"\\Squadre\\{fantaAllenatori[i]}.txt");
-                            if (squadraPlayer.Length < 11)
-                            {
-                                Array.Resize(ref squadraPlayer, squadraPlayer.Length + 1);
-                                squadraPlayer[squadraPlayer.Length - 1] = calciatore;
-                                File.WriteAllLines(mainPath + $"\\Squadre\\{fantaAllenatori[i]}.txt", squadraPlayer);
-                                AcquistoCalciatore(calciatore);
-                                fantaCrediti[i] -= offertaAsta;
-                                nomeCorretto = true;
-                                astaFinita = true;
-                                WriteLogs($"Il giocatore '{nomePlayer}' ha comprato il seguente calciatore: {calciatore}, alla modica cifra di: {offertaAsta} fantacrediti");
-                                break;
+                            string[] squadraPlayer = File.ReadAllLines(mainPath + $"\\Squadre\\{fantaAllenatori[i]}.txt");//preleva la squadra del giocatore
+                            if (squadraPlayer.Length < 11)//controlla che questo abbia una squadra composta da meno di 11 calciatori
+                            {//nel caso in cui la sua rosa è composta da meno di 11 calciatori
+                                Array.Resize(ref squadraPlayer, squadraPlayer.Length + 1);//ridimensiona l'array, aggiungendo uno spazio
+                                squadraPlayer[squadraPlayer.Length - 1] = calciatore;//inserisce nell'ultimo spazio appena creato il nome del calciatore che ha acquistato
+                                File.WriteAllLines(mainPath + $"\\Squadre\\{fantaAllenatori[i]}.txt", squadraPlayer);//salva nel file la squadra aggioranta
+                                AcquistoCalciatore(calciatore);//chiama la funzione "AcquistoCalciatore" e gli passa per paraemtro il nome del calciatore
+                                fantaCrediti[i] -= offertaAsta;//gli toglie un quantitativo di soldi in conformità alla cifra spesa per comprare il calciatore
+                                astaFinita = true;//l'asta per quel calciatore si è conclusa
+                                WriteLogs($"Il giocatore '{nomePlayer}' ha comprato il seguente calciatore: {calciatore}, alla modica cifra di: {offertaAsta} fantacrediti");//salva un log, dove scrive che un giocatore ha comprato un calciatore, con nome di entrambi di questi
+                                break;//ferma il ciclo for
                             }
                             else
                             {
-                                Console.WriteLine($"{nomePlayer} non puoi più acquistare calciatori in quanto hai già una squadra completa\n");
-                                WriteLogs($"Il giocatore '{nomePlayer} ha provato ad acquistare un calciatore anche se però possiede già una squadra al completo, quindi gli è stato annullato l'acquisto");
-                                nomeCorretto = true;
+                                Console.WriteLine($"{nomePlayer} non puoi più acquistare calciatori in quanto hai già una squadra completa\n");//avverte l'utente che non può comprare altri calciatori visto che possiede una squadra al completo
+                                WriteLogs($"Il giocatore '{nomePlayer} ha provato ad acquistare un calciatore anche se però possiede già una squadra al completo, quindi gli è stato annullato l'acquisto");//salva un log, riguardando alla cancellazione dell'acquisto del calciatore, per mancanza di posti in squadra
                             }
                         }
                         else
                         {
-                            Console.WriteLine($"{nomePlayer} non ha abbastanza crediti, rieffettuare l'asta per questo calciatore\n");
-                            nomeCorretto = true;
-                            WriteLogs($"Il giocatore '{nomePlayer}' voleva acquistare il calciatore '{calciatore}', ma purtroppo non aveva abbastanza fantacrediti");
+                            Console.WriteLine($"{nomePlayer} non ha abbastanza crediti, rieffettuare l'asta per questo calciatore\n");//dice che l'utente non ha abbastanza soldi per pagare l'offerta per il calciatore
+                            WriteLogs($"Il giocatore '{nomePlayer}' voleva acquistare il calciatore '{calciatore}', ma purtroppo non aveva abbastanza fantacrediti");//scrive un log, che tratta della cancellazione dell'acquisto per mancaza di soldi
                         }
                     }
                 }
-            } while (!nomeCorretto);
+            } while (!nomeCorretto);//il ciclo termina solo quando è stato inserito un nome di un giocatore corretto
         }
         private static void AcquistoCalciatore(string calciatore)//rende impossbile l'eventuale tentativo di riacquisto di un calciatore
         {
-            string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");
-            for (int i = 0; i < calciatori.Length; i++)
+            string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");//preleva la lista die calciatori
+            for (int i = 0; i < calciatori.Length; i++)//itera tutta la lista
             {
-                string[] tmp = calciatori[i].Split(',');
-                if (calciatore == tmp[0])
+                string[] tmp = calciatori[i].Split(',');//salva in un array i vari elementi che se ne ricavano, dividendo l'elemento dell'array "calciatori" per il carattere ','
+                if (calciatore == tmp[0])//controlla se si trova nella riga dei dettagli del calciatore che la funzione riceve per parametro
                 {
-                    tmp[3] = "true";
-                    calciatori[i] = $"{tmp[0]},{tmp[1]},{tmp[2]},{tmp[3]}";
-                    File.WriteAllLines(mainPath + "\\Calciatori.txt", calciatori);
-                    break;
+                    tmp[3] = "true";//cambia lo stato di acquisto del calciatore    false --> non ancora comprato   true --> comprato
+                    calciatori[i] = $"{tmp[0]},{tmp[1]},{tmp[2]},{tmp[3]}";//ricompone la riga
+                    File.WriteAllLines(mainPath + "\\Calciatori.txt", calciatori);//salva l'array modificato nel file
+                    break;//ferma il for, visto che ha trovato già il calciatore necessario e quindi risulta inutile continuare a scorrere l'array
                 }
             }
         }
         private static string[] SquadreIncomplete(ref string[] nomiFantaAllenatori, ref int[] fantaCrediti)//crea un array con i nomi dei giocatori che hanno una rosa inferiore di 11 claciatori, ma con almeno 1 fantacredito
         {
-            string[] pSqIm = new string[0];
-            for (int i = 0; i < nomiFantaAllenatori.Length; i++)
+            string[] pSqIm = new string[0];//crea l'array, per salvare i nomi di coloro che non hanno nemmeno un calciatore nella loro rosa
+            for (int i = 0; i < nomiFantaAllenatori.Length; i++)//itera l'array dei giocatori
             {
-                string[] tmpSquadre = File.ReadAllLines(mainPath + $"\\Squadre\\{nomiFantaAllenatori[i]}.txt");
-                if (tmpSquadre.Length < 11 && fantaCrediti[i] > 0)
+                string[] tmpSquadre = File.ReadAllLines(mainPath + $"\\Squadre\\{nomiFantaAllenatori[i]}.txt");//prende la squadra dei rispettivi calciatori
+                if (tmpSquadre.Length < 11 && fantaCrediti[i] > 0)//controlla che questi abbiamo almeno un calciatore
                 {
-                    Array.Resize(ref pSqIm, pSqIm.Length + 1);
-                    pSqIm[pSqIm.Length - 1] = nomiFantaAllenatori[i];
+                    Array.Resize(ref pSqIm, pSqIm.Length + 1);//aumenta la dimensione dell'array passato per parametro di 1
+                    pSqIm[pSqIm.Length - 1] = nomiFantaAllenatori[i];//aggiunge il nome del giocatore
                 }
             }
             return pSqIm;
