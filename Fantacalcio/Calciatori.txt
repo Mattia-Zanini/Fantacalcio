@@ -1,4 +1,4 @@
-musso juan,portiere,atalanta,true
+musso juan,portiere,atalanta,false
 rossi francesco,portiere,atalanta,false
 sportiello marco,portiere,atalanta,false
 bardi francesco,portiere,bologna,false
@@ -47,7 +47,7 @@ fiorillo vincenzo,portiere,salernitana,false
 guerrieri guido,portiere,salernitana,false
 russo antonio,portiere,salernitana,false
 audero emil,portiere,sampdoria,false
-falcone wladimiro,portiere,sampdoria,true
+falcone wladimiro,portiere,sampdoria,false
 ravaglia nicola,portiere,sampdoria,false
 consigli andrea,portiere,sassuolo,false
 pegolo gianluca,portiere,sassuolo,false
@@ -118,11 +118,11 @@ tonelli lorenzo,difensore,empoli,false
 viti mattia,difensore,empoli,false
 biraghi cristiano,difensore,fiorentina,false
 dalle mura christian,difensore,fiorentina,false
-igor dos santos,difensore,fiorentina,true
+igor dos santos,difensore,fiorentina,false
 milenkovic nicola,difensore,fiorentina,false
-nastasic matija,difensore,fiorentina,true
+nastasic matija,difensore,fiorentina,false
 odriozola alvaro,difensore,fiorentina,false
-quarta lucas martinez,difensore,fiorentina,true
+quarta lucas martinez,difensore,fiorentina,false
 terzic aleksa,difensore,fiorentina,false
 venuti lorenzo,difensore,fiorentina,false
 bani mattia,difensore,genoa,false
@@ -180,7 +180,7 @@ ghoulam faouzi,difensore,napoli,false
 juan jesus,difensore,napoli,false
 koulibaly kalidou,difensore,napoli,false
 malcuit kevin,difensore,napoli,false
-manolas kostas,difensore,napoli,true
+manolas kostas,difensore,napoli,false
 mario rui,difensore,napoli,false
 rrahmani amir,difensore,napoli,false
 zanoli alessandro,difensore,napoli,false
@@ -191,9 +191,9 @@ kumbulla marash,difensore,roma,false
 mancini gianluca,difensore,roma,false
 reynolds bryan,difensore,roma,false
 santon davide,difensore,roma,false
-smalling chris,difensore,roma,true
+smalling chris,difensore,roma,false
 spinazzola leonardo,difensore,roma,false
-vina matias,difensore,roma,true
+vina matias,difensore,roma,false
 aya ramzi,difensore,salernitana,false
 bogdan luka,difensore,salernitana,false
 delli carri filippo,difensore,salernitana,false
