@@ -20,7 +20,7 @@ namespace Fantacalcio
             Giocatore g = new Giocatore(mainPath);//istanzio un oggetto "g" della classe Giocatore
             Calciatore c = new Calciatore(mainPath);//istanzio un oggetto "c" della classe calciatore
             Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti, ref squadraFantaAllenatori, ref g, ref c);//chiama la funzione setup e gli passata tutti gli array e variabili precedentemente creati
-            Gioco(ref nomiFantaAllenatori, ref squadraFantaAllenatori);//chiama la funzione "Gioco" e da qui i giocatori potranno finalmente giocare
+            Gioco(ref nomiFantaAllenatori, ref squadraFantaAllenatori, ref c);//chiama la funzione "Gioco" e da qui i giocatori potranno finalmente giocare
         }
         private static string CleanPath(string path)//pulisce il percorso del programma
         {
@@ -82,7 +82,7 @@ namespace Fantacalcio
                     WriteLogs($"Sono stati assegnati i fantacrediti a tutti i giocatori");//viene scritto una riga di log, che indica la conclusione dell'assegnazione dei fantacrediti
                     string[] listaCalciatoriDaAcquistare = new string[0];//crea l'array che conterrà tutti i nomi dei calciatori che verranno comprati dai giocatori
                     int nCalciatoriUguali = 0;//inizializza la variabile che terrà conto del numero, eventuale, di calcicatori uguali, richiesti durante l'asta
-                    ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);//si occupa di popolare l'array con i nomi dei calciatori da comprare
+                    ListaAsta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali, ref c);//si occupa di popolare l'array con i nomi dei calciatori da comprare
                     WriteLogs("completata la lista dei calciatori per l'asta");//scrive nel fiel di log che è stata completata la lista dei calciatori da acquistare
                     Asta(ref nomiFantaAllenatori, ref fantaCrediti, ref listaCalciatoriDaAcquistare, ref nCalciatoriUguali);//gestisce tutt l'asta dei giocatori
 
@@ -103,6 +103,8 @@ namespace Fantacalcio
 
                 }
                 //else { }//vado a riprendere singolarmente ogni giocatore finchè non hanno almeno un calciatore nella loro squadra     P.S. avercene il tempo e la voglia
+                squadraFantaAllenatori = c.GetSquadra(ref nomiFantaAllenatori);//prende dai file dei giocatori le loro squadre
+                WriteLogs("prese le squadre dei rispettivi giocatori con successo");//scrive una riga nei file di log, indicando che le squadre sono state prese con successo
             }
             else//quando ci sono tutti i file necessari e tutti i fanta-allenatori hanno almeno una rosa decente
             {
@@ -151,7 +153,7 @@ namespace Fantacalcio
             }
             return false;//nessuno ha ancora digitato quel nome
         }
-        private static void ListaAsta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali)//gestisce tutti i nomi che vengono inseriti da parte degli utenti, questi sono i calciatori che i fantaallenatori vorrebberpo acquistare
+        private static void ListaAsta(ref string[] fantaAllenatori, ref int[] fantaCrediti, ref string[] listaCalciatoriDaAcquistare, ref int nCalciatoriUguali, ref Calciatore c)//gestisce tutti i nomi che vengono inseriti da parte degli utenti, questi sono i calciatori che i fantaallenatori vorrebberpo acquistare
         {//la funzione ListaAsta si occupa di creare la lista finale di tutti i quanti i calciatori, non doppi, che i giocatori acquisteranno
             Console.WriteLine("Inizio asta");//avvisa gli utenti che comincerà l'asta
             WriteLogs("comicia l'asta dei calciatori");//viene scritto un log che segna l'inizio dell'asta
@@ -164,7 +166,8 @@ namespace Fantacalcio
                 {
                     Console.WriteLine($"Giocatore {fantaAllenatori[i]} scrivi il nome del {ruoliCalciaotirDaAcquistare[ruolo]} che vuoi acquistare");//chiede all'utente un calciatore di un determinato ruolo, da inserire
                     string calciatoreDaComprare = Console.ReadLine();//prende in input ciò che l'utente inserisce da tastiera
-                    if (ControlloEsistenza_RuoloCalciatore(ref calciatoreDaComprare, ruoliCalciaotirDaAcquistare[ruolo].ToLower()))//controlla che il claciatore che l'utente ha inserito esiste ed è del ruolo richiesto
+                    string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");//legge tutte le righe del file passato per parametro, ogni riga del file corrisponde ad un elemento dell'array
+                    if (c.ControlloCalciatore(ref calciatoreDaComprare, ruoliCalciaotirDaAcquistare[ruolo].ToLower(), ref calciatori, true))//controlla che il claciatore che l'utente ha inserito esiste ed è del ruolo richiesto
                     {//esiste il calciatore ed è del ruolo richiesto
                         if (ControlloLista(ref listaCalciatoriDaAcquistare, ref calciatoreDaComprare, ref nCalciatoriUguali))//controlla se un determinato calciatore che l'utente ha inserito è già stato scelto da qualcuno
                         {//il calciatore non è stato ancora scelto
@@ -182,20 +185,9 @@ namespace Fantacalcio
                     {//il calciatore non esiste o non è del ruolo richiesto
                         Console.WriteLine("Non esiste il calciatore o non è del ruolo richiesto\n");//avvisa l'utente che il calciatore che ha inserito non esiste o non è del ruolo che il programma richiede di inserire
                     }
-                } while (nCalciatoriInseriti < 4);//finisce il ciclo per un utente quando inserisce 11 calciatori
+                } while (nCalciatoriInseriti < 11);//finisce il ciclo per un utente quando inserisce 11 calciatori
                 //ricorda di rimettere "11"
             }
-        }
-        private static bool ControlloEsistenza_RuoloCalciatore(ref string calciatoreDaComprare, string ruolo)//controlla se l'utente ha inserito il nome di un calciatore valido e se ha il ruolo richiesto
-        {
-            string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");//legge tutte le righe del file passato per parametro, ogni riga del file corrisponde ad un elemento dell'array
-            for (int i = 0; i < calciatori.Length; i++)//ripete il for per un quantitativo di volte pari alle righe del file
-            {
-                string[] calciatore = calciatori[i].Split(',');//divide la riga in 4 elementi
-                if (calciatoreDaComprare == calciatore[0] && ruolo == calciatore[1])//confronta se il nome/cognome che l'utente ha inserito e il ruolo richiesto corrispondono a quelli di un calciatore esistente
-                    return true;//ritorna un valore positivo nel caso in cui queste due condizioni sono verificate contemporaneamente
-            }
-            return false;//ritorna un valore negativo se, dopo aver confrontato tutti i calciatori, nessuno di questi corrisponde ai valori inseriti
         }
         private static bool ControlloLista(ref string[] listaCalciatoriDaAcquistare, ref string calciatoreDaComprare, ref int nCalciatoriUguali)//controlla se è già presente un calciatore nella lista dell'asta
         {
@@ -322,41 +314,69 @@ namespace Fantacalcio
                     pSqIm[pSqIm.Length - 1] = nomiFantaAllenatori[i];//aggiunge il nome del giocatore
                 }
             }
-            return pSqIm;
+            return pSqIm;//ritorna l'array con i nomi dei fantaallenatori che non hanno una rosa completa
         }
-        private static void Gioco(ref string[] fantaAllenatori, ref string[] squadrePalyer)//si occupa del gioco
+        private static void Gioco(ref string[] fantaAllenatori, ref string[] squadrePlayer, ref Calciatore c)//si occupa del gioco
         {
+            bool puntiCreati = FilePunti(ref fantaAllenatori);//ottiene un valore corrispondete all'avvenuta creazione del file dei punteggi
             Console.Clear();//pulisce la console
             string rispostaUtente = "";//inizializza la stringa per prendere in input la risposta dell'utente
             do
             {
                 Console.Write("Fantacalcio>");//scrive questo testo, non creando una nuova riga
-                rispostaUtente = Console.ReadLine();// prendi in input quello che l'utente digita
-                Comandi(ref rispostaUtente);//passa quello che l'utente scrive alla funzione "Comandi" per eseguire diverse azioni per le squadre dei giocatori
+                rispostaUtente = Console.ReadLine().ToLower();// prendi in input quello che l'utente digita
+                Comandi(ref fantaAllenatori, ref rispostaUtente, ref squadrePlayer, ref c, ref puntiCreati);//passa quello che l'utente scrive alla funzione "Comandi" per eseguire diverse azioni per le squadre dei giocatori
             } while (rispostaUtente != "exit");//continua il ciclo for finchè l'utente non inserisce "exit"
+            WriteLogs("Il programma si sta chiudendo");//registra nei file di log che il programma è stato chiuso
             Console.WriteLine("Il programma si sta chiudendo");//avvisa l'utente che il programma si sta chiudendo
         }
-        private static void Comandi(ref string comand)//gestisce le risposte dell'utente
+        private static void Comandi(ref string[] fantaAllenatori, ref string comand, ref string[] squadrePlayer, ref Calciatore c, ref bool puntiCreati)//gestisce le risposte dell'utente
         {
             switch (comand)
             {// controlla quello che l'utente ha digitato
                 case "exit": break;//"esce dal programma", sostanzialmente non fa gninte
+                case "help":
+                    Console.WriteLine("help\t\t--->\tmostra i comandi presenti a schermo\nrgd\t\t--->\tregistra i punteggi di un giocatore\nexitasta\t--->\ttermina un asta\nexit\t\t--->\tesce dal programma");//mostra a schermo i comandi presenti nel programma
+                    WriteLogs("sono stati mostrati i comandi");//scrive nel file di log il fatto che sono stati mostrati a schermo i comandi
+                    break;
                 default://per ogni altra risposta diversa da "exit"
                     string[] commands = comand.Split(" ");//divide la stringa, utilizzando come divisorio lo spazio
-                    if (commands[0] == "rgd")//il comando per registrare i dati dei calciatori deve per forza cominciare con "rgd"
+                    if (commands[0] == "rgd" && (commands.Length == 4 || commands.Length == 5))//il comando per registrare i dati dei calciatori deve per forza cominciare con "rgd"
                     {
-                        ComandiCalciatore(ref commands);//passa la funzione l'array del comando digitato dell'utente
+                        string[] calciatori = File.ReadAllLines(mainPath + "\\Calciatori.txt");//ottengo la lista di tutti i calciatori
+                        string[] punteggi = File.ReadAllLines(mainPath + "\\Punti.txt");//leggo gli eventuali punteggi dei giocatori
+                        if (puntiCreati)//controlla se è stato creato il file, per poterlo sovrascrivere
+                        {
+                            Array.Resize(ref punteggi, 2);//ridimensiona l'array
+                            punteggi[0] = "0"; punteggi[1] = "0";//inizializzo l'array
+                            File.WriteAllLines(mainPath + "\\Punti.txt", punteggi);//sovrascrive il file, per inizializzarlo
+                            puntiCreati = false;//resetta la variabile
+                        }
+                        if (!c.ComandiCalciatore(ref fantaAllenatori, ref commands, ref calciatori, ref squadrePlayer, ref punteggi))//passa la funzione l'array del comando digitato dell'utente
+                            Console.WriteLine("Calciatore non trovato o non fa parte di un giocatore");//il calciatore non fa parte di un giocatore o non esiste
+                        else
+                        {
+                            File.WriteAllLines(mainPath + "\\Punti.txt", punteggi);//salva i punteggi
+                            WriteLogs("salvati i punteggi");//scrive una riga sul file di log, inerente al salvataggio dei punti
+                        }
                     }
-                    else
+                    else//il comando non è valido
                     {
-                        Console.WriteLine("Comando non trovato o non accessibile in questa situazione");//avvisa l'utente che quello che ha inserito non è un comando valido
+                        Console.WriteLine("Comando non trovato o incorretto o non accessibile in questa situazione");//avvisa l'utente che quello che ha inserito non è un comando valido
                     }
-                    break;
+                    break;//termina lo switch
             }
         }
-        private static void ComandiCalciatore(ref string[] comands)//a seconda del comando scritto dall'utente, che inizia per "rgd", esegue diverse funzioni, comandi inerenti al punteggio dei giocatori
+        private static bool FilePunti(ref string[] fantaAllenatori)//crea i file per tener traccia dei punteggio dei giocatori
         {
-            string calciatore = comands[1] + comands[2];
+            if (!File.Exists(mainPath + "\\Punti.txt"))//controlla se nel percorso assoluto passata per parametro esiste il file (il nome e tipo del file sono compresi nel percorso assoluto)
+            {
+                File.Create(mainPath + "\\Punti.txt").Dispose();//crea il file nel percorso assoluto passato per parametro e rilascia le risorse del file
+                Console.WriteLine("file dei punti creati");//avvisa l'utente che i file di log sono stati creati
+                WriteLogs("file per contenere i punti dei giocatori creato");//scrive un log dove si registra la creazione del file deu punteggi
+                return true;//ha creato il file
+            }
+            return false;//non ha creato il file
         }
     }
 }
