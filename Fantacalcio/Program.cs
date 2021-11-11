@@ -20,6 +20,7 @@ namespace Fantacalcio
             Giocatore g = new Giocatore(mainPath);//istanzio un oggetto "g" della classe Giocatore
             Calciatore c = new Calciatore(mainPath);//istanzio un oggetto "c" della classe calciatore
             Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti, ref squadraFantaAllenatori, ref g, ref c);//chiama la funzione setup e gli passata tutti gli array e variabili precedentemente creati
+            Gioco(ref nomiFantaAllenatori, ref squadraFantaAllenatori);//chiama la funzione "Gioco" e da qui i giocatori potranno finalmente giocare
         }
         private static string CleanPath(string path)//pulisce il percorso del programma
         {
@@ -322,6 +323,40 @@ namespace Fantacalcio
                 }
             }
             return pSqIm;
+        }
+        private static void Gioco(ref string[] fantaAllenatori, ref string[] squadrePalyer)//si occupa del gioco
+        {
+            Console.Clear();//pulisce la console
+            string rispostaUtente = "";//inizializza la stringa per prendere in input la risposta dell'utente
+            do
+            {
+                Console.Write("Fantacalcio>");//scrive questo testo, non creando una nuova riga
+                rispostaUtente = Console.ReadLine();// prendi in input quello che l'utente digita
+                Comandi(ref rispostaUtente);//passa quello che l'utente scrive alla funzione "Comandi" per eseguire diverse azioni per le squadre dei giocatori
+            } while (rispostaUtente != "exit");//continua il ciclo for finchè l'utente non inserisce "exit"
+            Console.WriteLine("Il programma si sta chiudendo");//avvisa l'utente che il programma si sta chiudendo
+        }
+        private static void Comandi(ref string comand)//gestisce le risposte dell'utente
+        {
+            switch (comand)
+            {// controlla quello che l'utente ha digitato
+                case "exit": break;//"esce dal programma", sostanzialmente non fa gninte
+                default://per ogni altra risposta diversa da "exit"
+                    string[] commands = comand.Split(" ");//divide la stringa, utilizzando come divisorio lo spazio
+                    if (commands[0] == "rgd")//il comando per registrare i dati dei calciatori deve per forza cominciare con "rgd"
+                    {
+                        ComandiCalciatore(ref commands);//passa la funzione l'array del comando digitato dell'utente
+                    }
+                    else
+                    {
+                        Console.WriteLine("Comando non trovato o non accessibile in questa situazione");//avvisa l'utente che quello che ha inserito non è un comando valido
+                    }
+                    break;
+            }
+        }
+        private static void ComandiCalciatore(ref string[] comands)//a seconda del comando scritto dall'utente, che inizia per "rgd", esegue diverse funzioni, comandi inerenti al punteggio dei giocatori
+        {
+            string calciatore = comands[1] + comands[2];
         }
     }
 }
