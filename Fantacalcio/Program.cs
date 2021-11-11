@@ -9,7 +9,6 @@ namespace Fantacalcio
         private static string mainPath = Environment.CurrentDirectory;//imposta la variabile "mainPath", con il percorso assoluto dell'eseguibile, come valore
         static void Main(string[] args)
         {
-            bool fileEmpty = false;//variabile necessaria per tener traccia se i file di impostazione sono vuoti
             string[] nomiFantaAllenatori = new string[0];//array dove saranno presenti tutti i nomi dei giocatori
             string[] fantaAllenatoriNoSquadra = new string[0];//array per tener traccia dei fantaallenatori che non hanno una rosa
             string[] squadraFantaAllenatori = new string[0];//array dove si conterranno i giocatori dei rispettivi giocatori (per evitare di lavorare sui file)
@@ -19,7 +18,7 @@ namespace Fantacalcio
             WriteLogs("Il programma è stato eseguito");//chiama la funzione "WriteLogs" per scrivere sul file dei log la stringa passata per parametro
             Giocatore g = new Giocatore(mainPath);//istanzio un oggetto "g" della classe Giocatore
             Calciatore c = new Calciatore(mainPath);//istanzio un oggetto "c" della classe calciatore
-            Setup(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti, ref squadraFantaAllenatori, ref g, ref c);//chiama la funzione setup e gli passata tutti gli array e variabili precedentemente creati
+            Setup(ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra, ref fantaCrediti, ref squadraFantaAllenatori, ref g, ref c);//chiama la funzione setup e gli passata tutti gli array e variabili precedentemente creati
             Gioco(ref nomiFantaAllenatori, ref squadraFantaAllenatori, ref c);//chiama la funzione "Gioco" e da qui i giocatori potranno finalmente giocare
         }
         private static string CleanPath(string path)//pulisce il percorso del programma
@@ -54,9 +53,9 @@ namespace Fantacalcio
             return !Directory.EnumerateFileSystemEntries(path).Any();//controlla se nel percorso assoluto passato per parametro ci sono file, e "Any" restituisce un valore booleano true se il controllo restituisce un valore pari a 0 e false in caso contrario
                                                                      //ma ritorna un valore opposto a quel che dovrebbe restituire grazie all'operatore booleano "not"
         }
-        private static void Setup(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra, ref int[] fantaCrediti, ref string[] squadraFantaAllenatori, ref Giocatore g, ref Calciatore c)//è la funzione principale, che gestisce, il controllo dei file, la loro creazione e chiama le altre funzioni che gestiranno il gioco
+        private static void Setup(ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra, ref int[] fantaCrediti, ref string[] squadraFantaAllenatori, ref Giocatore g, ref Calciatore c)//è la funzione principale, che gestisce, il controllo dei file, la loro creazione e chiama le altre funzioni che gestiranno il gioco
         {
-            if (!Directory.Exists(mainPath + "\\Squadre") || IsDirectoryEmpty(mainPath + "\\Squadre") || g.CheckPlayersSquad(ref fileEmpty, ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra) == -1)
+            if (!Directory.Exists(mainPath + "\\Squadre") || IsDirectoryEmpty(mainPath + "\\Squadre") || g.CheckPlayersSquad(ref nomiFantaAllenatori, ref fantaAllenatoriNoSquadra) == -1)
             //1 controlla se esiste la directory nel percorso assoluto, passato per parametro, 2 controlla se la directory è vuota, 3 controlla se i file, che dovrebbero contenere la lista della squadra dei giocatori, sono vuoti
             //se una sola di queste condizioni restituisce valore "true" allora significa che bisogna eseguire/ripetere la configurazione iniziale
             {

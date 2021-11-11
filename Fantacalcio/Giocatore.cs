@@ -11,7 +11,7 @@ namespace Fantacalcio
         {
             this.mainPath = path;//copia il valore della stringa passata per parametro, salvandola nell'attributo "mainPath" dell'istanza corrente
         }
-        public int CheckPlayersSquad(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra)//controlla se tutti i giocatori hanno formato una squadra
+        public int CheckPlayersSquad(ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra)//controlla se tutti i giocatori hanno formato una squadra
         {
             nomiFantaAllenatori = GetPlayersName(nomiFantaAllenatori);//chiama la funzione "GetPlayersName" che ritorna un array contenete come valori i nomi dei giocatori
             int nFantaAllenatoriNoSquadra = 0;//inizializza la variabile che servirà per tener traccia dei giocatori che non hanno una rosa, ovvero neanche un calciatore
