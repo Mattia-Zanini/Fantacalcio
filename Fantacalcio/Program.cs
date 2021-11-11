@@ -108,7 +108,7 @@ namespace Fantacalcio
                 nomiFantaAllenatori = g.GetPlayersName(nomiFantaAllenatori);//preleva i nomi dei player
                 WriteLogs("presi i nomi dei giocatori con successo");//scrive una riga sui file di log, riferente al fatto che sono stati prelevati i nomi dei giocatori con successo
                 squadraFantaAllenatori = c.GetSquadra(ref nomiFantaAllenatori);//prende dai file dei giocatori le loro squadre
-                WriteLogs("prese le squadre dei rispettivi giocatori con successo");
+                WriteLogs("prese le squadre dei rispettivi giocatori con successo");//scrive una riga nei file di log, indicando che le squadre sono state prese con successo
             }
         }
         private static void CheckPlayersNum(ref int nPlayer, ref bool correctSyntax)//verifica che venga inserito un numero idoneo di giocatori

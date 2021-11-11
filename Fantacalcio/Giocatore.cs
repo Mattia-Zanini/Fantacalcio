@@ -4,12 +4,12 @@ using System.Text.RegularExpressions;
 
 namespace Fantacalcio
 {
-    public class Giocatore
+    class Giocatore
     {
-        string mainPath = "";
-        public Giocatore(string path)
+        string mainPath = "";//inizializza l'attributo per avere il percorso del programam
+        public Giocatore(string path)//costruttore, bisogna passare un stringa per parametro
         {
-            this.mainPath = path;
+            this.mainPath = path;//copia il valore della stringa passata per parametro, salvandola nell'attributo "mainPath" dell'istanza corrente
         }
         public int CheckPlayersSquad(ref bool fileEmpty, ref string[] nomiFantaAllenatori, ref string[] fantaAllenatoriNoSquadra)//controlla se tutti i giocatori hanno formato una squadra
         {
