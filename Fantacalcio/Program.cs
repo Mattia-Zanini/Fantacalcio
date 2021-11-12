@@ -184,7 +184,7 @@ namespace Fantacalcio
                     {//il calciatore non esiste o non è del ruolo richiesto
                         Console.WriteLine("Non esiste il calciatore o non è del ruolo richiesto\n");//avvisa l'utente che il calciatore che ha inserito non esiste o non è del ruolo che il programma richiede di inserire
                     }
-                } while (nCalciatoriInseriti < 11);//finisce il ciclo per un utente quando inserisce 11 calciatori
+                } while (nCalciatoriInseriti < 2);//finisce il ciclo per un utente quando inserisce 11 calciatori
                 //ricorda di rimettere "11"
             }
         }
@@ -240,7 +240,7 @@ namespace Fantacalcio
                             Console.WriteLine("Prezzo non valido");//avvisa l'utente di quel che ha scritto
                     }
                 } while (!astaFinita);//il ciclo do/while non smette finchè la variabile "astaFinita" non diventa true
-                Console.WriteLine($"L'asta per il calciatore: {risposta} e' conclusa");//avvisa l'utente, che l'asta per un calciatore si è conclusa
+                Console.WriteLine($"L'asta per il calciatore: {listaCalciatoriDaAcquistare[i]} e' conclusa");//avvisa l'utente, che l'asta per un calciatore si è conclusa
             }
             WriteLogs($"L'asta si è completamente conclusa");//salva un log, riguardo al fatto che l'asta si è COMPLETAMENTE conclusa
             Console.WriteLine($"L'asta si è completamente conclusa");//scrive a schermo che l'asta è finita

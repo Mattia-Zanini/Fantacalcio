@@ -1,5 +1,5 @@
-musso juan,portiere,atalanta,false
-rossi francesco,portiere,atalanta,false
+musso juan,portiere,atalanta,true
+rossi francesco,portiere,atalanta,true
 sportiello marco,portiere,atalanta,false
 bardi francesco,portiere,bologna,false
 sarr,portiere,bologna,false
@@ -106,7 +106,7 @@ godin diego,difensore,cagliari,false
 lykogiannis,difensore,cagliari,false
 obert adam,difensore,cagliari,false
 walukiewicz sebastian,difensore,cagliari,false
-zappa gabriele,difensore,cagliari,false
+zappa gabriele,difensore,cagliari,true
 fiamozzi riccardo,difensore,empoli,false
 ismajli ardian,difensore,empoli,false
 luperto sebastiano,difensore,empoli,false
@@ -175,7 +175,7 @@ kalulu pierre,difensore,milan,false
 kjaer simon,difensore,milan,false
 romagnoli alessio,difensore,milan,false
 tomori fikayo,difensore,milan,false
-di lorenzo giovanni,difensore,napoli,false
+di lorenzo giovanni,difensore,napoli,true
 ghoulam faouzi,difensore,napoli,false
 juan jesus,difensore,napoli,false
 koulibaly kalidou,difensore,napoli,false
